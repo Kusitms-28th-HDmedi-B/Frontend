@@ -22,6 +22,8 @@ Ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
 - `perf`: 성능 개선
 - `rename`: 파일 혹은 폴더명 변경
 
+<br>
+
 ### Git Flow 전략
 
 - `main` : 출시 가능한 프로덕션 코드의 브랜치
@@ -31,6 +33,8 @@ Ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
   - `feature/이슈번호`로 네이밍 할 것
   - main 또는 develop으로 merge할 때는 `--no-ff` 반드시 사용할 것
 - `hotfix` : 출시 버전에서 발생한 버그를 수정 하는 브랜치
+
+<br>
 
 ### Issue 템플릿 및 라벨
 
@@ -48,6 +52,8 @@ Ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
 - `♻refactor`: 리팩터링이 필요할 때는 이 라벨을 사용합니다.
 
 ### Pull Request 템플릿 - 추가
+
+<br>
 
 ### 작업 방식
 
