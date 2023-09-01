@@ -1,8 +1,8 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: "\U0001F6E0Feature Template"
+about: 기능 개발을 위한 이슈 템플릿 입니다.
 title: "[FEAT]"
-labels: ''
+labels: "\U0001F6E0feat"
 assignees: ''
 
 ---
