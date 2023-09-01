@@ -1,8 +1,8 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG"
-labels: bug
+name: "\U0001F528Bug Template"
+about: 버그 발생시 사용하는 템플릿 입니다.
+title: "[BUG]"
+labels: "\U0001F528bug"
 assignees: ''
 
 ---
