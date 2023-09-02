@@ -10,13 +10,14 @@ assignees: ''
 **Bug Fix Request**
 
 버그 설명 :
-발생 상황 : 
+
+발생 조건 : 
 
 **Branch Name**
 
-생성 브랜치 이름 : 
+생성 브랜치 이름 : `fix/`
 
-fix/개발내용` 으로 브랜치 생성해주세요!😇  ex) `fix/login`
+`fix/개발내용` 으로 브랜치 생성해주세요!😇  ex) `fix/login`
 
 **To-Do List**
 - [ ]
