@@ -65,7 +65,7 @@ ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
 
 1. `main` → `develop` 분기
    - 최신 배포 직후에는 `main`과 `develop` 변경 사항이 동일함
-2. `develop` → `feature/{기능 이름}` 분기
+2. `develop` → `feat/이슈번호}` 분기
 3. 작업 후 `feature` → `develop` PR
    1. 충돌 해결 및 테스트 코드 pass 확인 (CI)
 4. 코드 리뷰 진행
