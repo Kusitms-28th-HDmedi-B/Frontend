@@ -61,6 +61,7 @@ Ex) `git commit -m "feat(#8) : 앱 설치 플로팅 배너 추가 `
 - 변경 로직
 
 
+
 ### 📘 작업 방식 - 회의
 
 1. `main` → `develop` 브랜치
