@@ -12,5 +12,11 @@ assignees: ''
 버그 설명 :
 발생 상황 : 
 
+**Branch Name**
+
+생성 브랜치 이름 : 
+
+fix/개발내용` 으로 브랜치 생성해주세요!😇  ex) `fix/login`
+
 **To-Do List**
 - [ ]
