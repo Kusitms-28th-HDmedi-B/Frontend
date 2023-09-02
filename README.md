@@ -6,9 +6,9 @@
 
 ### 커밋 컨벤션
 
-커밋 메세지는 **[이슈번호, 기능 키워드, 커밋 내용]**으로 작성할 것!
+커밋 메세지는 <b>[기능 키워드(이슈번호) : 커밋 내용]</b>으로 작성할 것!
 
-Ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
+Ex) `git commit -m "feat(#8) : 앱 설치 플로팅 배너 추가 `
 
 - `feat`: 새로운 기능 추가
 - `fix`: 버그 수정
@@ -30,7 +30,7 @@ Ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
   - `Tag`를 이용하여 배포 버전 명시
 - `develop` : 다음 버전을 개발하는 브랜치
 - `feature` : 기능을 개발하는 브랜치
-  - `feature/이슈번호`로 네이밍 할 것
+  - `feat/개발내용`로 네이밍 할 것
   - main 또는 develop으로 merge할 때는 `--no-ff` 반드시 사용할 것
 - `hotfix` : 출시 버전에서 발생한 버그를 수정 하는 브랜치
 
@@ -53,20 +53,22 @@ Ex) `git commit -m "#8 feat : 앱 설치 플로팅 배너 추가 `
 
 ### Pull Request 템플릿 - 추가
 
-<br>
+- 개요
+- 작업 사항
+- 변경 로직
 
 ### 작업 방식
 
-1. `main` → `develop` 분기
+1. `main` → `develop` 브랜치
    - 최신 배포 직후에는 `main`과 `develop` 변경 사항이 동일함
-2. `develop` → `feature/{기능 이름}` 분기
-3. 작업 후 `feature` → `develop` PR
+2. `develop` → `feat/개발 내용` 브랜치
+3. 작업 후 `feat/개발 내용` → `develop` PR
    1. 충돌 해결 및 테스트 코드 pass 확인 (CI)
 4. 코드 리뷰 진행
    1. 최소 1번
-5. `feature` → `develop` Merge
+5. `feat/개발 내용` → `develop` Merge
    1. Squash and Merge
-   2. merge 후 `featrue` 브랜치 자동 삭제
+   2. merge 후 `feat/개발 내용` 브랜치 삭제하기
 6. 배포 시점에 `develop` → `main` PR 및 Merge
    1. Merge commit or Rebase and Merge
    2. CI/CD 작동
