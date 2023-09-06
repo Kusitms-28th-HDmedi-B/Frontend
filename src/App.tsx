@@ -8,6 +8,7 @@ import Recruit from './pages/recruit';
 import Notice from './pages/notice';
 import Info from './pages/info';
 import Ask from './pages/ask';
+import GlobalStyle from './styles/GlobalStyles';
 
 const route = createBrowserRouter([
   {
@@ -46,6 +47,11 @@ const route = createBrowserRouter([
   },
 ]);
 
-const App = () => <RouterProvider router={route} />;
+const App = () => (
+  <>
+    <GlobalStyle />
+    <RouterProvider router={route} />
+  </>
+);
 
 export default App;

@@ -4,12 +4,6 @@ const Container = styled.div`
   background: #f2f2f2;
   width: 100%;
   border: 1px solid black;
-
-  // 전역으로 옮기기
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
 `;
 const CategoryBox = styled.div`
   display: flex;
@@ -26,15 +20,11 @@ const Category = styled.div`
   display: flex;
   flex-direction: column;
 
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-
-  color: #000000;
+  :first-child {
+    font-weight: 600;
+  }
 `;
 const CategoryList = styled.div`
-  font-family: 'Pretendard';
   font-weight: 400;
   font-size: 16px;
 
