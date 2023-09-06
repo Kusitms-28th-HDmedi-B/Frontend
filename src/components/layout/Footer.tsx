@@ -56,7 +56,7 @@ function Footer() {
         {categories.map((categoryText) => (
           <Category key={categoryText[0]}>
             {categoryText.map((list) => (
-              <CategoryList>{list}</CategoryList>
+              <CategoryList key={list}>{list}</CategoryList>
             ))}
           </Category>
         ))}
