@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   background: #f2f2f2;
   width: 100%;
+  border: 1px solid black;
 
   // 전역으로 옮기기
   font-family: 'Pretendard';
