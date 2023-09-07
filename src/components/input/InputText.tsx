@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 type setStateType = React.Dispatch<React.SetStateAction<any>>;
@@ -22,9 +22,12 @@ const InputText: React.FC<Props> = ({
   inputData,
   setInputData,
 }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setInputData((prev: any) => ({ ...prev, [keyName]: e.target.value }));
-  };
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>): void => {
+      setInputData((prev: any) => ({ ...prev, [keyName]: e.target.value }));
+    },
+    [],
+  );
 
   return (
     <Container>
@@ -34,9 +37,9 @@ const InputText: React.FC<Props> = ({
       </TitleContainer>
       <StyledInput
         type="text"
+        value={inputData?.[keyName] || ''}
         width={width}
         placeholder={placeholder}
-        value={inputData?.keyName}
         onChange={handleChange}
       />
     </Container>
