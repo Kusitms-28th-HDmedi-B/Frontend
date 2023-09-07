@@ -2,8 +2,11 @@ import { styled } from 'styled-components';
 import { useEffect } from 'react';
 
 const MapDiv = styled.div`
-  width: 700px;
-  height: 300px;
+  display: inline-block; //나란히 배치하게
+  border-radius: 15px;
+  width: 734px;
+  height: 400px;
+  margin: 20px;
 `;
 
 // window 타입 정의 추가
