@@ -1,51 +1,57 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Career from './pages/career';
-import Contact from './pages/contact';
 import News from './pages/news';
-import Service from './pages/service';
-import Tech from './pages/tech';
 import Story from './pages/story';
 import Main from './pages/main';
 import Layout from './components/layout/Layout';
+import Recruit from './pages/recruit';
+import Notice from './pages/notice';
+import Info from './pages/info';
+import Ask from './pages/ask';
+import GlobalStyle from './styles/GlobalStyles';
 
 const route = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />, // 메인 페이지
+    element: <Layout />, // 헤더 및 푸터
     children: [
       {
         index: true,
-        element: <Main />,
+        element: <Main />, // 홈페이지
       },
       {
-        path: 'career',
-        element: <Career />,
+        path: 'recruit',
+        element: <Recruit />, //채용공고 페이지
       },
       {
-        path: 'contact',
-        element: <Contact />,
+        path: 'notice',
+        element: <Notice />, //공지사항 페이지
       },
       {
         path: 'news',
-        element: <News />,
+        element: <News />, //뉴스 페이지
       },
       {
-        path: 'service',
-        element: <Service />,
+        path: 'info',
+        element: <Info />, //기업 정보 페이지
       },
       {
-        path: 'tech',
-        element: <Tech />,
+        path: 'ask',
+        element: <Ask />, //문의하기 페이지
       },
       {
         path: 'story',
-        element: <Story />,
+        element: <Story />, // 보류
       },
     ],
   },
 ]);
 
-const App = () => <RouterProvider router={route} />;
+const App = () => (
+  <>
+    <GlobalStyle />
+    <RouterProvider router={route} />
+  </>
+);
 
 export default App;
