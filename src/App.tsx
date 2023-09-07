@@ -1,57 +1,35 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-import News from './pages/news';
-import Story from './pages/story';
-import Main from './pages/main';
-import Layout from './components/layout/Layout';
-import Recruit from './pages/recruit';
-import Notice from './pages/notice';
-import Info from './pages/info';
-import Ask from './pages/ask';
-import GlobalStyle from './styles/GlobalStyles';
+function App() {
+  const [count, setCount] = useState(0)
 
-const route = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />, // 헤더 및 푸터
-    children: [
-      {
-        index: true,
-        element: <Main />, // 홈페이지
-      },
-      {
-        path: 'recruit',
-        element: <Recruit />, //채용공고 페이지
-      },
-      {
-        path: 'notice',
-        element: <Notice />, //공지사항 페이지
-      },
-      {
-        path: 'news',
-        element: <News />, //뉴스 페이지
-      },
-      {
-        path: 'info',
-        element: <Info />, //기업 정보 페이지
-      },
-      {
-        path: 'ask',
-        element: <Ask />, //문의하기 페이지
-      },
-      {
-        path: 'story',
-        element: <Story />, // 보류
-      },
-    ],
-  },
-]);
+  return (
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
 
-const App = () => (
-  <>
-    <GlobalStyle />
-    <RouterProvider router={route} />
-  </>
-);
-
-export default App;
+export default App
