@@ -54,7 +54,7 @@ table {
 /* 위에는 초기화 */
 
 body {   
-    background-color:#e2e2e2;
+    background-color:#ffffff;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
