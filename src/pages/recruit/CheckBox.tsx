@@ -1,4 +1,6 @@
 import { styled } from 'styled-components';
+import checkBox from './checkbox.svg';
+import checkBoxFill from './checkbox-fill.svg';
 
 const CheckBoxDiv = styled.div`
   /* float: left; */
@@ -18,7 +20,27 @@ const CheckBoxDiv = styled.div`
 `;
 const Form = styled.form``; //클릭시 이벤트 추가예종
 
-const CheckBoxEach = styled.div``;
+const CheckBoxEach = styled.div`
+  input[type='checkbox'] {
+    display: none;
+  }
+  input[type='checkbox'] + label span {
+    display: inline-block;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    background: url(${checkBox}) left top no-repeat;
+    cursor: pointer;
+    background-size: cover;
+  }
+
+  input[type='checkbox']:checked + label span {
+    background: url(${checkBoxFill}) top no-repeat;
+    background-size: cover;
+  }
+`;
 
 const CheckBox = () => {
   return (
@@ -28,19 +50,27 @@ const CheckBox = () => {
       <Form>
         <CheckBoxEach>
           <input type="checkbox" id="chk1" />
-          <label htmlFor="chk1">HR</label>
+          <label htmlFor="chk1">
+            <span></span>HR
+          </label>
         </CheckBoxEach>
         <CheckBoxEach>
           <input type="checkbox" id="chk2" />
-          <label htmlFor="chk2">마케팅/홍보</label>
+          <label htmlFor="chk2">
+            <span></span>마케팅/홍보
+          </label>
         </CheckBoxEach>
         <CheckBoxEach>
           <input type="checkbox" id="chk3" />
-          <label htmlFor="chk3">회계</label>
+          <label htmlFor="chk3">
+            <span></span>회계
+          </label>
         </CheckBoxEach>
         <CheckBoxEach>
           <input type="checkbox" id="chk4" />
-          <label htmlFor="chk4">IT</label>
+          <label htmlFor="chk4">
+            <span></span>IT
+          </label>
         </CheckBoxEach>
       </Form>
     </CheckBoxDiv>
