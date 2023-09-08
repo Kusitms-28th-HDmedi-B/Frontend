@@ -5,14 +5,17 @@ import { useState } from 'react';
 import arrow from '../../assets/arrow.png';
 import PageBar from '../../components/common/PageBar';
 
+const Container = styled.div`
+  margin: 0 300px;
+`;
 const ContentsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  width:;
 `;
 const RecruitsContainer = styled.div`
+  width: 600px;
   ul {
     height: 200px;
     margin: auto;
@@ -41,7 +44,7 @@ const Recruit = () => {
   // const pageBarProps = { maxPage: 2, page: 0, setPage: setPage };c
   console.log('rerendeR1');
   return (
-    <>
+    <Container>
       <Title>채용 공고</Title>
       <ContentsContainer>
         <CheckBox />
@@ -63,7 +66,7 @@ const Recruit = () => {
           <PageBar maxPage={3} page={page} setPage={setPage}></PageBar>
         </RecruitsContainer>
       </ContentsContainer>
-    </>
+    </Container>
   );
 };
 

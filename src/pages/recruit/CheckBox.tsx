@@ -1,14 +1,19 @@
 import { styled } from 'styled-components';
 
 const CheckBoxDiv = styled.div`
-  width: 300px;
-  height: 200px;
+  /* float: left; */
+  /* width: 30%; */
+  width: 250px;
+  height: 300px;
   background-color: #efefef;
   border-radius: 20px;
-  font-size: 12px;
-  margin: 0 20px;
+  font-size: 16px;
+  margin-right: 20px;
+  :first-child {
+    font-weight: 600;
+  }
   div {
-    margin: 10px;
+    margin: 20px;
   }
 `;
 const Form = styled.form``; //클릭시 이벤트 추가예종
