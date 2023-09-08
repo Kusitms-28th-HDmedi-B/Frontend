@@ -132,6 +132,7 @@ const Ask = () => {
           isEssential={false}
           inputFile={inputFile}
           setInputFile={setInputFile}
+          maxSize={3}
         />
 
         <PrivacyContainer>

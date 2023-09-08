@@ -12,6 +12,7 @@ interface Props {
   width: string; // input 창의 너비
   inputFile: File | undefined;
   setInputFile: setStateType;
+  maxSize: number; // 파일 최대 크기
 }
 
 const InputFile: React.FC<Props> = ({
@@ -21,12 +22,18 @@ const InputFile: React.FC<Props> = ({
   width,
   inputFile,
   setInputFile,
+  maxSize,
 }) => {
   const inputRef = useRef<any>(null);
+
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>): void => {
       if (e.target.files !== null) {
-        setInputFile(e.target.files[0]);
+        const file: File = e.target.files[0];
+        if (file.size >= maxSize * 1024 * 1024) {
+          window.alert(`파일의 크기는 ${maxSize}MB로 제한됩니다.`);
+        } else setInputFile(e.target.files[0]);
+        e.target.value = '';
       }
     },
     [],
@@ -47,19 +54,25 @@ const InputFile: React.FC<Props> = ({
         {isEssential && <IconWrapper></IconWrapper>}
       </TitleContainer>
       <StyledInput type="file" ref={inputRef} onChange={handleChange} />
-      <FileContainer width={width}>
-        <FileName>{inputFile ? inputFile.name : placeholder}</FileName>
-        {inputFile && (
-          <CloseButton onClick={handleDelete}>
-            <img src={CloseIcon} alt="delete" />
-          </CloseButton>
-        )}
-        <UploadButtonWrapper>
-          <UploadButton onClick={handleClick}>
-            <pre>업로드</pre>
-          </UploadButton>
-        </UploadButtonWrapper>
-      </FileContainer>
+
+      <FileInputContainer>
+        <FileContainer width={width}>
+          <FileName>{inputFile ? inputFile.name : placeholder}</FileName>
+          {inputFile && (
+            <CloseButton onClick={handleDelete}>
+              <img src={CloseIcon} alt="delete" />
+            </CloseButton>
+          )}
+          <UploadButtonWrapper>
+            <UploadButton onClick={handleClick}>
+              <pre>업로드</pre>
+            </UploadButton>
+          </UploadButtonWrapper>
+        </FileContainer>
+        <CaptionContainer>
+          <pre>{`파일은 최대 ${maxSize}MB까지 가능합니다.`}</pre>
+        </CaptionContainer>
+      </FileInputContainer>
     </Container>
   );
 };
@@ -115,6 +128,17 @@ const StyledInput = styled.input<InputProps>`
 interface FileContainerProps {
   width: string;
 }
+
+const FileInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 100%;
+  gap: 10px;
+
+  position: relative;
+`;
 
 const FileContainer = styled.div<FileContainerProps>`
   display: flex;
@@ -191,5 +215,20 @@ const CloseButton = styled.div`
     width: 10.803px;
     height: 10.91px;
     flex-shrink: 0;
+  }
+`;
+
+const CaptionContainer = styled.div`
+  position: absolute;
+
+  bottom: -40px;
+
+  pre {
+    color: #b8b8b8;
+    font-family: Pretendard Variable;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 187.5% */
   }
 `;
