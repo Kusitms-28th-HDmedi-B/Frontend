@@ -8,10 +8,12 @@ const Container = styled.div`
   margin: auto;
   margin-bottom: 100px;
 `;
-const Title = styled.div`
+export const Title = styled.div`
+  //재사용 요청
   font-size: 28px;
+  font-weight: 700;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   margin: 40px 0;
 `;
