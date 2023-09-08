@@ -41,8 +41,8 @@ const Announcement = () => {
     <>
       <Title>공지사항</Title>
       <AnnouneUl>
-        {datas.slice((page - 1) * 5, (page - 1) * 5 + 5).map((data) => (
-          <AnnouneLi>
+        {datas.slice((page - 1) * 5, (page - 1) * 5 + 5).map((data, index) => (
+          <AnnouneLi key={index}>
             <a href="https://www.naver.com/">{data}</a>
             <DateSpan>2023.9.5</DateSpan>
           </AnnouneLi>
