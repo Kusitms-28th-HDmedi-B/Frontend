@@ -85,19 +85,23 @@ export default InputLongText;
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
   /* align-items: center; */
   gap: 95px;
 `;
 
 const TitleContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-shrink: 0;
+  /* justify-content: center; */
 
   margin-top: 30px;
 
-  width: 94px;
+  width: 120px;
   height: 30px;
+
+  gap: 5px;
 `;
 
 const Title = styled.pre`
@@ -114,13 +118,16 @@ const IconWrapper = styled.div`
   height: 8px;
   flex-shrink: 0;
 
-  background: #d9d9d9;
+  /* background: #d9d9d9; */
+  background: red;
+  border-radius: 50%;
 `;
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  width: 100%;
   gap: 10px;
 `;
 
@@ -130,7 +137,7 @@ interface InputProps {
 }
 
 const StyledInput = styled.textarea<InputProps>`
-  width: 1092px;
+  width: 100%;
   height: 341px;
 
   border-radius: 15px;
