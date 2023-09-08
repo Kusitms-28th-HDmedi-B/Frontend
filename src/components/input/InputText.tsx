@@ -50,17 +50,21 @@ export default InputText;
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
+  width: 100%;
   gap: 95px;
 `;
 
 const TitleContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-shrink: 0;
 
-  width: 94px;
+  width: 120px;
   height: 30px;
+
+  gap: 5px;
 `;
 
 const Title = styled.pre`
@@ -77,7 +81,9 @@ const IconWrapper = styled.div`
   height: 8px;
   flex-shrink: 0;
 
-  background: #d9d9d9;
+  /* background: #d9d9d9; */
+  background: red;
+  border-radius: 50%;
 `;
 
 interface InputProps {
