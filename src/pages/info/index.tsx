@@ -8,7 +8,7 @@ const Container = styled.div`
   margin: auto;
   margin-bottom: 100px;
 `;
-const Title = styled.div`
+export const Title = styled.div` //재사용 요청
   font-size: 28px;
   display: flex;
   justify-content: center;
