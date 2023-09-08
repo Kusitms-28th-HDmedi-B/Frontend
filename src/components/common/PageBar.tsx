@@ -12,10 +12,14 @@ interface Props {
   setPage: setPageType; // page state를 설정하는 함수
 }
 
+const numOfPage: number = 3; // 화면에 노출할 페이지 수
+
 const PageBar: React.FC<Props> = ({ maxPage, page, setPage }) => {
   const [nowPages, setNowPages] = useState<number[]>(
-    maxPage >= 3
-      ? [1, 2, 3]
+    maxPage >= numOfPage
+      ? Array(numOfPage)
+          .fill(0)
+          .map((_, index) => index + 1)
       : Array(maxPage)
           .fill(0)
           .map((_, index) => index + 1),
@@ -26,19 +30,21 @@ const PageBar: React.FC<Props> = ({ maxPage, page, setPage }) => {
   };
 
   const onClickLeft = useCallback(() => {
-    if (page === 1) return;
-    else if (page % 3 !== 1) setPage((prev) => prev - 1);
-    else if (page % 3 === 1) {
-      setNowPages((prev) => prev.map((num: number) => num - 3));
+    if (page === 1) return; // 만약 첫 페이지면 그냥 리턴
+    else if (page % numOfPage !== 1) setPage((prev) => prev - 1);
+    else if (page % numOfPage === 1) {
+      // 만약 노출된 페이지 중 첫 페이지면
+      setNowPages((prev) => prev.map((num: number) => num - numOfPage));
       setPage((prev) => prev - 1);
     }
   }, [page, nowPages]);
 
   const onClickRight = useCallback(() => {
-    if (maxPage === page) return;
-    else if (page % 3 !== 0) setPage((prev) => prev + 1);
-    else if (page % 3 === 0 && page < maxPage) {
-      setNowPages((prev) => prev.map((num: number) => num + 3));
+    if (maxPage === page) return; // 만약 마지막 페이지면 그냥 리턴
+    else if (page % numOfPage !== 0) setPage((prev) => prev + 1);
+    else if (page % numOfPage === 0 && page < maxPage) {
+      // 만약 노출된 페이지 중 마지막 페이지면
+      setNowPages((prev) => prev.map((num: number) => num + numOfPage));
       setPage((prev) => prev + 1);
     }
   }, [page, nowPages]);
@@ -57,6 +63,7 @@ const PageBar: React.FC<Props> = ({ maxPage, page, setPage }) => {
           <PageNumber
             selected={page === num}
             onClick={() => onClickNumber(num)}
+            key={num}
           >
             <pre>{num}</pre>
           </PageNumber>
