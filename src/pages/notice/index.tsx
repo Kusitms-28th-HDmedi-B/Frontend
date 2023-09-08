@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Title } from '../info';
 import Announcement from './Announce';
+import Faq from './Faq';
 
 const Container = styled.div`
   //공통적용, 리팩터링
@@ -13,6 +13,7 @@ const Notice = () => {
   return (
     <Container>
       <Announcement></Announcement>
+      <Faq></Faq>
     </Container>
   );
 };
