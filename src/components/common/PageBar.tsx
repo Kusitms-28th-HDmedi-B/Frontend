@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
-import ArrowLeft from '../../assets/arrow-left.svg';
-import ArrowRight from '../../assets/arrow-right.svg';
+import ArrowLeft from '../../assets/icon/arrow-left.svg';
+import ArrowRight from '../../assets/icon/arrow-right.svg';
 
 type setPageType = React.Dispatch<React.SetStateAction<number>>;
 
