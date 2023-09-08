@@ -9,6 +9,7 @@ import Notice from './pages/notice';
 import Info from './pages/info';
 import Ask from './pages/ask';
 import GlobalStyle from './styles/GlobalStyles';
+import GlobalFont from './styles/GlobalFont';
 
 const route = createBrowserRouter([
   {
@@ -49,6 +50,7 @@ const route = createBrowserRouter([
 
 const App = () => (
   <>
+    <GlobalFont />
     <GlobalStyle />
     <RouterProvider router={route} />
   </>
