@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import InputText from '../../components/input/InputText';
 import InputLongText from '../../components/input/InputLongText';
 import styled from 'styled-components';
@@ -54,11 +54,14 @@ const inputCompData: inputComp[] = [
 
 const Ask = () => {
   const navigate = useNavigate();
-  const [inputData, setInputData] = useState<Input>();
-  const [inputFile, setInputFile] = useState<File>();
-  const [isAgree, setIsAgree] = useState<boolean>(false);
+  const [inputData, setInputData] = useState<Input>(); // 입력받은 데이터를 저장하는 객체
+  const [inputFile, setInputFile] = useState<File>(); // 파일 입력을 따로 저장하기 위한 state
+  const [isAgree, setIsAgree] = useState<boolean>(false); // 개인정보 동의 여부를 체크하는 state
 
-  const isOkToSubmit = (): boolean => {
+  console.log(inputData);
+
+  const isOkToSubmit = useCallback((): boolean => {
+    // 필수 입력 정보가 모두 입력되었는지 확인
     if (
       inputData?.orgName &&
       inputData?.name &&
@@ -69,15 +72,15 @@ const Ask = () => {
     )
       return true;
     return false;
-  };
+  }, [inputData, isAgree]);
 
-  const onClickFAQButton = () => {
+  const onClickFAQButton = useCallback(() => {
     navigate('/faq');
-  };
+  }, []);
 
-  const onClickAgree = () => {
+  const onClickAgree = useCallback(() => {
     setIsAgree((prev: boolean) => !prev);
-  };
+  }, [isAgree]);
 
   const handleSubmit = () => {
     if (isOkToSubmit()) {
