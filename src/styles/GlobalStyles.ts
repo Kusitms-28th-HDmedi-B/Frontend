@@ -57,10 +57,16 @@ body {
     background-color:#ffffff;
     font-family: 'Pretendard';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
+    /*볼드는 weight 600 */
     font-size: 16px;
-  }
+}
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 `;
 
 export default GlobalStyle;
