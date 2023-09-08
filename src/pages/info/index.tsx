@@ -10,7 +10,8 @@ const Container = styled.div`
 `;
 export const Title = styled.div`
   //재사용 요청
-  font-size: 36px;
+  font-size: 28px;
+  font-weight: 700;
   display: flex;
   /* justify-content: center; */
   align-items: center;

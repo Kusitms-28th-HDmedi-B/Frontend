@@ -6,16 +6,20 @@ import arrow from '../../assets/arrow.png';
 import PageBar from '../../components/common/PageBar';
 
 const Container = styled.div`
-  margin: 0 300px;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 100px;
 `;
 const ContentsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between; // 왼쪽에 붙여야 함
   align-items: center;
   font-size: 20px;
+  width: 100%; //? 부모기준이니가 100프로
 `;
 const RecruitsContainer = styled.div`
-  width: 600px;
+  /* margin-left: 5%; */
+  width: 70%; //길이에 따라 달라지지 않으려면 고정, 모바일 수정 필요
   ul {
     height: 200px;
     margin: auto;
@@ -25,6 +29,7 @@ const ReCruitsList = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 16px;
   img {
     width: 30px;
   }

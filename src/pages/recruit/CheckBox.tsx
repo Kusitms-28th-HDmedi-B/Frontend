@@ -5,8 +5,8 @@ import checkBoxFill from './checkbox-fill.svg';
 const CheckBoxDiv = styled.div`
   /* float: left; */
   /* width: 30%; */
-  width: 250px;
-  height: 300px;
+  width: 20%;
+  height: 25%;
   background-color: #efefef;
   border-radius: 20px;
   font-size: 16px;
@@ -15,7 +15,10 @@ const CheckBoxDiv = styled.div`
     font-weight: 600;
   }
   div {
-    margin: 20px;
+    margin: 15px 20px;
+  }
+  form div {
+    margin: 20px 20px;
   }
 `;
 const Form = styled.form``; //클릭시 이벤트 추가예종
@@ -29,7 +32,7 @@ const CheckBoxEach = styled.div`
     position: relative;
     width: 15px;
     height: 15px;
-    margin: -2px 10px 0 0;
+    margin: -2px 30px 0 0; // 글자의 스타일
     vertical-align: middle;
     background: url(${checkBox}) left top no-repeat;
     cursor: pointer;
