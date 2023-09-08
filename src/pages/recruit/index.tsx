@@ -30,7 +30,7 @@ const Recruit = () => {
     '[마케팅] 마케팅 전문가 제2의 스티브잡스 모집 공고',
     '[회계] 니 돈을 내 돈처럼 사용하라, 회삿돈으로 비트코인 가능',
   ];
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   return (
     <>
       <Title>채용 공고</Title>
