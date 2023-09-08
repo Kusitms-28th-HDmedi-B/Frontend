@@ -8,6 +8,8 @@ const ContentsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
+  width:;
 `;
 const RecruitsContainer = styled.div`
   ul {
@@ -25,12 +27,12 @@ const ReCruitsList = styled.li`
 `;
 const Recruit = () => {
   const datas = [
-    '[HR] [신입/경력] 2023 전국 대규모 공개채용 초봉 1억 시작 내집마련의 꿈  ',
+    '[HR] [신입/경력] 2023 전국 대규모 공개채용 초봉 1억 시작 내집마련의 꿈 내집마련의 꿈v 내집마련의 꿈  ',
     '[IT] SW엔지니어 모집 공고 당신도 이재용이 될 수 있습니다',
     '[마케팅] 마케팅 전문가 제2의 스티브잡스 모집 공고',
     '[회계] 니 돈을 내 돈처럼 사용하라, 회삿돈으로 비트코인 가능',
   ];
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   return (
     <>
       <Title>채용 공고</Title>

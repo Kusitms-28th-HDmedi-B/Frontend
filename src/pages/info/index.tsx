@@ -9,7 +9,7 @@ const Container = styled.div`
   margin-bottom: 100px;
 `;
 export const Title = styled.div` //재사용 요청
-  font-size: 28px;
+  font-size: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
