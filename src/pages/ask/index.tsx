@@ -75,7 +75,7 @@ const Ask = () => {
   }, [inputData, isAgree]);
 
   const onClickFAQButton = useCallback(() => {
-    navigate('/faq');
+    navigate('/notice');
   }, []);
 
   const onClickAgree = useCallback(() => {
@@ -167,9 +167,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-  width: 100%;
-  margin: 156px 0 114px;
-  padding: 0 200px;
+  width: 70%;
+  margin: 106px auto 114px;
 `;
 
 const TopBox = styled.div`
@@ -187,7 +186,7 @@ const Title = styled.div`
     color: #000;
     text-align: center;
     font-family: Pretendard;
-    font-size: 36px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
     line-height: 86px; /* 238.889% */
@@ -204,7 +203,6 @@ const DescriptionContainer = styled.div`
 
 const Description = styled.pre`
   color: #000;
-  font-family: Pretendard Variable;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -226,7 +224,6 @@ const Button = styled.div`
 
   pre {
     color: #000;
-    font-family: Pretendard Variable;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -264,7 +261,6 @@ const PrivacyTitle = styled.div`
   margin-bottom: 21px;
   pre {
     color: #000;
-    font-family: Pretendard Variable;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -275,7 +271,6 @@ const PrivacyTitle = styled.div`
 const PrivacySubTitle = styled.div`
   pre {
     color: #000;
-    font-family: Pretendard Variable;
     font-size: 16px;
     white-space: pre-wrap;
     font-style: normal;
@@ -295,7 +290,6 @@ const RadioContainer = styled.div`
   margin-bottom: 59px;
   pre {
     color: #000;
-    font-family: Pretendard Variable;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
