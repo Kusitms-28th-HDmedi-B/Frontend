@@ -86,7 +86,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 101px;
+  gap: 71px;
 `;
 
 interface PageNumberProps {
@@ -95,6 +95,7 @@ interface PageNumberProps {
 
 const PageNumber = styled.div<PageNumberProps>`
   cursor: pointer;
+  padding: 30px;
 
   pre {
     color: ${({ selected }) => (selected ? '#000' : '#B9B9B9')};
