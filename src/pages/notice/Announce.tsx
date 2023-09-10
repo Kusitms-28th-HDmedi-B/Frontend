@@ -20,6 +20,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   div {
+    display: inline-block;
     width: 80%;
     overflow: hidden;
     white-space: nowrap;
@@ -43,7 +44,7 @@ const Announcement = () => {
         '2공지사항입니다공지사항다공지2공지사항입니다공지사항다공지사항다공지사사항다공지사항2공지사항입니다공지사항다공지사항다공지사2공지사항입니다공지사항다공지사항다공지사',
     },
     { id: 3, title: '3공지사항입니다공지사항' },
-    { id: 4, title: '4공지사항입니다공지사항' },
+    { id: 4, title: '4공지사항입ss니다공지사항' },
     { id: 5, title: '5공지사항입니다공지사항' },
     { id: 6, title: '6공지사항입니다공지사항' },
     { id: 7, title: '7공지사항입니다공지사항' },
