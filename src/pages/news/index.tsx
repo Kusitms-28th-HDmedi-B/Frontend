@@ -122,7 +122,9 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  padding: 106px 150px 161px;
+  width: 70%;
+  margin: auto;
+  padding: 106px 0 161px;
 `;
 
 const Title = styled.div`
@@ -132,7 +134,7 @@ const Title = styled.div`
   pre {
     color: #000;
     font-family: Pretendard;
-    font-size: 36px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
     line-height: 86px; /* 238.889% */
@@ -145,7 +147,7 @@ const ArticleContainer = styled.div`
 
   width: 100%;
   gap: 34px;
-  margin-bottom: 131px;
+  margin-bottom: 116px;
 `;
 
 const Article = styled.div`
@@ -162,7 +164,6 @@ const Article = styled.div`
 const ArticleSource = styled.div`
   pre {
     color: #000;
-    font-family: Pretendard Variable;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -185,7 +186,6 @@ const ArticleTitle = styled.div`
 
   a {
     color: #000;
-    font-family: Pretendard Variable;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -198,7 +198,6 @@ const ArticleDate = styled.div`
   pre {
     color: #000;
     text-align: right;
-    font-family: Pretendard Variable;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
