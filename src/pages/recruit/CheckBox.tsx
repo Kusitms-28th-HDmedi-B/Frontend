@@ -6,7 +6,9 @@ const CheckBoxDiv = styled.div`
   /* float: left; */
   /* width: 30%; */
   width: 20%;
-  height: 25%;
+
+  height: 80%;
+
   background-color: #efefef;
   border-radius: 20px;
   font-size: 16px; //22
@@ -24,6 +26,12 @@ const CheckBoxDiv = styled.div`
 const Form = styled.form``; //클릭시 이벤트 추가예종
 
 const CheckBoxEach = styled.div`
+  label {
+    /* width: 1%; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   input[type='checkbox'] {
     display: none;
   }
@@ -32,7 +40,7 @@ const CheckBoxEach = styled.div`
     position: relative;
     width: 15px;
     height: 15px;
-    margin: -2px 30px 0 0; // 글자의 스타일
+    margin: -2px 20% 0 0; // 글자의 스타일
     vertical-align: middle;
     background: url(${checkBox}) left top no-repeat;
     cursor: pointer;
