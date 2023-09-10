@@ -9,7 +9,7 @@ const CheckBoxDiv = styled.div`
   height: 25%;
   background-color: #efefef;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 16px; //22
   margin-right: 20px;
   :first-child {
     font-weight: 600;
