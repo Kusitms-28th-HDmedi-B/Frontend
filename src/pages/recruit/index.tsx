@@ -2,7 +2,8 @@ import { styled } from 'styled-components';
 import { Title } from '../info';
 import CheckBox from './CheckBox';
 import { useState } from 'react';
-import arrow from '../../assets/arrow.png';
+import arrow from './arrow-icon.svg';
+import arrowHover from './arrow-icon-hover.svg';
 import PageBar from '../../components/common/PageBar';
 
 const Container = styled.div`
@@ -13,13 +14,15 @@ const Container = styled.div`
 const ContentsContainer = styled.div`
   display: flex;
   justify-content: space-between; // 왼쪽에 붙여야 함
-  align-items: center;
+  align-items: start;
   font-size: 20px;
   width: 100%; //? 부모기준이니가 100프로
+  height: 300px;
 `;
 const RecruitsContainer = styled.div`
   /* margin-left: 5%; */
   width: 70%; //길이에 따라 달라지지 않으려면 고정, 모바일 수정 필요
+  height: 100%;
   ul {
     height: 200px;
     margin: auto;
@@ -30,8 +33,25 @@ const ReCruitsList = styled.li`
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  img {
-    width: 30px;
+  margin: 25px 0;
+  a span {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background: url(${arrow}) left top no-repeat;
+    background-size: cover;
+    display: inline-block;
+    position: relative;
+    &:hover {
+      background: url(${arrowHover}) left top no-repeat;
+      background-size: cover;
+    }
+  }
+  div {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 `;
 const Recruit = () => {
@@ -58,9 +78,10 @@ const Recruit = () => {
             {datas.slice((page - 1) * 3, (page - 1) * 3 + 3).map((data) => (
               <>
                 <ReCruitsList>
-                  {data}{' '}
+                  <div>{data} </div>
+
                   <a href="https://www.google.com/search?q=%EB%88%84%EB%A5%B4%EC%A7%80%EB%A7%88%EC%84%B8%EC%9A%94&sca_esv=563581542&sxsrf=AB5stBhMvU3_WwzJPw3Bjxaq5XAFQ3inwA%3A1694137070377&ei=7nr6ZJ3bFvPT1e8P-bin2As&ved=0ahUKEwidip-y8JmBAxXzafUHHXncCbsQ4dUDCA8&uact=5&oq=%EB%88%84%EB%A5%B4%EC%A7%80%EB%A7%88%EC%84%B8%EC%9A%94&gs_lp=Egxnd3Mtd2l6LXNlcnAiEuuIhOultOyngOuniOyEuOyalDIFEAAYgAQyCRAAGAUYHhjxBEjjJlCpDljmJHAReACQAQWYAYEBoAH3D6oBBDEuMTe4AQPIAQD4AQGoAgrCAgcQIxjqAhgnwgIIEAAYgAQYsQPCAgsQABiABBixAxiDAcICCxAuGIAEGLEDGIMBwgIFEC4YgATCAgQQABgDwgIKEAAYgAQYFBiHAsICBxAjGIoFGCfCAhEQLhiABBixAxiDARjHARjRA8ICCBAuGIAEGNQCwgIUEC4YgAQYlwUY3AQY3gQY4ATYAQHCAgcQABgNGIAEwgIGEAAYHhgNwgIIEAAYHhgNGA_CAgoQABgNGIAEGLEDwgINEAAYDRiABBixAxiDAcICDRAuGA0YgAQYsQMYgwHCAgcQLhgNGIAEwgIGEAAYAxgNwgINEC4YDRiABBjHARivAcICCBAAGAUYHhgP4gMEGAAgQYgGAboGBggBEAEYFA&sclient=gws-wiz-serp">
-                    <img src={arrow}></img>
+                    <span></span>
                   </a>
                 </ReCruitsList>
 
