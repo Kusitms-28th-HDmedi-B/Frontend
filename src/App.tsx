@@ -10,6 +10,7 @@ import Info from './pages/info';
 import Ask from './pages/ask';
 import GlobalStyle from './styles/GlobalStyles';
 import GlobalFont from './styles/GlobalFont';
+import About from './pages/about';
 
 const route = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const route = createBrowserRouter([
       {
         path: 'story',
         element: <Story />, // 보류
+      },
+      {
+        path: 'about',
+        element: <About />,
       },
     ],
   },
