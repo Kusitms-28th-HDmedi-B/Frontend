@@ -30,6 +30,7 @@ const initMap = () => {
     ),
     map: map,
   });
+  marker; //임시..
 };
 
 const Map = () => {
