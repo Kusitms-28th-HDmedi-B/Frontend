@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import News from './pages/news';
-import Story from './pages/story';
+import Story from './pages/value';
 import Main from './pages/main';
 import Layout from './components/layout/Layout';
 import Recruit from './pages/recruit';
@@ -12,6 +12,7 @@ import GlobalStyle from './styles/GlobalStyles';
 import GlobalFont from './styles/GlobalFont';
 import About from './pages/about';
 import Detail from './pages/notice/Detail';
+import Value from './pages/value';
 
 const route = createBrowserRouter([
   {
@@ -51,8 +52,8 @@ const route = createBrowserRouter([
         element: <Ask />, //문의하기 페이지
       },
       {
-        path: 'story',
-        element: <Story />, // 보류
+        path: 'value',
+        element: <Value />, // 인재상 페이지
       },
       {
         path: 'about',
