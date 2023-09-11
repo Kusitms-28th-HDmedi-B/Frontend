@@ -14,7 +14,7 @@ export const CategoryData: CategoryType[] = [
     depth: [
       {
         name: '회사 소개',
-        url: '/',
+        url: '/about',
       },
     ],
   },
