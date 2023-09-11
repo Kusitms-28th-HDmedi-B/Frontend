@@ -5,6 +5,7 @@ const Container = styled.div`
   //공통적용, 리팩터링
   width: 70%;
   margin: auto;
+  padding: 106px 0 161px; //추가
   margin-bottom: 100px;
 `;
 const NoticeTitle = styled.div`
@@ -18,6 +19,7 @@ const NoticeDate = styled.div`
   margin: 15px 0;
 `;
 const NoticeContent = styled.div`
+  //pre로 변경
   margin: 30px 0;
 `;
 const BackBtn = styled.div`
