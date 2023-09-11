@@ -1,14 +1,18 @@
 import { styled } from 'styled-components';
 import logoImg from '../../assets/logo.png';
 const Container = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  width: 100%;
   height: 80px;
   padding: 0 10%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 3;
 `;
 
 const Logo = styled.div`
   display: inline-block;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-image: url(${logoImg});
   background-size: cover;
   width: 50px;
