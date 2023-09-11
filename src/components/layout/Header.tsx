@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 import logo from '../../../public/assets/logo/header-logo.svg';
+import { CategoryData } from './data/FooterData';
+import { useState } from 'react';
 const Container = styled.div`
   /* border: 1px solid black; */
   width: 70%;
@@ -26,22 +28,42 @@ const Nav = styled.ul`
     margin: 10px 30px;
   }
 `;
-const Language = styled.span`
-  display: inline-block;
-  position: absolute;
-  left: 90%;
+const LanguageContainer = styled.span`
+  float: right;
 `;
+const Language = styled.span<{ isSelected: boolean }>`
+  cursor: pointer;
+  padding: 0 10px;
+  color: ${(props) => (props.isSelected ? 'inherit' : '#b4b4b4')};
+`;
+type LanguageType = 'KR' | 'EN';
 function Header() {
-  const categories = ['회사 소개', '서비스', '기술', '인재상', '컨택', '뉴스'];
+  const categories = CategoryData;
+  const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
+  console.log('rende');
   return (
     <Container>
       <Logo></Logo>
       <Nav>
-        {categories.map((category) => (
-          <li key={category}>{category}</li>
+        {categories.map((category, index) => (
+          <li key={index}>{category.title}</li>
         ))}
       </Nav>
-      <Language> [토글]</Language>
+      <LanguageContainer>
+        <Language
+          isSelected={currLanguage === 'KR'}
+          onClick={() => setCurrLanguage('KR')}
+        >
+          KR
+        </Language>
+        |
+        <Language
+          isSelected={currLanguage === 'EN'}
+          onClick={() => setCurrLanguage('EN')}
+        >
+          EN
+        </Language>
+      </LanguageContainer>
     </Container>
   );
 }
