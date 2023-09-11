@@ -11,12 +11,12 @@ function Footer() {
       <Container>
         {/* 정보구조도도 */}
         <CategoryConatiner>
-          {CategoryData.map(({ title, depth }) => (
-            <Category>
+          {CategoryData.map(({ title, depth }, index) => (
+            <Category key={index}>
               <CategoryTitle>{title}</CategoryTitle>
               <CategoryLinkContainer>
-                {depth.map(({ name, url }) => (
-                  <CategoryLink>
+                {depth.map(({ name, url }, index) => (
+                  <CategoryLink key={index}>
                     <Link to={url}>{name}</Link>
                   </CategoryLink>
                 ))}
@@ -30,16 +30,16 @@ function Footer() {
           <img src={FooterLogo} alt="logo" />
           <InfoTextContainer>
             <LocationInfo>
-              {CompanyInfoData.map(({ theme, content }) => (
-                <InfoText>
+              {CompanyInfoData.map(({ theme, content }, index) => (
+                <InfoText key={index}>
                   <pre>{theme}</pre>
                   <pre>{content}</pre>
                 </InfoText>
               ))}
             </LocationInfo>
             <ContactInfo>
-              {ContactInfoData.map(({ theme, content }) => (
-                <InfoText>
+              {ContactInfoData.map(({ theme, content }, index) => (
+                <InfoText key={index}>
                   <pre>{theme}</pre>
                   <pre>{content}</pre>
                 </InfoText>

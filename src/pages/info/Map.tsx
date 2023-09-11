@@ -6,7 +6,7 @@ const MapDiv = styled.div`
   border-radius: 15px;
   width: 734px;
   height: 400px;
-  margin: 20px;
+  /* margin: 20px; */
 `;
 
 // window 타입 정의 추가
