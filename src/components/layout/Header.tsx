@@ -1,22 +1,22 @@
 import { styled } from 'styled-components';
-import logoImg from '/assets/logo/logo.png';
+import logo from '../../../public/assets/logo/header-logo.svg';
 const Container = styled.div`
   /* border: 1px solid black; */
-  width: 100%;
+  width: 70%;
   height: 80px;
-  padding: 0 10%;
+  margin: 0 15%;
+  padding: 15px 0;
   background-color: #fff;
   position: fixed;
   z-index: 3;
 `;
 
-const Logo = styled.div`
+const Logo = styled.span`
   display: inline-block;
-  /* border: 1px solid black; */
-  background-image: url(${logoImg});
+  background-image: url(${logo});
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 167px;
+  height: 28px;
 `;
 const Nav = styled.ul`
   display: inline-block;
