@@ -30,7 +30,7 @@ const Nav = styled.ul`
     position: relative;
     display: inline;
     margin: 0 30px;
-    padding-bottom: 20px; //호버시 마우스를 내려올 수 있게 하기 위한 영역
+    padding-bottom: 15px; //호버시 마우스를 내려올 수 있게 하기 위한 영역
     text-align: center;
     line-height: 28px; //이거다
     color: #8b8b8b;
@@ -47,6 +47,8 @@ const Nav = styled.ul`
 const NavDepthContainer = styled.div`
   display: none;
   position: absolute;
+  width: max-content;
+
   top: 100%; //이게 왜 중요하지?
   /* left: 0; //부모의 li가 relative이므로, 그것의 x값 */
   left: 50%; /* 요소의 가로 중앙으로 이동 */
@@ -57,8 +59,11 @@ const NavDepthContainer = styled.div`
   font-size: 14px;
 `;
 const NavDepth = styled.div`
-  width: max-content;
   padding: 3px 10px;
+  color: #b4b4b4;
+  &:hover {
+    color: #31313e;
+  }
   a {
     text-decoration: none;
     color: inherit;
