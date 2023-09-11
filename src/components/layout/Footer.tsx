@@ -1,57 +1,166 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  background: #f2f2f2;
-  width: 100%;
-  border: 1px solid black;
-`;
-const CategoryBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+import FooterLogo from '../../assets/logo/footer-logo.svg';
+import { CategoryData, CompanyInfoData, ContactInfoData } from './FooterData';
 
-  margin: auto;
-  width: 80%; //고정?
-
-  height: 152px;
-`;
-const Category = styled.div`
-  // 카테고리 볼드
-  display: flex;
-  flex-direction: column;
-
-  :first-child {
-    font-weight: 600;
-  }
-`;
-const CategoryList = styled.div`
-  font-weight: 400;
-  font-size: 16px;
-
-  color: #000000;
-`;
 function Footer() {
   //헤더에도 사옹될거고, 각각 <Link>도 연결해야하니까 객체형태로 state로 리팩터링 해야함
-  const categories = [
-    ['회사 소개', '기업 소개', '기업 역사', '핵심 가치'],
-    ['서비스', '비대면 복약지도', '비대면 통합 서비스'],
-    ['기술', '기술 소개'],
-    ['입사', '공고', '인재상', '복지'],
-    ['컨택', '기업 위치', '컨택 주소', 'SNS'],
-    ['뉴스', '기사, 컨텐츠 목록'],
-  ];
   return (
-    <Container>
-      <CategoryBox>
-        {categories.map((categoryText) => (
-          <Category key={categoryText[0]}>
-            {categoryText.map((list) => (
-              <CategoryList key={list}>{list}</CategoryList>
-            ))}
-          </Category>
-        ))}
-      </CategoryBox>
-    </Container>
+    <Body>
+      <Container>
+        {/* 정보구조도도 */}
+        <CategoryConatiner>
+          {CategoryData.map(({ title, depth }, index) => (
+            <Category key={index}>
+              <CategoryTitle>{title}</CategoryTitle>
+              <CategoryLinkContainer>
+                {depth.map(({ name, url }, index) => (
+                  <CategoryLink key={index}>
+                    <Link to={url}>{name}</Link>
+                  </CategoryLink>
+                ))}
+              </CategoryLinkContainer>
+            </Category>
+          ))}
+        </CategoryConatiner>
+
+        {/* 회사 위치 및 연락처 */}
+        <InfoContainer>
+          <img src={FooterLogo} alt="logo" />
+          <InfoTextContainer>
+            <LocationInfo>
+              {CompanyInfoData.map(({ theme, content }, index) => (
+                <InfoText key={index}>
+                  <pre>{theme}</pre>
+                  <pre>{content}</pre>
+                </InfoText>
+              ))}
+            </LocationInfo>
+            <ContactInfo>
+              {ContactInfoData.map(({ theme, content }, index) => (
+                <InfoText key={index}>
+                  <pre>{theme}</pre>
+                  <pre>{content}</pre>
+                </InfoText>
+              ))}
+            </ContactInfo>
+          </InfoTextContainer>
+        </InfoContainer>
+
+        {/* 아래 점 4개 */}
+        <IconContainer>
+          <IconWrapper></IconWrapper>
+          <IconWrapper></IconWrapper>
+          <IconWrapper></IconWrapper>
+          <IconWrapper></IconWrapper>
+        </IconContainer>
+      </Container>
+    </Body>
   );
 }
 export default Footer;
+
+const Body = styled.div`
+  background: #f2f2f2;
+  width: 100%;
+`;
+
+const Container = styled.div`
+  width: 70%;
+  margin: auto;
+  padding: 95px 0 70px;
+`;
+
+const CategoryConatiner = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Category = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const CategoryTitle = styled.div`
+  font-weight: 600;
+  margin-bottom: 33px;
+`;
+
+const CategoryLinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const CategoryLink = styled.div`
+  a {
+    color: #616161;
+    font-weight: 600;
+    text-decoration: none;
+  }
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+
+  margin-top: 110px;
+  gap: 75px;
+
+  img {
+    width: 188px;
+    height: 195.457px;
+    flex-shrink: 0;
+  }
+`;
+
+const InfoTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  pre {
+    color: #575757;
+  }
+`;
+
+const LocationInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 56px;
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const InfoText = styled.div`
+  display: flex;
+  &:first-child {
+    width: 50px;
+  }
+  gap: 34px;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+
+  margin-top: 90px;
+`;
+
+const IconWrapper = styled.div`
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #d9d9d9;
+`;

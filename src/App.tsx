@@ -11,6 +11,7 @@ import Ask from './pages/ask';
 import GlobalStyle from './styles/GlobalStyles';
 import GlobalFont from './styles/GlobalFont';
 import About from './pages/about';
+import Detail from './pages/notice/Detail';
 
 const route = createBrowserRouter([
   {
@@ -18,7 +19,6 @@ const route = createBrowserRouter([
     element: <Layout />, // 헤더 및 푸터
     children: [
       {
-        index: true,
         element: <Main />, // 홈페이지
       },
       {
@@ -27,7 +27,16 @@ const route = createBrowserRouter([
       },
       {
         path: 'notice',
-        element: <Notice />, //공지사항 페이지
+        children: [
+          {
+            index: true,
+            element: <Notice />, //공지사항 페이지
+          },
+          {
+            path: ':id',
+            element: <Detail />, //세부 공지사항
+          },
+        ],
       },
       {
         path: 'news',
