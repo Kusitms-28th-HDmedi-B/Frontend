@@ -21,15 +21,25 @@ const Logo = styled.span`
   height: 28px;
 `;
 const Nav = styled.ul`
+  margin-left: 100px;
   display: inline-block;
   position: absolute;
+
   li {
     display: inline;
-    margin: 10px 30px;
+    margin: 0 30px;
+    text-align: center;
+    line-height: 28px; //이거다
+    color: #8b8b8b;
+    &:hover {
+      font-weight: 700;
+      color: #31313e;
+    }
   }
 `;
 const LanguageContainer = styled.span`
   float: right;
+  line-height: 28px; //이거다
 `;
 const Language = styled.span<{ isSelected: boolean }>`
   cursor: pointer;
