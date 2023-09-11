@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import logo from '../../../public/assets/logo/header-logo.svg';
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const Container = styled.div`
   /* border: 1px solid black; */
   width: 70%;
@@ -58,6 +59,10 @@ const NavDepthContainer = styled.div`
 const NavDepth = styled.div`
   width: max-content;
   padding: 3px 10px;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 const LanguageContainer = styled.span`
   float: right;
@@ -82,7 +87,9 @@ function Header() {
             {category.title}
             <NavDepthContainer>
               {category.depth.map((each, index) => (
-                <NavDepth key={index}>{each.name}</NavDepth>
+                <NavDepth key={index}>
+                  <Link to={each.url}>{each.name}</Link>
+                </NavDepth>
               ))}
             </NavDepthContainer>
           </li>
