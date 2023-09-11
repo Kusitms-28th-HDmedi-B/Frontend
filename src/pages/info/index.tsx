@@ -4,8 +4,9 @@ import TextBox from './TextBox';
 
 const Container = styled.div`
   background-color: white;
-  width: 80%;
+  width: 70%;
   margin: auto;
+  padding: 106px 0 161px; //추가
   margin-bottom: 100px;
 `;
 export const Title = styled.div`
@@ -19,7 +20,7 @@ export const Title = styled.div`
 `;
 const ContentsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import logoImg from '../../assets/logo.png';
+import logoImg from '/assets/logo/logo.png';
 const Container = styled.div`
   /* border: 1px solid black; */
   width: 100%;
