@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import News from './pages/news';
-import Story from './pages/value';
 import Main from './pages/main';
 import Layout from './components/layout/Layout';
 import Recruit from './pages/recruit';
