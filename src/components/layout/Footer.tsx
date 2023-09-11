@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import FooterLogo from '../../assets/logo/footer-logo.svg';
-import { CategoryData, CompanyInfoData, ContactInfoData } from './FooterData';
+import FooterLogo from '/assets/logo/footer-logo.svg';
+import {
+  CategoryData,
+  CompanyInfoData,
+  ContactInfoData,
+} from './data/FooterData';
+import Instagram from '/assets/icon/icon-instagram.svg';
+import Naver from '/assets/icon/icon-naver.svg';
+import Youtube from '/assets/icon/icon-youtube.svg';
 
 function Footer() {
   //헤더에도 사옹될거고, 각각 <Link>도 연결해야하니까 객체형태로 state로 리팩터링 해야함
@@ -46,15 +53,34 @@ function Footer() {
               ))}
             </ContactInfo>
           </InfoTextContainer>
-        </InfoContainer>
 
-        {/* 아래 점 4개 */}
-        <IconContainer>
-          <IconWrapper></IconWrapper>
-          <IconWrapper></IconWrapper>
-          <IconWrapper></IconWrapper>
-          <IconWrapper></IconWrapper>
-        </IconContainer>
+          <RightBox>
+            <TermsContainer>
+              <Terms>{'서비스 이용약관'}</Terms>
+              <Terms>{'개인정보취급방지'}</Terms>
+            </TermsContainer>
+
+            {/* SNS 아이콘 */}
+            <IconContainer>
+              <IconWrapper
+                href="https://www.instagram.com/upp_hdmedi/"
+                target="_blank"
+              >
+                <img src={Instagram} alt="insta" />
+              </IconWrapper>
+              {/* Todo: 네이버 링크 추가 */}
+              <IconWrapper>
+                <img src={Naver} alt="naver" />
+              </IconWrapper>
+              <IconWrapper
+                href="https://www.youtube.com/@user-yo8bf6in2k"
+                target="_blank"
+              >
+                <img src={Youtube} alt="youtube" />
+              </IconWrapper>
+            </IconContainer>
+          </RightBox>
+        </InfoContainer>
       </Container>
     </Body>
   );
@@ -105,10 +131,10 @@ const CategoryLink = styled.div`
 
 const InfoContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   margin-top: 110px;
-  gap: 75px;
+  /* gap: 75px; */
 
   img {
     width: 188px;
@@ -147,15 +173,38 @@ const InfoText = styled.div`
   gap: 34px;
 `;
 
-const IconContainer = styled.div`
+const RightBox = styled.div`
   display: flex;
-  justify-content: flex-start;
-  gap: 16px;
-
-  margin-top: 90px;
 `;
 
-const IconWrapper = styled.div`
+const TermsContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  left: -40px;
+  gap: 20px;
+`;
+
+const Terms = styled.a`
+  color: #616161;
+  font-weight: 600;
+  line-height: normal;
+
+  text-decoration: none;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 16px;
+`;
+
+const IconWrapper = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 32px;
   height: 32px;
   flex-shrink: 0;
@@ -163,4 +212,10 @@ const IconWrapper = styled.div`
   border-radius: 50%;
 
   background-color: #d9d9d9;
+
+  img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
 `;
