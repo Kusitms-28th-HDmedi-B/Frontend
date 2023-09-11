@@ -26,8 +26,10 @@ const Nav = styled.ul`
   position: absolute;
 
   li {
+    position: relative;
     display: inline;
     margin: 0 30px;
+    padding-bottom: 20px; //호버시 마우스를 내려올 수 있게 하기 위한 영역
     text-align: center;
     line-height: 28px; //이거다
     color: #8b8b8b;
@@ -36,6 +38,26 @@ const Nav = styled.ul`
       color: #31313e;
     }
   }
+  li:hover > div {
+    display: flex; /* 부모 li에 호버 시 나타남 */
+    flex-direction: column;
+  }
+`;
+const NavDepthContainer = styled.div`
+  display: none;
+  position: absolute;
+  top: 100%; //이게 왜 중요하지?
+  /* left: 0; //부모의 li가 relative이므로, 그것의 x값 */
+  left: 50%; /* 요소의 가로 중앙으로 이동 */
+  transform: translateX(-50%); /* 왼쪽으로 절반만큼 이동 */
+  border: 1px solid #d0d0d0;
+  border-radius: 9px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  font-size: 14px;
+`;
+const NavDepth = styled.div`
+  width: max-content;
+  padding: 3px 10px;
 `;
 const LanguageContainer = styled.span`
   float: right;
@@ -56,7 +78,14 @@ function Header() {
       <Logo></Logo>
       <Nav>
         {categories.map((category, index) => (
-          <li key={index}>{category.title}</li>
+          <li key={index}>
+            {category.title}
+            <NavDepthContainer>
+              {category.depth.map((each, index) => (
+                <NavDepth key={index}>{each.name}</NavDepth>
+              ))}
+            </NavDepthContainer>
+          </li>
         ))}
       </Nav>
       <LanguageContainer>
