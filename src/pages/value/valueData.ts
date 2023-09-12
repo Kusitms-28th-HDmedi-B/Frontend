@@ -1,4 +1,4 @@
-interface ICardText {
+export interface ICardText {
   title: string;
   subTitle: string;
   detail: string[];

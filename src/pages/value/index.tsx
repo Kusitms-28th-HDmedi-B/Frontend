@@ -4,8 +4,9 @@ import { currHeaderAtom } from '../../recoil/atom';
 import { useEffect } from 'react';
 
 import banner from '../../../public/assets/image/ValueBannerEx.png';
-import card from '../../../public/assets/image/ValueCardEx.jpg';
+import cardImgUrl from '../../../public/assets/image/ValueCardEx.jpg';
 import { CardText, bannerText } from './valueData';
+import Card from './Card';
 
 const Container = styled.div`
   width: 100vw;
@@ -78,7 +79,7 @@ const CardImg = styled.span`
   top: 0px;
   left: 0px;
 
-  background: url(${card}) left top no-repeat;
+  background: url(${cardImgUrl}) left top no-repeat;
   background-size: cover;
   display: inline-block;
 `;
@@ -116,17 +117,18 @@ const Value = () => {
       <FirstContainer>
         <SubTitle>함께 성장할 인재를 찾습니다.</SubTitle>
         <GridContainer>
-          {CardText.map((each) => (
-            <CardContainer>
-              <CardImg></CardImg>
-              <CardTitle>{each.title}</CardTitle>
-              <CardSubTitle>{each.subTitle}</CardSubTitle>
-              <CardUl>
-                {each.detail.map((eachLi) => (
-                  <li>- {eachLi}</li>
-                ))}
-              </CardUl>
-            </CardContainer>
+          {CardText.map((textData) => (
+            // <CardContainer>
+            //   <CardImg></CardImg>
+            //   <CardTitle>{each.title}</CardTitle>
+            //   <CardSubTitle>{each.subTitle}</CardSubTitle>
+            //   <CardUl>
+            //     {each.detail.map((eachLi) => (
+            //       <li>- {eachLi}</li>
+            //     ))}
+            //   </CardUl>
+            // </CardContainer>
+            <Card url={cardImgUrl} textData={textData}></Card>
           ))}
         </GridContainer>
       </FirstContainer>
