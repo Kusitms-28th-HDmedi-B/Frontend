@@ -3,13 +3,15 @@ import logo from '../../../public/assets/logo/header-logo.svg';
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-const Container = styled.div`
+import { useRecoilState } from 'recoil';
+import { HeaderColorType, currHeaderAtom } from '../../recoil/atom';
+const Container = styled.div<{ bgColor: HeaderColorType }>`
   /* border: 1px solid black; */
   width: 70%;
   height: 80px;
   margin: 0 15%;
   padding: 15px 0;
-  background-color: #fff;
+  background-color: ${(props) => props.bgColor};
   position: fixed;
   z-index: 3;
 `;
@@ -86,9 +88,9 @@ type LanguageType = 'KR' | 'EN';
 function Header() {
   const categories = CategoryData;
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
-  console.log('rende');
+  const [currHeader, setCurrHeader] = useRecoilState(currHeaderAtom);
   return (
-    <Container>
+    <Container bgColor={currHeader}>
       <Link to={'../'}>
         <Logo></Logo>
       </Link>

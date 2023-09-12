@@ -12,6 +12,7 @@ import GlobalFont from './styles/GlobalFont';
 import About from './pages/about';
 import Detail from './pages/notice/Detail';
 import Value from './pages/value';
+import { RecoilRoot } from 'recoil';
 
 const route = createBrowserRouter([
   {
@@ -64,9 +65,11 @@ const route = createBrowserRouter([
 
 const App = () => (
   <>
-    <GlobalFont />
-    <GlobalStyle />
-    <RouterProvider router={route} />
+    <RecoilRoot>
+      <GlobalFont />
+      <GlobalStyle />
+      <RouterProvider router={route} />
+    </RecoilRoot>
   </>
 );
 
