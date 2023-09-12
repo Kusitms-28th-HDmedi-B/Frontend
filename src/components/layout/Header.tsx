@@ -3,7 +3,7 @@ import logo from '../../../public/assets/logo/header-logo.svg';
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { HeaderColorType, currHeaderAtom } from '../../recoil/atom';
 const Container = styled.div<{ bgColor: HeaderColorType }>`
   /* border: 1px solid black; */
