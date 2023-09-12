@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ICardText } from './valueData';
+import { ICardText } from '../../pages/value/valueData';
 
 const CardContainer = styled.div`
   position: relative; //부모로서 CardContainer에 겹치게 하기 위한 설정
