@@ -86,11 +86,12 @@ type LanguageType = 'KR' | 'EN';
 function Header() {
   const categories = CategoryData;
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
-  const [isHover, setIsHover] = useState(false);
   console.log('rende');
   return (
     <Container>
-      <Logo></Logo>
+      <Link to={'../'}>
+        <Logo></Logo>
+      </Link>
       <Nav>
         {categories.map((category, index) => (
           <NavLi key={index} countDepth={category.depth.length}>
