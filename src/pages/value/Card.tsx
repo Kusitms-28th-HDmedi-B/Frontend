@@ -62,6 +62,8 @@ const CardUl = styled.ul`
   font-weight: 700;
   overflow: hidden; //안보이게 했다가 보이게
   height: 0;
+  width: 80%;
+  list-style-type: circle; //왜 적용 안되지?
 `;
 interface CardProps {
   url: string;
