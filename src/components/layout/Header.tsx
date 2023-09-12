@@ -8,7 +8,7 @@ import { HeaderColorType, currHeaderAtom } from '../../recoil/atom';
 const Container = styled.div<{ bgColor: HeaderColorType }>`
   /* border: 1px solid black; */
   width: 70%;
-  height: 80px;
+  /* height: 80px; */
   margin: 0 15%;
   padding: 15px 0;
   background-color: ${(props) => props.bgColor};
