@@ -106,7 +106,6 @@ const CardUl = styled.ul`
   height: 0;
 `;
 
-const hoverMouse = () => {};
 const Value = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
 
@@ -118,7 +117,7 @@ const Value = () => {
         <SubTitle>함께 성장할 인재를 찾습니다.</SubTitle>
         <GridContainer>
           {CardText.map((each) => (
-            <CardContainer onMouseEnter={hoverMouse}>
+            <CardContainer>
               <CardImg></CardImg>
               <CardTitle>{each.title}</CardTitle>
               <CardSubTitle>{each.subTitle}</CardSubTitle>
