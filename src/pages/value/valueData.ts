@@ -8,7 +8,7 @@ export const bannerText = '사회의 문제를 함게 고민할 수 있는 인�
 export const CardText: ICardText[] = [
   {
     title: '피드백',
-    subTitle: '팀을 위해 솔직한 의견을 남길 수 있는 인재',
+    subTitle: '팀을 위해 솔직한 의견을\n남길 수 있는 인재',
     detail: [
       '나와는 반대되는 의견과 다른 의견에 대해 편안하게 얘기할 수 있는 사람',
       '더 나은 의견을 존중하는 사람',
@@ -17,7 +17,7 @@ export const CardText: ICardText[] = [
   },
   {
     title: '협업',
-    subTitle: '협업자들을 이해하며 목적 달성을 위해 함께 성장하는 인재',
+    subTitle: '협업자들을 이해하며\n목적 달성을 위해 함께 성장하는 인재',
     detail: [
       '나와는 반대되는 의견과 다른 의견에 대해 편안하게 얘기할 수 있는 사람',
       '더 나은 의견을 존중하는 사람',
@@ -26,7 +26,7 @@ export const CardText: ICardText[] = [
   },
   {
     title: '성장',
-    subTitle: '팀을 위해 솔직한 의견을 남길 수 있는 인재',
+    subTitle: '팀과 함께 성장을 고민할 수 있는 인재',
     detail: [
       '나와는 반대되는 의견과 다른 의견에 대해 편안하게 얘기할 수 있는 사람',
       '더 나은 의견을 존중하는 사람',
