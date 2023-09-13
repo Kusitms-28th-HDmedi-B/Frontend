@@ -168,7 +168,8 @@ const Container = styled.div`
   justify-content: flex-start;
 
   width: 70%;
-  margin: 106px auto 114px;
+  margin: auto;
+  padding: 106px 0 161px; //추가
 `;
 
 const TopBox = styled.div`
@@ -313,8 +314,8 @@ const RadioButton = styled.div`
 `;
 
 const InnerCircle = styled.div`
-  width: 12px;
-  height: 12px;
+  width: 100%;
+  height: 100%;
   flex-shrink: 0;
 
   border-radius: 50%;
