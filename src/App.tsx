@@ -13,6 +13,7 @@ import About from './pages/about';
 import Detail from './pages/notice/Detail';
 import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
+import Technology from './pages/technology';
 
 const route = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const route = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
+      },
+      {
+        path: 'technology',
+        element: <Technology />,
       },
     ],
   },
