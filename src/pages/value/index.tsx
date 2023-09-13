@@ -16,7 +16,6 @@ import { Title } from '../info';
 
 const Container = styled.div`
   width: 100vw;
-  margin-bottom: 100px;
 `;
 const Banner = styled.div`
   width: 100%;
@@ -87,7 +86,7 @@ const TextContainer = styled.div`
 `;
 const ThirdContainer = styled.div`
   width: 70%;
-  margin: auto;
+  margin: 100px auto;
   height: 600px;
 `;
 const CurtureCardContainer = styled.div`

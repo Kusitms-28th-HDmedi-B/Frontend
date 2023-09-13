@@ -5,7 +5,7 @@ interface curtureCardProps {
   imgUrl: string;
 }
 const Container = styled.div<{ $imgUrl: string }>`
-  width: 30%;
+  width: 28%;
   height: 400px;
   border-radius: 20px;
   background: url(${(props) => props.$imgUrl});
@@ -19,7 +19,6 @@ const Text = styled.div`
   white-space: break-spaces;
   margin-top: 70px;
   text-align: center;
-  
 `;
 const CurtureCard: React.FC<curtureCardProps> = ({ text, imgUrl }) => {
   return (
