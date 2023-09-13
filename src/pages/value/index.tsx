@@ -88,8 +88,8 @@ const Value = () => {
       <FirstContainer>
         <SubTitle>함께 성장할 인재를 찾습니다.</SubTitle>
         <GridContainer>
-          {CardText.map((textData) => (
-            <Card url={cardImgUrl} textData={textData}></Card>
+          {CardText.map((textData, index) => (
+            <Card url={cardImgUrl} textData={textData} key={index}></Card>
           ))}
         </GridContainer>
       </FirstContainer>
