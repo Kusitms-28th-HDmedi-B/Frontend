@@ -10,6 +10,7 @@ import { CardText, curtureCardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
 import CurtureCard from './CultureCard';
+import { Title } from '../info';
 
 const Container = styled.div`
   width: 100vw;
@@ -84,7 +85,14 @@ const TextContainer = styled.div`
 `;
 const ThirdContainer = styled.div`
   width: 70%;
+  margin: auto;
   height: 600px;
+`;
+const CurtureCardContainer = styled.div`
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
 `;
 const FourthContainer = styled.div`
   width: 100%;
@@ -138,9 +146,12 @@ const Value = () => {
         </TextContainer>
       </SecondContainer>
       <ThirdContainer>
-        {curtureCardText.map((text) => (
-          <CurtureCard text={text} imgUrl={curtureCardImgUrl}></CurtureCard>
-        ))}
+        <Title>HD메디의 문화</Title>
+        <CurtureCardContainer>
+          {curtureCardText.map((text) => (
+            <CurtureCard text={text} imgUrl={curtureCardImgUrl}></CurtureCard>
+          ))}
+        </CurtureCardContainer>
       </ThirdContainer>
       <FourthContainer>
         <div>우리와 함께 더 좋은 세상을 만들어요</div>
