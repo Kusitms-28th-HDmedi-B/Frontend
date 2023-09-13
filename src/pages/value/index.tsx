@@ -4,10 +4,10 @@ import { currHeaderAtom } from '../../recoil/atom';
 import { useEffect } from 'react';
 
 import banner from '../../../public/assets/image/ValueBannerEx.png';
-import cardImgUrl from '../../../public/assets/image/ValueCardEx.jpg';
+import cardImgUrl from '../../../public/assets/image/ValueCardEx.png';
 import { CardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100vw;
