@@ -1,16 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import MissionCard from './components/MissionCard';
 import WorthCard from './components/WorthCard';
 import { MissionData, StatisticData, WorthCardData } from './data';
 import StatisticCard from './components/StatisticCard';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import ServiceCard from './components/ServiceCard';
+import { currHeaderAtom } from '../../recoil/atom';
 
 const About = () => {
   const [firstOpacity, setFirstOpacity] = useState<number>(1);
   const [secondOpacity, setSecondOpacity] = useState<number>(0);
+  const setCurrHeader = useSetRecoilState(currHeaderAtom);
 
   const handleScroll = useCallback(() => {
     const currentScrollY: number = window.scrollY;
@@ -31,8 +35,9 @@ const About = () => {
     }
   }, [firstOpacity, secondOpacity]);
 
+  useEffect(() => setCurrHeader('transparent'), []);
   useEffect(() => {
-    window.addEventListener('wheel', handleScroll);
+    window.addEventListener('scroll', handleScroll);
     handleScroll();
   }, []);
 
