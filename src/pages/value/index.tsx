@@ -7,6 +7,7 @@ import banner from '../../../public/assets/image/ValueBannerEx.png';
 import cardImgUrl from '../../../public/assets/image/ValueCardEx.jpg';
 import { CardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100vw;
@@ -78,9 +79,42 @@ const TextContainer = styled.div`
     line-height: 20px;
   }
 `;
+const ThirdContainer = styled.div`
+  width: 70%;
+  height: 600px;
+`;
+const FourthContainer = styled.div`
+  width: 100%;
+  height: 600px;
+  padding: 200px 0;
+  margin: auto;
+  background-color: #d9d9d9;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  div:nth-of-type(1) {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 80px;
+  }
+  div:nth-of-type(2) {
+    width: 250px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #6a6a6a;
+
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    cursor: pointer;
+  }
+`;
 const Value = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
-
+  const navigate = useNavigate();
   useEffect(() => setCurrHeader('transparent'));
   return (
     <Container>
@@ -100,6 +134,11 @@ const Value = () => {
           <div>{secondContainerText[1]}</div>
         </TextContainer>
       </SecondContainer>
+      <ThirdContainer></ThirdContainer>
+      <FourthContainer>
+        <div>우리와 함께 더 좋은 세상을 만들어요</div>
+        <div onClick={() => navigate('../recruit')}>채용 공고 바로가기</div>
+      </FourthContainer>
     </Container>
   );
 };
