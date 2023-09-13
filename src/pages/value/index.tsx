@@ -5,9 +5,11 @@ import { useEffect } from 'react';
 
 import banner from '../../../public/assets/image/ValueBanner.png';
 import cardImgUrl from '../../../public/assets/image/ValueCard.png';
-import { CardText, secondContainerText } from './valueData';
+import curtureCardImgUrl from '../../../public/assets/image/ValueCurtureCard.png';
+import { CardText, curtureCardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
+import CurtureCard from './CultureCard';
 
 const Container = styled.div`
   width: 100vw;
@@ -135,7 +137,11 @@ const Value = () => {
           <div>{secondContainerText[1]}</div>
         </TextContainer>
       </SecondContainer>
-      <ThirdContainer></ThirdContainer>
+      <ThirdContainer>
+        {curtureCardText.map((text) => (
+          <CurtureCard text={text} imgUrl={curtureCardImgUrl}></CurtureCard>
+        ))}
+      </ThirdContainer>
       <FourthContainer>
         <div>우리와 함께 더 좋은 세상을 만들어요</div>
         <div onClick={() => navigate('../recruit')}>채용 공고 바로가기</div>

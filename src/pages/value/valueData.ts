@@ -45,3 +45,8 @@ export const CardText: ICardText[] = [
     ],
   },
 ];
+export const curtureCardText = [
+  '수평적인 위치에서\n함께 협업합니다',
+  '잘 듣고, 잘 되묻는\n소통을 합니다',
+  '개인의 라이프를\n존중합니다',
+];
