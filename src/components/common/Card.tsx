@@ -76,8 +76,8 @@ const Card: React.FC<CardProps> = ({ url, textData }) => {
       <CardTitle>{textData.title}</CardTitle>
       <CardSubTitle>{textData.subTitle}</CardSubTitle>
       <CardUl>
-        {textData.detail.map((eachLi) => (
-          <li>- {eachLi}</li>
+        {textData.detail.map((eachLi, index) => (
+          <li key={index}>- {eachLi}</li>
         ))}
       </CardUl>
     </CardContainer>
