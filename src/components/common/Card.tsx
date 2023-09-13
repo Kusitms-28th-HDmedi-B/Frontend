@@ -29,14 +29,14 @@ const CardContainer = styled.div`
     height: auto;
   }
 `;
-const CardImg = styled.span<{ imgUrl: string }>`
+const CardImg = styled.span<{ $imgUrl: string }>`
   position: absolute; //부모인 CardContainer에 겹치게 하기 위한 설정
   width: 450px;
   height: 450px;
   top: 0px;
   left: 0px;
 
-  background: url(${(props) => props.imgUrl}) left top no-repeat;
+  background: url(${(props) => props.$imgUrl}) left top no-repeat;
   background-size: cover;
   display: inline-block;
 `;
@@ -72,7 +72,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ url, textData }) => {
   return (
     <CardContainer>
-      <CardImg imgUrl={url}></CardImg>
+      <CardImg $imgUrl={url}></CardImg>
       <CardTitle>{textData.title}</CardTitle>
       <CardSubTitle>{textData.subTitle}</CardSubTitle>
       <CardUl>
