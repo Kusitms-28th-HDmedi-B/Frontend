@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { useSetRecoilState } from 'recoil';
 import { currHeaderAtom } from '../../recoil/atom';
 import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import banner from '../../../public/assets/image/ValueBanner.png';
 import cardImgUrl from '../../../public/assets/image/ValueCard.png';
@@ -127,6 +129,11 @@ const Value = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
   const navigate = useNavigate();
   useEffect(() => setCurrHeader('transparent'));
+
+  useEffect(() => {
+    AOS.init();
+  });
+
   return (
     <Container>
       <Banner>사회의 문제를 함게 고민할 수 있는 인재를 찾습니다!</Banner>
@@ -145,11 +152,20 @@ const Value = () => {
           <div>{secondContainerText[1]}</div>
         </TextContainer>
       </SecondContainer>
-      <ThirdContainer>
+      <ThirdContainer
+        data-aos="fade-up"
+        data-aos-offset="100"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1500"
+      >
         <Title>HD메디의 문화</Title>
         <CurtureCardContainer>
-          {curtureCardText.map((text) => (
-            <CurtureCard text={text} imgUrl={curtureCardImgUrl}></CurtureCard>
+          {curtureCardText.map((text, index) => (
+            <CurtureCard
+              text={text}
+              imgUrl={curtureCardImgUrl}
+              key={index}
+            ></CurtureCard>
           ))}
         </CurtureCardContainer>
       </ThirdContainer>
