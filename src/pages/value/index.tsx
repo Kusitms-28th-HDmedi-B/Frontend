@@ -19,8 +19,9 @@ const Container = styled.div`
 `;
 const Banner = styled.div`
   width: 100%;
-  height: 700px;
-  background: url(${banner}) no-repeat center/cover;
+  height: 100vh;
+  background: url(${banner}) no-repeat;
+  background-size: cover;
 
   text-align: center;
   line-height: 700px;
