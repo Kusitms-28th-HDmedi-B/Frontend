@@ -3,8 +3,8 @@ import { useSetRecoilState } from 'recoil';
 import { currHeaderAtom } from '../../recoil/atom';
 import { useEffect } from 'react';
 
-import banner from '../../../public/assets/image/ValueBannerEx.png';
-import cardImgUrl from '../../../public/assets/image/ValueCardEx.png';
+import banner from '../../../public/assets/image/ValueBanner.png';
+import cardImgUrl from '../../../public/assets/image/ValueCard.png';
 import { CardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +22,7 @@ const Banner = styled.div`
   line-height: 700px;
   font-size: 50px;
   font-weight: 700;
+  color: #eef7ff;
 `;
 const FirstContainer = styled.div`
   width: 70%;
