@@ -21,6 +21,37 @@ const SwiperContainer = styled(Swiper)`
   width: 100vw;
   height: 100vh;
 
+  .swiper-button-prev {
+    top: calc(100% - 112px);
+    left: calc(50% - 270px);
+    width: 50px;
+    height: 50px;
+    border-radius: 27px;
+    background: url(${arrowLeft}) no-repeat;
+    background-color: white;
+    background-size: 18% auto;
+    background-position: center;
+    z-index: 120;
+  }
+
+  .swiper-button-next {
+    top: calc(100% - 112px);
+    left: calc(50% + 270px - 50px); //동그라미 크기만큼
+    width: 50px;
+    height: 50px;
+    border-radius: 27px;
+    background: url(${arrowRight}) no-repeat;
+    background-color: white;
+    background-size: 18% auto;
+    background-position: center;
+    z-index: 120;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
+  }
+  //pagination bar에 적용하는 스타일 -활성화된 bullet
+
   .swiper-pagination {
     margin-bottom: calc(100px - 10px);
   }
@@ -41,36 +72,6 @@ const SwiperContainer = styled(Swiper)`
       color: #000;
     }
   }
-  .swiper-button-prev {
-    top: 603px;
-    left: calc(50% - 270px);
-    width: 50px;
-    height: 50px;
-    border-radius: 27px;
-    background: url(${arrowLeft}) no-repeat;
-    background-color: white;
-    background-size: 20% auto;
-    background-position: center;
-    z-index: 120;
-  }
-
-  .swiper-button-next {
-    top: 603px;
-    left: calc(50% + 270px - 50px); //동그라미 크기만큼
-    width: 50px;
-    height: 50px;
-    border-radius: 27px;
-    background: url(${arrowRight}) no-repeat;
-    background-color: white;
-    background-size: 20% auto;
-    background-position: center;
-    z-index: 120;
-  }
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    display: none;
-  }
-  //pagination bar에 적용하는 스타일 -활성화된 bullet
   .swiper-pagination-bullet-active {
     color: #000;
   }
