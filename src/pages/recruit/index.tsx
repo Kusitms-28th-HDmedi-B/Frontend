@@ -8,6 +8,7 @@ import { useRecoilValue } from 'recoil';
 import Recruits from './Recruits';
 import { recruitCategoriesAtom } from '../../recoil/atom';
 
+
 const Container = styled.div`
   width: 70%;
   margin: auto;
@@ -39,6 +40,7 @@ const Recruit = () => {
   const [maxPage, setMaxPage] = useState(1);
   const categories = useRecoilValue(recruitCategoriesAtom);
   maxPage;
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -51,6 +53,7 @@ const Recruit = () => {
     };
     getData();
   }, []);
+
 
   const filteredData: RecruitResponse[] = [];
   recruitData.forEach((val) => {
@@ -73,6 +76,7 @@ const Recruit = () => {
   });
   console.log('걸러진결과 : ', filteredData.length);
   // setMaxPage(Math.floor((filteredData.length + 2) / 3));
+
   return (
     <Container>
       <Title>채용 공고</Title>
@@ -83,6 +87,7 @@ const Recruit = () => {
             maxPage={Math.floor((filteredData.length + 2) / 3)}
             recruitData={filteredData}
           />
+
         )}
       </ContentsContainer>
     </Container>
