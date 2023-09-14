@@ -3,7 +3,7 @@ import { Title } from '../info';
 import CheckBox from './CheckBox';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 import Recruits from './Recruits';
 import { recruitCategoriesAtom } from '../../recoil/atom';
@@ -37,8 +37,8 @@ export interface RecruitResponse {
 const Recruit = () => {
   const [recruitData, setRecruitData] = useState<RecruitResponse[]>([]);
   const [maxPage, setMaxPage] = useState(1);
-  const [categories, setCategories] = useRecoilState(recruitCategoriesAtom);
-
+  const categories = useRecoilValue(recruitCategoriesAtom);
+  maxPage;
   useEffect(() => {
     const getData = async () => {
       try {
@@ -71,7 +71,7 @@ const Recruit = () => {
       filteredData.push(val);
     }
   });
-  // console.log('걸러진결과 : ', filteredData.length);
+  console.log('걸러진결과 : ', filteredData.length);
   // setMaxPage(Math.floor((filteredData.length + 2) / 3));
   return (
     <Container>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import arrow from './arrow-icon.svg';
