@@ -21,6 +21,7 @@ const route = createBrowserRouter([
     element: <Layout />, // 헤더 및 푸터
     children: [
       {
+        index: true,
         element: <Main />, // 홈페이지
       },
       {
