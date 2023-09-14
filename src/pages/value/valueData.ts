@@ -3,7 +3,10 @@ export interface ICardText {
   subTitle: string;
   detail: string[];
 }
-export const bannerText = '사회의 문제를 함게 고민할 수 있는 인재를 찾습니다!';
+export const secondContainerText = [
+  '첫째도 인성, 둘째도 인성, 그 마지막도 인성!',
+  '자사는 첫째도, 둘째도, 셋째도 타인을 배려할 수 있는 인성을 갖고 있는 인재를 원합니다.\n우리가 원하는 팀원은 대기업 스펙을 가진 인재가 아니라 사회의 문제를 같이 해결하고자 하는 사람이며,\n결과적으로 실패하더라도 계속적으로 도전할 수 있는 사람이어야 합니다.\n저희와 함께 다르게 문제를 바라보고 새로운 방법으로 문제를 해결할 인재를 구합니다.',
+];
 
 export const CardText: ICardText[] = [
   {
@@ -43,3 +46,9 @@ export const CardText: ICardText[] = [
     ],
   },
 ];
+export const curtureCardText = [
+  '수평적인 위치에서\n함께 협업합니다',
+  '잘 듣고, 잘 되묻는\n소통을 합니다',
+  '개인의 라이프를\n존중합니다',
+];
+
