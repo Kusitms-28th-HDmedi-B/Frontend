@@ -3,8 +3,10 @@ import { Title } from '../info';
 import CheckBox from './CheckBox';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
 
 import Recruits from './Recruits';
+import { recruitCategoriesAtom } from '../../recoil/atom';
 
 const Container = styled.div`
   width: 70%;
@@ -35,6 +37,8 @@ export interface RecruitResponse {
 const Recruit = () => {
   const [recruitData, setRecruitData] = useState<RecruitResponse[]>([]);
   const [maxPage, setMaxPage] = useState(1);
+  const [categories, setCategories] = useRecoilState(recruitCategoriesAtom);
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -47,13 +51,38 @@ const Recruit = () => {
     };
     getData();
   }, []);
+
+  const filteredData: RecruitResponse[] = [];
+  recruitData.forEach((val) => {
+    // const LOGIC = [
+    //   ['HR', 0],
+    //   ['MARKETING', 1],
+    //   ['IT', 2],
+    //   ['ACCOUNTING', 3],
+    // ];
+    // console.log(val);
+    if (val.category === 'HR' && categories[0] === true) {
+      filteredData.push(val);
+    } else if (val.category === 'MARKETING' && categories[1] === true) {
+      filteredData.push(val);
+    } else if (val.category === 'ACCOUNTING' && categories[2] === true) {
+      filteredData.push(val);
+    } else if (val.category === 'IT' && categories[3] === true) {
+      filteredData.push(val);
+    }
+  });
+  // console.log('걸러진결과 : ', filteredData.length);
+  // setMaxPage(Math.floor((filteredData.length + 2) / 3));
   return (
     <Container>
       <Title>채용 공고</Title>
       <ContentsContainer>
         <CheckBox />
         {recruitData.length > 0 && (
-          <Recruits maxPage={maxPage} recruitData={recruitData} />
+          <Recruits
+            maxPage={Math.floor((filteredData.length + 2) / 3)}
+            recruitData={filteredData}
+          />
         )}
       </ContentsContainer>
     </Container>
