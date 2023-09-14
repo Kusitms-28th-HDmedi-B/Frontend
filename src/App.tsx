@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import News from './pages/news';
 import Main from './pages/main';
@@ -68,14 +69,16 @@ const route = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 const App = () => (
-  <>
+  <QueryClientProvider client={queryClient}>
     <RecoilRoot>
       <GlobalFont />
       <GlobalStyle />
       <RouterProvider router={route} />
     </RecoilRoot>
-  </>
+  </QueryClientProvider>
 );
 
 export default App;
