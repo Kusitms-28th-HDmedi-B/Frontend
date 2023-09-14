@@ -68,7 +68,7 @@ const Main = () => {
         </ThirdTitle>
       </ThirdContainer>
       <FourthContainer>복약지도4만건건건</FourthContainer>
-      <NewsContainer>누ㅠ스</NewsContainer>
+      <NewsContainer></NewsContainer>
     </Container>
   );
 };
