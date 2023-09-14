@@ -49,25 +49,23 @@ interface RecruitsProps {
 }
 
 const Recruits: React.FC<RecruitsProps> = ({ recruitData, maxPage }) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   return (
     <RecruitsContainer>
       <ul>
-        {recruitData
-          .slice((page - 1) * 3, (page - 1) * 3 + 3)
-          .map((data, index) => (
-            <div key={index}>
-              <ReCruitsList>
-                <div>{data.title} </div>
-                <Link to={data.url}>
-                  <span></span>
-                </Link>
-              </ReCruitsList>
+        {recruitData.slice(page * 3, page * 3 + 3).map((data, index) => (
+          <div key={index}>
+            <ReCruitsList>
+              <div>{data.title} </div>
+              <Link to={data.url}>
+                <span></span>
+              </Link>
+            </ReCruitsList>
 
-              <hr></hr>
-            </div>
-          ))}
+            <hr></hr>
+          </div>
+        ))}
       </ul>
       <PageBar maxPage={maxPage} page={page} setPage={setPage}></PageBar>
     </RecruitsContainer>

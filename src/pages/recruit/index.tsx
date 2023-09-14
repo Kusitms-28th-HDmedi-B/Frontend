@@ -84,7 +84,7 @@ const Recruit = () => {
         <CheckBox />
         {recruitData.length > 0 && (
           <Recruits
-            maxPage={Math.floor((filteredData.length + 2) / 3)}
+            maxPage={Math.floor((filteredData.length + 2) / 3)-1}
             recruitData={filteredData}
           />
 
