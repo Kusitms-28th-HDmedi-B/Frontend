@@ -18,11 +18,15 @@ const SwiperContainer = styled(Swiper)`
   width: 100vw;
   height: 100vh;
 
+  .swiper-pagination {
+    margin-bottom: 100px;
+    /* background-color: red; */
+  }
   //pagination bar에 적용하는 스타일 - 전체 bullet
   .swiper-pagination-bullet {
     width: 20px;
     height: 20px;
-    padding: 0 50px;
+    margin: 0 50px !important;
     text-align: center;
     line-height: 20px;
     font-size: 18px;
@@ -46,10 +50,11 @@ const Banner = () => {
   return (
     <>
       <SwiperContainer
+        loop={true}
         spaceBetween={0}
-        centeredSlides={true}
+        // centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 20500,
           disableOnInteraction: false,
         }}
         pagination={{
