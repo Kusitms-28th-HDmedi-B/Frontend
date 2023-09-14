@@ -5,7 +5,6 @@ import Axios from '../../apis';
 import PageBar from '../../components/common/PageBar';
 import { useQuery } from 'react-query';
 
-
 interface NewsType {
   id: number;
   title: string;
@@ -50,33 +49,32 @@ const News = () => {
       <Title>
         <pre>뉴스</pre>
       </Title>
-      {(newsData &&
-        maxPage !== -1) && (
-            <>
-              <ArticleContainer>
-                {newsData?.data.map(
-                  ({ id, title, source, link, publishedAt }: NewsType) => (
-                    <Article key={id}>
-                      <ArticleSource>
-                        <pre>{source}</pre>
-                      </ArticleSource>
-                      <ArticleMain>
-                        <ArticleTitle>
-                          <a href={link} target="_blank">
-                            {title}
-                          </a>
-                        </ArticleTitle>
-                        <ArticleDate>
-                          <pre>{publishedAt}</pre>
-                        </ArticleDate>
-                      </ArticleMain>
-                    </Article>
-                  ),
-                )}
-              </ArticleContainer>
-              <PageBar page={page} setPage={setPage} maxPage={maxPage} />
-            </>,
-          )}
+      {newsData && maxPage !== -1 && (
+        <>
+          <ArticleContainer>
+            {newsData?.data.map(
+              ({ id, title, source, link, publishedAt }: NewsType) => (
+                <Article key={id}>
+                  <ArticleSource>
+                    <pre>{source}</pre>
+                  </ArticleSource>
+                  <ArticleMain>
+                    <ArticleTitle>
+                      <a href={link} target="_blank">
+                        {title}
+                      </a>
+                    </ArticleTitle>
+                    <ArticleDate>
+                      <pre>{publishedAt}</pre>
+                    </ArticleDate>
+                  </ArticleMain>
+                </Article>
+              ),
+            )}
+          </ArticleContainer>
+          <PageBar page={page} setPage={setPage} maxPage={maxPage} />
+        </>
+      )}
     </Container>
   );
 };
