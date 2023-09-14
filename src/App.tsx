@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 
 import News from './pages/news';
 import Main from './pages/main';
@@ -13,6 +13,7 @@ import About from './pages/about';
 import Detail from './pages/notice/Detail';
 import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
+import Upp from './pages/service/upp';
 
 const route = createBrowserRouter([
   {
@@ -58,6 +59,16 @@ const route = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
+      },
+      {
+        path: 'service',
+        element: <Outlet />,
+        children: [
+          {
+            path: 'upp',
+            element: <Upp />,
+          },
+        ],
       },
     ],
   },
