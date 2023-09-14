@@ -13,14 +13,16 @@ import styled from 'styled-components';
 import SwiperCard from './SwiperCard';
 import { SwiperCardDatas } from './bannerData';
 
+import arrowLeft from '../../../public/assets/icon/arrow-left.svg';
+import arrowRight from '../../../public/assets/icon/arrow-right.svg';
+
 const SwiperContainer = styled(Swiper)`
   /* background-color: red; */
   width: 100vw;
   height: 100vh;
 
   .swiper-pagination {
-    margin-bottom: 100px;
-    /* background-color: red; */
+    margin-bottom: calc(100px - 10px);
   }
   //pagination bar에 적용하는 스타일 - 전체 bullet
   .swiper-pagination-bullet {
@@ -39,7 +41,35 @@ const SwiperContainer = styled(Swiper)`
       color: #000;
     }
   }
+  .swiper-button-prev {
+    top: 603px;
+    left: calc(50% - 270px);
+    width: 50px;
+    height: 50px;
+    border-radius: 27px;
+    background: url(${arrowLeft}) no-repeat;
+    background-color: white;
+    background-size: 20% auto;
+    background-position: center;
+    z-index: 120;
+  }
 
+  .swiper-button-next {
+    top: 603px;
+    left: calc(50% + 270px - 50px); //동그라미 크기만큼
+    width: 50px;
+    height: 50px;
+    border-radius: 27px;
+    background: url(${arrowRight}) no-repeat;
+    background-color: white;
+    background-size: 20% auto;
+    background-position: center;
+    z-index: 120;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
+  }
   //pagination bar에 적용하는 스타일 -활성화된 bullet
   .swiper-pagination-bullet-active {
     color: #000;
@@ -54,7 +84,7 @@ const Banner = () => {
         spaceBetween={0}
         // centeredSlides={true}
         autoplay={{
-          delay: 20500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
