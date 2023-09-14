@@ -3,6 +3,7 @@ import { currHeaderAtom } from '../../recoil/atom';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import Banner from './Banner';
+import NewsContainer from './NewsContainer';
 
 const Container = styled.div`
   width: 100vw;
@@ -67,6 +68,7 @@ const Main = () => {
         </ThirdTitle>
       </ThirdContainer>
       <FourthContainer>복약지도4만건건건</FourthContainer>
+      <NewsContainer>누ㅠ스</NewsContainer>
     </Container>
   );
 };
