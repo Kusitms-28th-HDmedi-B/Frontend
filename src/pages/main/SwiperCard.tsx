@@ -14,11 +14,12 @@ const Container = styled.div<{ imgUrl: string }>`
   align-items: center;
 `;
 const Text = styled.div`
-  font-size: 55px;
+  font-size: 50px;
   font-weight: 700;
   white-space: break-spaces;
-  margin: 200px 0 90px 0;
+  margin: 180px 0 90px 0;
   line-height: 70px;
+  text-align: center;
 `;
 const Btn = styled.div`
   width: 200px;
