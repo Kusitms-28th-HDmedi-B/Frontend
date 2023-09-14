@@ -23,11 +23,13 @@ const Banner = styled.div`
   background: url(${banner}) no-repeat;
   background-size: cover;
 
+
   text-align: center;
   line-height: 700px;
   font-size: 50px;
   font-weight: 700;
   color: #eef7ff;
+
 `;
 const FirstContainer = styled.div`
   width: 70%;
@@ -173,6 +175,7 @@ const Value = () => {
         <div>우리와 함께 더 좋은 세상을 만들어요</div>
         <div onClick={() => navigate('../recruit')}>채용 공고 바로가기</div>
       </FourthContainer>
+
     </Container>
   );
 };

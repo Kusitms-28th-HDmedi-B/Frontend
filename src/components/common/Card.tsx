@@ -72,12 +72,14 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ url, textData }) => {
   return (
     <CardContainer>
+
       <CardImg $imgUrl={url}></CardImg>
       <CardTitle>{textData.title}</CardTitle>
       <CardSubTitle>{textData.subTitle}</CardSubTitle>
       <CardUl>
         {textData.detail.map((eachLi, index) => (
           <li key={index}>- {eachLi}</li>
+
         ))}
       </CardUl>
     </CardContainer>
