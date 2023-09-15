@@ -14,7 +14,7 @@ import UIUX from '/assets/image/UIUXImage.svg';
 import { downloadData, functionCardData, statisticData } from './data';
 import { handleScroll } from './functions';
 
-const About = () => {
+const Upp = () => {
   const [firstOpacity, setFirstOpacity] = useState<number>(0);
   const [secondOpacity, setSecondOpacity] = useState<number>(0);
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
@@ -31,8 +31,6 @@ const About = () => {
     },
   };
 
-  console.log(window.innerWidth, window.innerHeight);
-
   const onPlayerEnd = (e: any) => {
     e.target.playVideo();
   };
@@ -45,7 +43,7 @@ const About = () => {
       { passive: true },
     );
     handleScroll(setFirstOpacity, setSecondOpacity)();
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     return () => {
       window.removeEventListener(
         'scroll',
@@ -95,7 +93,6 @@ const About = () => {
                   <pre className="content">{content}</pre>
                 </Statistic>
               ))}
-              <StatisticBackground />
             </StatisticBox>
           </div>
           <SecondPageBottomText>
@@ -159,6 +156,7 @@ const About = () => {
                 data-aos-duration={1200 + 500 * idx}
                 data-aos-offset={150}
                 data-aos-easing="Ease in-out Back"
+                key={link}
               >
                 <a href={link} target="_blank">
                   <pre>{text}</pre>
@@ -172,7 +170,7 @@ const About = () => {
   );
 };
 
-export default About;
+export default Upp;
 
 const Container = styled.div`
   display: flex;
@@ -301,27 +299,15 @@ const StatisticText = styled.div`
     line-height: 73.471px; /* 146.941% */
   }
 
-  padding: 0 160px;
+  padding: 0 130px;
 `;
 
 const StatisticBox = styled.div`
   display: flex;
   align-items: center;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  justify-content: space-between;
 
   width: 100%;
-
-  background: #d9d9d9;
-`;
-
-const StatisticBackground = styled.div`
-  position: absolute;
-  background: #d9d9d9;
-
-  right: 0;
-  width: 15%;
-  height: 194.92px;
 `;
 
 const Statistic = styled.div`
@@ -330,11 +316,14 @@ const Statistic = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 100%;
-  padding: 45px 0 65px;
+  width: 240px;
+  padding: 45px 0 50px;
+
+  border-radius: 20px;
+  background: #cde6ff;
 
   .title {
-    color: #151515;
+    color: #002177;
     text-align: center;
     font-size: 20px;
     font-weight: 700;
@@ -342,7 +331,7 @@ const Statistic = styled.div`
   }
 
   .content {
-    color: #151515;
+    color: #002177;
     text-align: center;
     font-size: 32px;
     font-weight: 700;
@@ -530,6 +519,7 @@ const DownloadButton = styled.div`
   background: #6a6a6a;
 
   cursor: pointer;
+  z-index: 2;
 
   a {
     display: flex;
@@ -538,8 +528,6 @@ const DownloadButton = styled.div`
 
     width: 100%;
     height: 100%;
-
-    z-index: 2;
 
     text-decoration: none;
     pre {
