@@ -32,21 +32,21 @@ const StyledLink = styled(Link)`
 const DateSpan = styled.span`
   float: right;
 `;
-interface INotice {
-  id: number;
-  title: string;
-}
-interface NoticeResponse {
-  maxpage: number;
-  data: [
-    {
-      id: number;
-      title: string;
-      content: string;
-      createdAt: string;
-    },
-  ];
-}
+// interface INotice {
+//   id: number;
+//   title: string;
+// }
+// interface NoticeResponse {
+//   maxpage: number;
+//   data: [
+//     {
+//       id: number;
+//       title: string;
+//       content: string;
+//       createdAt: string;
+//     },
+//   ];
+// }
 const fetchNotice = () => Axios.get('/api/announcement');
 
 const Announcement = () => {
@@ -60,7 +60,7 @@ const Announcement = () => {
   const [maxPage, setMaxPage] = useState(0);
 
   useEffect(() => {
-    setMaxPage(Math.floor((data?.data.data.length + 4) / 5) -1); //이
+    setMaxPage(Math.floor((data?.data.data.length + 4) / 5) - 1); //이
   }, [data]);
   return (
     <>
