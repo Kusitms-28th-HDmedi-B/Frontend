@@ -59,11 +59,11 @@ const route = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <About />,
+        element: <About />, // 기업 소개 페이지
       },
       {
         path: 'technology',
-        element: <Technology />,
+        element: <Technology />, // 기술 페이지
       },
     ],
   },
