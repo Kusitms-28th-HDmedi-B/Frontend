@@ -13,9 +13,12 @@ interface NewsType {
   publishedAt: string;
 }
 
+const numOfPage: number = 3; // 화면에 노출할 페이지 수
+
 const News = () => {
-  const [page, setPage] = useState(0);
-  const [maxPage, setMaxPage] = useState(-1);
+  const [page, setPage] = useState<number>(0);
+  const [maxPage, setMaxPage] = useState<number>(-1);
+  const [nowPages, setNowPages] = useState<number[]>([]);
 
   const fetchNews = () =>
     Axios.get('/api/news', {
@@ -33,12 +36,30 @@ const News = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page]);
 
-  const newsData = data?.data;
-
   useEffect(() => {
-    if (isLoading) return;
-    setMaxPage(newsData?.maxpage);
-  }, [data]);
+    // 최초에 한 번 maxPage, nowPages를 설정하는 과정
+    const firstFetchNews = async () => {
+      try {
+        const res = await fetchNews();
+        setMaxPage(res?.data.maxpage);
+        const maxPage = res?.data.maxpage;
+        setNowPages(
+          maxPage + 1 >= numOfPage
+            ? Array(numOfPage)
+                .fill(0)
+                .map((_, index) => index)
+            : Array(maxPage + 1)
+                .fill(0)
+                .map((_, index) => index),
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    firstFetchNews();
+  }, []);
+
+  const newsData = data?.data;
 
   if (isLoading) {
     return <div></div>;
@@ -72,7 +93,13 @@ const News = () => {
               ),
             )}
           </ArticleContainer>
-          <PageBar page={page} setPage={setPage} maxPage={maxPage} />
+          <PageBar
+            page={page}
+            setPage={setPage}
+            maxPage={maxPage}
+            nowPages={nowPages}
+            setNowPages={setNowPages}
+          />
         </>
       )}
     </Container>
