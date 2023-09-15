@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,8 @@ import arrow from './arrow-icon.svg';
 import arrowHover from './arrow-icon-hover.svg';
 import PageBar from '../../components/common/PageBar';
 import { RecruitResponse } from '.';
+import { useRecoilValue } from 'recoil';
+import { recruitCategoriesAtom } from '../../recoil/atom';
 const RecruitsContainer = styled.div`
   /* margin-left: 5%; */
   width: 70%; //길이에 따라 달라지지 않으려면 고정, 모바일 수정 필요
@@ -70,6 +72,11 @@ const Recruits: React.FC<RecruitsProps> = ({
 }) => {
   const [page, setPage] = useState(0);
   const [NO_USE, setNowPages] = useState<number[]>([]);
+  const categories = useRecoilValue(recruitCategoriesAtom);
+  useEffect(() => { //categories가 변경되면 page를 0으로!
+    setPage(0);
+  }, [categories]);
+
   NO_USE;
   return (
     <RecruitsContainer>
