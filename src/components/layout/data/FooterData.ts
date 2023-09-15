@@ -23,11 +23,11 @@ export const CategoryData: CategoryType[] = [
     depth: [
       {
         name: '비대면 복약지도',
-        url: '/',
+        url: '/service/upp',
       },
       {
         name: '비대면 통합 서비스',
-        url: '/',
+        url: '/service/lms',
       },
     ],
   },
@@ -36,7 +36,7 @@ export const CategoryData: CategoryType[] = [
     depth: [
       {
         name: '기술 소개',
-        url: '/',
+        url: '/technology',
       },
     ],
   },
@@ -45,11 +45,11 @@ export const CategoryData: CategoryType[] = [
     depth: [
       {
         name: '인재상',
-        url: '/',
+        url: '/value',
       },
       {
         name: '채용 공고',
-        url: '/',
+        url: '/recruit',
       },
     ],
   },
