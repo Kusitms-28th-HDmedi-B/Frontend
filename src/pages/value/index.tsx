@@ -6,8 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import banner from '../../../public/assets/image/ValueBanner.png';
-import cardImgUrl from '../../../public/assets/image/ValueCard.png';
-import curtureCardImgUrl from '../../../public/assets/image/ValueCurtureCard.png';
+import lee from '../../../public/assets/image/ValueLee.png';
 import { CardText, curtureCardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
@@ -23,13 +22,11 @@ const Banner = styled.div`
   background: url(${banner}) no-repeat;
   background-size: cover;
 
-
   text-align: center;
   line-height: 700px;
   font-size: 50px;
   font-weight: 700;
   color: #eef7ff;
-
 `;
 const FirstContainer = styled.div`
   width: 70%;
@@ -67,7 +64,7 @@ const SecondContainer = styled.div`
     width: 160px;
     height: 160px;
     border-radius: 80px;
-    background: url(${cardImgUrl}) no-repeat;
+    background: url(${lee}) no-repeat;
     background-size: cover;
     display: inline-block;
   }
@@ -143,7 +140,11 @@ const Value = () => {
         <SubTitle>함께 성장할 인재를 찾습니다.</SubTitle>
         <GridContainer>
           {CardText.map((textData, index) => (
-            <Card url={cardImgUrl} textData={textData} key={index}></Card>
+            <Card
+              url={`../../../public/assets/image/ValueCard${index}.png`}
+              textData={textData}
+              key={index}
+            ></Card>
           ))}
         </GridContainer>
       </FirstContainer>
@@ -165,7 +166,7 @@ const Value = () => {
           {curtureCardText.map((text, index) => (
             <CurtureCard
               text={text}
-              imgUrl={curtureCardImgUrl}
+              imgUrl={`../../../public/assets/image/ValueCurtureCard${index}.png`}
               key={index}
             ></CurtureCard>
           ))}
@@ -175,7 +176,6 @@ const Value = () => {
         <div>우리와 함께 더 좋은 세상을 만들어요</div>
         <div onClick={() => navigate('../recruit')}>채용 공고 바로가기</div>
       </FourthContainer>
-
     </Container>
   );
 };
