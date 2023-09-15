@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 
 import banner from '../../../public/assets/image/ValueBanner.png';
 import lee from '../../../public/assets/image/ValueLee.png';
+import lastBanner from '../../../public/assets/image/ValueLastBanner.png';
 import { CardText, curtureCardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
@@ -41,13 +42,14 @@ const SubTitle = styled.div`
   margin: 50px 0;
 `;
 const GridContainer = styled.div`
+  /* margin: auto; */
   width: 850px;
   height: 850px;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
   grid-template-rows: repeat(2, 1fr); /* 2개의 행 */
-  /* justify-items: center; */ //왼쪽을 맞추자
-  gap: 50px; //어렵다 이거..
+  /* justify-items: center; //왼쪽을 맞추자 */
+  gap: 100px; //어렵다 이거..
 `;
 const SecondContainer = styled.div`
   width: 100%;
@@ -78,6 +80,7 @@ const TextContainer = styled.div`
     white-space: break-spaces;
   }
   div:nth-of-type(1) {
+    position: relative;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 40px;
@@ -92,10 +95,11 @@ const TextContainer = styled.div`
   div:nth-of-type(3) {
     position: absolute;
     top: 10%;
+    left: -10px;
     background-color: rgba(179, 218, 255, 1);
-    width: 400px;
-    height: 20px;
-    border-radius: 10px;
+    width: 430px;
+    height: 16px;
+    border-radius: 8px;
     z-index: 10;
   }
 `;
@@ -112,7 +116,7 @@ const CurtureCardContainer = styled.div`
 `;
 const FourthContainer = styled.div`
   width: 100%;
-  height: 600px;
+  height: 100vh;
   padding: 200px 0;
   margin: auto;
   background-color: #d9d9d9;
@@ -122,20 +126,25 @@ const FourthContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  background: url(${lastBanner}) no-repeat;
+  background-size: cover;
+
   div:nth-of-type(1) {
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 80px;
+    color: white;
   }
   div:nth-of-type(2) {
     width: 250px;
     height: 60px;
     border-radius: 30px;
-    background-color: #6a6a6a;
+    background-color: white;
 
+    font-weight: 600;
     text-align: center;
     line-height: 60px;
-    color: white;
+    color: #000;
     cursor: pointer;
   }
 `;
@@ -183,6 +192,7 @@ const Value = () => {
             <CurtureCard
               text={text}
               imgUrl={`../../../public/assets/image/ValueCurtureCard${index}.png`}
+              color={index === 1 ? '#019F96' : '#1C35B4'}
               key={index}
             ></CurtureCard>
           ))}
