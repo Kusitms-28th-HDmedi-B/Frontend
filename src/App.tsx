@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import News from './pages/news';
@@ -15,6 +15,7 @@ import Detail from './pages/notice/Detail';
 import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
 import Technology from './pages/technology';
+import Upp from './pages/service/upp';
 
 const route = createBrowserRouter([
   {
