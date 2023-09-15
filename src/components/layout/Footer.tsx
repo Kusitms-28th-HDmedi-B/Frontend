@@ -119,6 +119,8 @@ const CategoryLinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  z-index: 3;
 `;
 
 const CategoryLink = styled.div`
