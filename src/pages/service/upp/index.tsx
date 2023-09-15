@@ -359,7 +359,11 @@ const SecondPageText = styled.div`
   }
 `;
 
-const UnderLine = styled.span`
+interface UnderLineType {
+  color: string;
+}
+
+const UnderLine = styled.span<UnderLineType>`
   background: linear-gradient(
     to top,
     ${({ color }) => color} 35%,
