@@ -70,9 +70,10 @@ const CardUl = styled.ul`
   height: 0;
   list-style-type: circle; //왜 적용 안되지?
 
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: #ffffffa3; */
   li {
-    line-height: 30px;
+    margin: 20px 50px;
   }
 `;
 interface CardProps {
@@ -87,7 +88,7 @@ const Card: React.FC<CardProps> = ({ url, textData }) => {
       <CardSubTitle>{textData.subTitle}</CardSubTitle>
       <CardUl>
         {textData.detail.map((eachLi, index) => (
-          <li key={index}>ㆍ {eachLi}</li>
+          <li key={index}>{eachLi}</li>
         ))}
       </CardUl>
     </CardContainer>
