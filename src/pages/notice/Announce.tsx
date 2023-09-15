@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Title } from '../info';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageBar from '../../components/common/PageBar';
 import { Link } from 'react-router-dom';
+import Axios from '../../apis';
+import { useQuery } from 'react-query';
 const AnnouneUl = styled.ul`
   width: 100%;
   height: 250px;
@@ -34,43 +36,50 @@ interface INotice {
   id: number;
   title: string;
 }
-const Announcement = () => {
-  const [page, setPage] = useState(0);
-  const [nowPages, setNowPages] = useState<number[]>([0,1,2]);
-  const datas: INotice[] = [
-    { id: 1, title: '1공지사항입' },
+interface NoticeResponse {
+  maxpage: number;
+  data: [
     {
-      id: 2,
-      title:
-        '2공지사항입니다공지사항다공지2공지사항입니다공지사항다공지사항다공지사사항다공지사항2공지사항입니다공지사항다공지사항다공지사2공지사항입니다공지사항다공지사항다공지사',
+      id: number;
+      title: string;
+      content: string;
+      createdAt: string;
     },
-    { id: 3, title: '3공지사항입니다공지사항' },
-    { id: 4, title: '4공지사항입ss니다공지사항' },
-    { id: 5, title: '5공지사항입니다공지사항' },
-    { id: 6, title: '6공지사항입니다공지사항' },
-    { id: 7, title: '7공지사항입니다공지사항' },
-    { id: 8, title: '8공지사항입니다공지사항' },
-    { id: 9, title: '9공지사항입니다공지사항' },
-    { id: 10, title: '10공지사항입니다공지사항' },
-    { id: 11, title: '11공ㄴ지' },
   ];
+}
+const fetchNotice = () => Axios.get('/api/announcement');
 
+const Announcement = () => {
+  const { data, isLoading } = useQuery(['api', 'notice'], fetchNotice, {
+    staleTime: 10 * 5000,
+    cacheTime: 10 * 5000 + 50,
+  });
+  console.log(data, isLoading);
+  const [page, setPage] = useState(0);
+  const [nowPages, setNowPages] = useState<number[]>([0, 1, 2]);
+  const [maxPage, setMaxPage] = useState(0);
+
+  useEffect(() => {
+    setMaxPage(Math.floor((data?.data.data.length + 4) / 5) -1); //이
+  }, [data]);
   return (
     <>
       <Title>공지사항</Title>
       <AnnouneUl>
-        {datas.slice(page * 5, page * 5 + 5).map((data, index) => (
-          <AnnouneLi key={index}>
-            <StyledLink to={`./${data.id}`}>
-              <div>{data.title}</div>
-            </StyledLink>
-            <DateSpan>2023.9.5</DateSpan>
-          </AnnouneLi>
-        ))}
+        {data?.data.data
+          .slice(page * 5, page * 5 + 5)
+          .map((notice: any, index: number) => (
+            <AnnouneLi key={index}>
+              <StyledLink to={`./${notice.id}`}>
+                <div>{notice.title}</div>
+              </StyledLink>
+              <DateSpan>{notice.createdAt}</DateSpan>
+            </AnnouneLi>
+          ))}
       </AnnouneUl>
       <PageBar
         page={page}
-        maxPage={2}
+        maxPage={maxPage}
         setPage={setPage}
         nowPages={nowPages}
         setNowPages={setNowPages}
