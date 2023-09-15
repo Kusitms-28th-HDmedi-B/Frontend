@@ -35,7 +35,8 @@ interface INotice {
   title: string;
 }
 const Announcement = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  const [nowPages, setNowPages] = useState<number[]>([0,1,2]);
   const datas: INotice[] = [
     { id: 1, title: '1공지사항입' },
     {
@@ -58,7 +59,7 @@ const Announcement = () => {
     <>
       <Title>공지사항</Title>
       <AnnouneUl>
-        {datas.slice((page - 1) * 5, (page - 1) * 5 + 5).map((data, index) => (
+        {datas.slice(page * 5, page * 5 + 5).map((data, index) => (
           <AnnouneLi key={index}>
             <StyledLink to={`./${data.id}`}>
               <div>{data.title}</div>
@@ -67,7 +68,13 @@ const Announcement = () => {
           </AnnouneLi>
         ))}
       </AnnouneUl>
-      <PageBar page={page} maxPage={3} setPage={setPage}></PageBar>
+      <PageBar
+        page={page}
+        maxPage={2}
+        setPage={setPage}
+        nowPages={nowPages}
+        setNowPages={setNowPages}
+      ></PageBar>
     </>
   );
 };
