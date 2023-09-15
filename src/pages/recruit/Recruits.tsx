@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,8 @@ import arrow from './arrow-icon.svg';
 import arrowHover from './arrow-icon-hover.svg';
 import PageBar from '../../components/common/PageBar';
 import { RecruitResponse } from '.';
+import { useRecoilValue } from 'recoil';
+import { recruitCategoriesAtom } from '../../recoil/atom';
 const RecruitsContainer = styled.div`
   /* margin-left: 5%; */
   width: 70%; //길이에 따라 달라지지 않으려면 고정, 모바일 수정 필요
@@ -15,6 +17,16 @@ const RecruitsContainer = styled.div`
   ul {
     height: 200px;
     margin: auto;
+    margin-bottom: 50px;
+  }
+  ul > div > a {
+    text-decoration: none;
+    color: inherit;
+    li {
+      &:hover {
+        background-color: #f4f4f4;
+      }
+    }
   }
 `;
 const ReCruitsList = styled.li`
@@ -22,7 +34,11 @@ const ReCruitsList = styled.li`
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  margin: 25px 0;
+  margin: 15px 0;
+  padding: 15px 0;
+  border-radius: 10px;
+  /* background-color: red; */
+
   a span {
     width: 16px;
     height: 16px;
@@ -56,18 +72,26 @@ const Recruits: React.FC<RecruitsProps> = ({
 }) => {
   const [page, setPage] = useState(0);
   const [NO_USE, setNowPages] = useState<number[]>([]);
+  const categories = useRecoilValue(recruitCategoriesAtom);
+  useEffect(() => {
+    //categories가 변경되면 page를 0으로!
+    setPage(0);
+  }, [categories]);
+
   NO_USE;
   return (
     <RecruitsContainer>
       <ul>
         {recruitData.slice(page * 3, page * 3 + 3).map((data, index) => (
           <div key={index}>
-            <ReCruitsList>
-              <div>{data.title} </div>
-              <Link to={data.url}>
-                <span></span>
-              </Link>
-            </ReCruitsList>
+            <Link to={data.url}>
+              <ReCruitsList>
+                <div>{data.title} </div>
+                <Link to={data.url}>
+                  <span></span>
+                </Link>
+              </ReCruitsList>
+            </Link>
             <hr></hr>
           </div>
         ))}
