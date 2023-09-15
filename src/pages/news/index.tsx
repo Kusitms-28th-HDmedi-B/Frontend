@@ -4,6 +4,7 @@ import Axios from '../../apis';
 
 import PageBar from '../../components/common/PageBar';
 import { useQuery } from 'react-query';
+import { LoadingGrey } from '../../components/common/Loading';
 
 interface NewsType {
   id: number;
@@ -62,7 +63,7 @@ const News = () => {
   const newsData = data?.data;
 
   if (isLoading) {
-    return <div></div>;
+    return <LoadingGrey />;
   }
 
   return (
