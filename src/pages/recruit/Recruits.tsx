@@ -73,7 +73,8 @@ const Recruits: React.FC<RecruitsProps> = ({
   const [page, setPage] = useState(0);
   const [NO_USE, setNowPages] = useState<number[]>([]);
   const categories = useRecoilValue(recruitCategoriesAtom);
-  useEffect(() => { //categories가 변경되면 page를 0으로!
+  useEffect(() => {
+    //categories가 변경되면 page를 0으로!
     setPage(0);
   }, [categories]);
 

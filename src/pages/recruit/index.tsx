@@ -22,7 +22,15 @@ const ContentsContainer = styled.div`
   width: 100%; //? 부모기준이니가 100프로
   height: 300px;
 `;
-
+const NoRecruit = styled.div`
+  width: 70%;
+  height: 100px;
+  /* background-color: red; */
+  text-align: center;
+  line-height: 100px;
+  font-size: 28px;
+  font-weight: 700;
+`;
 export interface RecruitResponse {
   id: number;
   title: string;
@@ -90,12 +98,14 @@ const Recruit = () => {
       <Title>채용 공고</Title>
       <ContentsContainer>
         <CheckBox />
-        {recruitData.length > 0 && (
+        {recruitData.length > 0 && filteredData.length > 0 ? (
           <Recruits
             maxPage={Math.floor((filteredData.length + 2) / 3) - 1}
             nowPages={nowPages}
             recruitData={filteredData}
           />
+        ) : (
+          <NoRecruit>현재 채용중이 아닙니다😭</NoRecruit>
         )}
       </ContentsContainer>
     </Container>
