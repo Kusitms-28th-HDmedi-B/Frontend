@@ -17,7 +17,7 @@ const Quetionli = styled.ul`
     float: right;
     width: 20px;
     height: 20px;
-    margin: 5px 30px 0 0; // 글자의 스타일
+    margin: 0px 30px 0 0; // 글자의 스타일
     /* position: relative; */
     /* display: inline-block; */
     vertical-align: middle;
