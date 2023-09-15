@@ -1,16 +1,29 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface Props {
   title: string;
   imgSrc: string;
   reverse: boolean;
   animation: string;
+  backgroundUrl?: string | undefined;
 }
 
-const WorthCard: React.FC<Props> = ({ title, imgSrc, reverse, animation }) => {
+const WorthCard: React.FC<Props> = ({
+  title,
+  imgSrc,
+  reverse,
+  animation,
+  backgroundUrl,
+}) => {
   return (
     <Container reverse={reverse}>
+      <img
+        className="background"
+        src={backgroundUrl}
+        alt="back"
+        style={{ opacity: '0.6' }}
+      />
       <InnerContainer data-aos={animation}>
         {reverse ? (
           <>
@@ -26,7 +39,9 @@ const WorthCard: React.FC<Props> = ({ title, imgSrc, reverse, animation }) => {
             <ImageWrapper>
               <img src={imgSrc} alt="image" />
             </ImageWrapper>
-            <Title>{title}</Title>
+            <Title>
+              <pre>{title}</pre>
+            </Title>
           </>
         )}
       </InnerContainer>
@@ -41,8 +56,17 @@ interface ContainerType {
 }
 const Container = styled.div<ContainerType>`
   width: 100%;
-  background-color: ${({ reverse }) => (reverse ? '#FFF' : '#D9D9D9')};
-  padding: 114px 0;
+  position: relative;
+  height: 598px;
+  .background {
+    width: 100%;
+    /* height: 598px; */
+
+    z-index: 2;
+
+    position: absolute;
+    bottom: 0;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -60,17 +84,28 @@ const Title = styled.div`
 
   width: 50%;
 
-  text-align: center;
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 86px; /* 156.364% */
+  pre {
+    color: #4a81e5;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 86px; /* 156.364% */
+  }
 `;
 
 const ImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 516px;
   height: 370px;
   flex-shrink: 0;
 
   border-radius: 20px;
-  background: #afafaf;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
