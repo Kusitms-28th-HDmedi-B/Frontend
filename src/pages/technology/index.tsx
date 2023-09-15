@@ -8,7 +8,7 @@ import { currHeaderAtom } from '../../recoil/atom';
 import AppCard from './components/AppCard';
 import Card from '../../components/common/Card';
 import { CardText } from './data';
-import cardImgUrl from '/assets/image/ValueCardEx.jpg';
+import cardImgUrl from '/assets/image/ValueCard1.png';
 import ArrowImage from '/assets/image/ArrowImage.svg';
 import AIImage from '/assets/image/AIImage.svg';
 import CustomizedInformation from '/assets/image/CustomizedInformation.svg';
