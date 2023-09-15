@@ -59,7 +59,7 @@ const SecondContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #d9d9d9;
+  background-color: #f4fafe;
   span {
     width: 160px;
     height: 160px;
@@ -70,6 +70,8 @@ const SecondContainer = styled.div`
   }
 `;
 const TextContainer = styled.div`
+  position: relative;
+
   display: inline-block;
   margin-left: 100px;
   div {
@@ -79,9 +81,22 @@ const TextContainer = styled.div`
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 40px;
+    color: #003fa3;
+    z-index: 20;
   }
   div:nth-of-type(2) {
     line-height: 20px;
+    font-weight: 600;
+  }
+
+  div:nth-of-type(3) {
+    position: absolute;
+    top: 10%;
+    background-color: rgba(179, 218, 255, 1);
+    width: 400px;
+    height: 20px;
+    border-radius: 10px;
+    z-index: 10;
   }
 `;
 const ThirdContainer = styled.div`
@@ -153,6 +168,7 @@ const Value = () => {
         <TextContainer>
           <div>{secondContainerText[0]}</div>
           <div>{secondContainerText[1]}</div>
+          <div></div>
         </TextContainer>
       </SecondContainer>
       <ThirdContainer
