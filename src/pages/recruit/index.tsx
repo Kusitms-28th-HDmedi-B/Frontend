@@ -8,7 +8,6 @@ import { useRecoilValue } from 'recoil';
 import Recruits from './Recruits';
 import { recruitCategoriesAtom } from '../../recoil/atom';
 
-
 const Container = styled.div`
   width: 70%;
   margin: auto;
@@ -38,22 +37,31 @@ export interface RecruitResponse {
 const Recruit = () => {
   const [recruitData, setRecruitData] = useState<RecruitResponse[]>([]);
   const [maxPage, setMaxPage] = useState(1);
+  const [nowPages, setNowPages] = useState<number[]>([]);
   const categories = useRecoilValue(recruitCategoriesAtom);
   maxPage;
-
+  const numOfPage = 3;
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get('https://hdmedi.site/api/career');
         setRecruitData(response.data);
         setMaxPage(Math.floor((response.data.length + 2) / 3));
+        setNowPages(
+          maxPage + 1 >= numOfPage
+            ? Array(numOfPage)
+                .fill(0)
+                .map((_, index) => index)
+            : Array(maxPage + 1)
+                .fill(0)
+                .map((_, index) => index),
+        );
       } catch (error) {
         console.log(error);
       }
     };
     getData();
   }, []);
-
 
   const filteredData: RecruitResponse[] = [];
   recruitData.forEach((val) => {
@@ -84,10 +92,10 @@ const Recruit = () => {
         <CheckBox />
         {recruitData.length > 0 && (
           <Recruits
-            maxPage={Math.floor((filteredData.length + 2) / 3)-1}
+            maxPage={Math.floor((filteredData.length + 2) / 3) - 1}
+            nowPages={nowPages}
             recruitData={filteredData}
           />
-
         )}
       </ContentsContainer>
     </Container>

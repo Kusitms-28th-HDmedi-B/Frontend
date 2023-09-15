@@ -46,11 +46,17 @@ const ReCruitsList = styled.li`
 interface RecruitsProps {
   recruitData: RecruitResponse[];
   maxPage: number;
+  nowPages: number[];
 }
 
-const Recruits: React.FC<RecruitsProps> = ({ recruitData, maxPage }) => {
+const Recruits: React.FC<RecruitsProps> = ({
+  recruitData,
+  maxPage,
+  nowPages,
+}) => {
   const [page, setPage] = useState(0);
-
+  const [NO_USE, setNowPages] = useState<number[]>([]);
+  NO_USE;
   return (
     <RecruitsContainer>
       <ul>
@@ -62,12 +68,17 @@ const Recruits: React.FC<RecruitsProps> = ({ recruitData, maxPage }) => {
                 <span></span>
               </Link>
             </ReCruitsList>
-
             <hr></hr>
           </div>
         ))}
       </ul>
-      <PageBar maxPage={maxPage} page={page} setPage={setPage}></PageBar>
+      <PageBar
+        maxPage={maxPage}
+        page={page}
+        setPage={setPage}
+        nowPages={nowPages}
+        setNowPages={setNowPages}
+      ></PageBar>
     </RecruitsContainer>
   );
 };
