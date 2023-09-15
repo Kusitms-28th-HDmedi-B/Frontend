@@ -15,6 +15,16 @@ const RecruitsContainer = styled.div`
   ul {
     height: 200px;
     margin: auto;
+    margin-bottom: 50px;
+  }
+  ul > div > a {
+    text-decoration: none;
+    color: inherit;
+    li {
+      &:hover {
+        background-color: #f4f4f4;
+      }
+    }
   }
 `;
 const ReCruitsList = styled.li`
@@ -22,7 +32,11 @@ const ReCruitsList = styled.li`
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  margin: 25px 0;
+  margin: 15px 0;
+  padding: 15px 0;
+  border-radius: 10px;
+  /* background-color: red; */
+
   a span {
     width: 16px;
     height: 16px;
@@ -62,12 +76,14 @@ const Recruits: React.FC<RecruitsProps> = ({
       <ul>
         {recruitData.slice(page * 3, page * 3 + 3).map((data, index) => (
           <div key={index}>
-            <ReCruitsList>
-              <div>{data.title} </div>
-              <Link to={data.url}>
-                <span></span>
-              </Link>
-            </ReCruitsList>
+            <Link to={data.url}>
+              <ReCruitsList>
+                <div>{data.title} </div>
+                <Link to={data.url}>
+                  <span></span>
+                </Link>
+              </ReCruitsList>
+            </Link>
             <hr></hr>
           </div>
         ))}
