@@ -1,30 +1,29 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import ArrowLeft from '/assets/icon/arrow-left.svg';
 import ArrowRight from '/assets/icon/arrow-right.svg';
 
 type setPageType = React.Dispatch<React.SetStateAction<number>>;
+type setNowPageType = React.Dispatch<React.SetStateAction<number[]>>;
 
 interface Props {
   maxPage: number; // 최대 페이지 수
   page: number; // page state
   setPage: setPageType; // page state를 설정하는 함수
+  nowPages: number[];
+  setNowPages: setNowPageType;
 }
 
 const numOfPage: number = 3; // 화면에 노출할 페이지 수
 
-const PageBar: React.FC<Props> = ({ maxPage, page, setPage }) => {
-  const [nowPages, setNowPages] = useState<number[]>(
-    maxPage + 1 >= numOfPage
-      ? Array(numOfPage)
-          .fill(0)
-          .map((_, index) => index)
-      : Array(maxPage + 1)
-          .fill(0)
-          .map((_, index) => index),
-  );
-
+const PageBar: React.FC<Props> = ({
+  maxPage,
+  page,
+  setPage,
+  nowPages,
+  setNowPages,
+}) => {
   const onClickNumber = (num: number): void => {
     setPage(num);
   };
@@ -37,17 +36,17 @@ const PageBar: React.FC<Props> = ({ maxPage, page, setPage }) => {
       setNowPages((prev) => prev.map((num: number) => num - numOfPage));
       setPage((prev) => prev - 1);
     }
-  }, [page, nowPages]);
+  }, [page, nowPages, maxPage]);
 
   const onClickRight = useCallback(() => {
     if (maxPage === page) return; // 만약 마지막 페이지면 그냥 리턴
     else if (page % numOfPage !== 2) setPage((prev) => prev + 1);
     else if (page % numOfPage === 2 && page < maxPage) {
       // 만약 노출된 페이지 중 마지막 페이지면
-      setNowPages((prev) => prev.map((num: number) => num + numOfPage));
+      setNowPages((prev) => [...prev].map((num: number) => num + numOfPage));
       setPage((prev) => prev + 1);
     }
-  }, [page, nowPages]);
+  }, [page, nowPages, maxPage]);
 
   return (
     <Container>
