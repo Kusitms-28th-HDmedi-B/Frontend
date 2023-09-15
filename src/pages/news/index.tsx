@@ -1,116 +1,107 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Axios from '../../apis';
 
 import PageBar from '../../components/common/PageBar';
+import { useQuery } from 'react-query';
 
-interface newsType {
-  source: string;
+interface NewsType {
+  id: number;
   title: string;
-  date: string;
-  url: string;
+  source: string;
+  link: string;
+  publishedAt: string;
 }
 
-const mockupData: newsType[] = [
-  {
-    source: 'M메디 소비자뉴스',
-    title: `1. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `2. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `3. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `4. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `5. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `6. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `7. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `8. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `9.삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-  {
-    source: 'M메디 소비자뉴스',
-    title: `10. 삼평원 '보건 의료 빅 데이터 창업경진대회' 최우수상에 일점사 탈로스`,
-    date: '2023.09.05',
-    url: 'https://www.google.com',
-  },
-];
+const numOfPage: number = 3; // 화면에 노출할 페이지 수
 
 const News = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(0);
+  const [maxPage, setMaxPage] = useState<number>(-1);
+  const [nowPages, setNowPages] = useState<number[]>([]);
+
+  const fetchNews = () =>
+    Axios.get('/api/news', {
+      params: {
+        page,
+      },
+    });
+
+  const { data, isLoading } = useQuery(['api', 'news', page], fetchNews, {
+    staleTime: 10 * 5000,
+    cacheTime: 10 * 5000 + 50,
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page]);
+
+  useEffect(() => {
+    // 최초에 한 번 maxPage, nowPages를 설정하는 과정
+    const firstFetchNews = async () => {
+      try {
+        const res = await fetchNews();
+        setMaxPage(res?.data.maxpage);
+        const maxPage = res?.data.maxpage;
+        setNowPages(
+          maxPage + 1 >= numOfPage
+            ? Array(numOfPage)
+                .fill(0)
+                .map((_, index) => index)
+            : Array(maxPage + 1)
+                .fill(0)
+                .map((_, index) => index),
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    firstFetchNews();
+  }, []);
+
+  const newsData = data?.data;
+
+  if (isLoading) {
+    return <div></div>;
+  }
 
   return (
     <Container>
       <Title>
         <pre>뉴스</pre>
       </Title>
-      <ArticleContainer>
-        {mockupData
-          .slice((page - 1) * 7, (page - 1) * 7 + 7)
-          .map(({ source, title, date, url }, idx: number) => (
-            <Article key={idx}>
-              <ArticleSource>
-                <pre>{source}</pre>
-              </ArticleSource>
-              <ArticleMain>
-                <ArticleTitle>
-                  <a href={url} target="_blank">
-                    {title}
-                  </a>
-                </ArticleTitle>
-                <ArticleDate>
-                  <pre>{date}</pre>
-                </ArticleDate>
-              </ArticleMain>
-            </Article>
-          ))}
-      </ArticleContainer>
-      <PageBar
-        page={page}
-        setPage={setPage}
-        maxPage={Math.ceil(mockupData.length / 7)}
-      />
+      {newsData && maxPage !== -1 && (
+        <>
+          <ArticleContainer>
+            {newsData?.data.map(
+              ({ id, title, source, link, publishedAt }: NewsType) => (
+                <Article key={id}>
+                  <ArticleSource>
+                    <pre>{source}</pre>
+                  </ArticleSource>
+                  <ArticleMain>
+                    <ArticleTitle>
+                      <a href={link} target="_blank">
+                        {title}
+                      </a>
+                    </ArticleTitle>
+                    <ArticleDate>
+                      <pre>{publishedAt}</pre>
+                    </ArticleDate>
+                  </ArticleMain>
+                </Article>
+              ),
+            )}
+          </ArticleContainer>
+          <PageBar
+            page={page}
+            setPage={setPage}
+            maxPage={maxPage}
+            nowPages={nowPages}
+            setNowPages={setNowPages}
+          />
+        </>
+      )}
     </Container>
   );
 };

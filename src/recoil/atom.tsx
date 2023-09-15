@@ -4,3 +4,7 @@ export const currHeaderAtom = atom<HeaderColorType>({
   key: 'currHeader',
   default: 'white',
 });
+export const recruitCategoriesAtom = atom({
+  key: 'recruitCategories',
+  default: [true, true, true, true],
+});

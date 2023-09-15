@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { HeaderColorType, currHeaderAtom } from '../../recoil/atom';
-const Container = styled.div<{ bgColor: HeaderColorType }>`
+const Container = styled.div<{ $bgColor: HeaderColorType }>`
   /* border: 1px solid black; */
   width: 70%;
   /* height: 80px; */
   margin: 0 15%;
   padding: 15px 0;
-  background-color: ${(props) => props.bgColor};
+  background-color: ${(props) => props.$bgColor};
   position: fixed;
   z-index: 3;
 `;
@@ -28,7 +28,7 @@ const Nav = styled.ul`
   display: inline-block;
   position: absolute;
 `;
-const NavLi = styled.li<{ countDepth: number }>`
+const NavLi = styled.li<{ $countDepth: number }>`
   position: relative;
   display: inline;
   padding: 0px 30px 15px 30px;
@@ -42,7 +42,7 @@ const NavLi = styled.li<{ countDepth: number }>`
     color: #31313e;
   }
   &:hover > div {
-    height: ${(props) => props.countDepth * 34 + 3}px;
+    height: ${(props) => props.$countDepth * 34 + 3}px;
     border: 1px solid #d0d0d0;
   }
 `;
@@ -79,10 +79,10 @@ const LanguageContainer = styled.span`
   float: right;
   line-height: 28px; //이거다
 `;
-const Language = styled.span<{ isSelected: boolean }>`
+const Language = styled.span<{ $isSelected: boolean }>`
   cursor: pointer;
   padding: 0 10px;
-  color: ${(props) => (props.isSelected ? 'inherit' : '#b4b4b4')};
+  color: ${(props) => (props.$isSelected ? 'inherit' : '#b4b4b4')};
 `;
 type LanguageType = 'KR' | 'EN';
 function Header() {
@@ -90,13 +90,13 @@ function Header() {
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
   const currHeader = useRecoilValue(currHeaderAtom);
   return (
-    <Container bgColor={currHeader}>
+    <Container $bgColor={currHeader}>
       <Link to={'../'}>
         <Logo></Logo>
       </Link>
       <Nav>
         {categories.map((category, index) => (
-          <NavLi key={index} countDepth={category.depth.length}>
+          <NavLi key={index} $countDepth={category.depth.length}>
             {category.title}
             <NavDepthContainer>
               {category.depth.map((each, index) => (
@@ -110,14 +110,14 @@ function Header() {
       </Nav>
       <LanguageContainer>
         <Language
-          isSelected={currLanguage === 'KR'}
+          $isSelected={currLanguage === 'KR'}
           onClick={() => setCurrLanguage('KR')}
         >
           KR
         </Language>
         |
         <Language
-          isSelected={currLanguage === 'EN'}
+          $isSelected={currLanguage === 'EN'}
           onClick={() => setCurrLanguage('EN')}
         >
           EN

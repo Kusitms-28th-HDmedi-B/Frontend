@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 const MapDiv = styled.div`
   display: inline-block; //나란히 배치하게
   border-radius: 15px;
-  width: 734px;
+  width: 60%;
   height: 400px;
   /* margin: 20px; */
 `;

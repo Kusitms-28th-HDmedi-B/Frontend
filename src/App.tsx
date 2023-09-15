@@ -1,4 +1,5 @@
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import News from './pages/news';
 import Main from './pages/main';
@@ -13,7 +14,7 @@ import About from './pages/about';
 import Detail from './pages/notice/Detail';
 import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
-import Upp from './pages/service/upp';
+import Technology from './pages/technology';
 
 const route = createBrowserRouter([
   {
@@ -58,7 +59,11 @@ const route = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <About />,
+        element: <About />, // 기업 소개 페이지
+      },
+      {
+        path: 'technology',
+        element: <Technology />, // 기술 페이지
       },
       {
         path: 'service',
@@ -74,14 +79,16 @@ const route = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 const App = () => (
-  <>
+  <QueryClientProvider client={queryClient}>
     <RecoilRoot>
       <GlobalFont />
       <GlobalStyle />
       <RouterProvider router={route} />
     </RecoilRoot>
-  </>
+  </QueryClientProvider>
 );
 
 export default App;
