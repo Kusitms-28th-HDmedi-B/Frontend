@@ -6,6 +6,7 @@ import Banner from './Banner';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Uppinfo from './Uppinfo';
 
 const Container = styled.div`
   margin: auto;
@@ -85,6 +86,17 @@ const Text2 = styled.div`
     z-index: 1;
   }
 `;
+const UppBelt = styled.div`
+  width: 100vw;
+  height: 200px;
+  background-color: #ffd2a8;
+  color: #e85300;
+
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 200px;
+`;
 const Lms = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
   useEffect(() => setCurrHeader('transparent'));
@@ -120,6 +132,8 @@ const Lms = () => {
         <div></div>
         <div></div>
       </Text2>
+      <UppBelt>UPP는 어떤 서비스인가요?</UppBelt>
+      <Uppinfo/>
     </Container>
   );
 };
