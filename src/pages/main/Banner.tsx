@@ -98,17 +98,19 @@ const Banner = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {SwiperCardDatas.map(({ imgUrl, text, hasBtn, btnText, btnUrl }) => (
-          <SwiperSlide>
-            <SwiperCard
-              imgUrl={imgUrl}
-              text={text}
-              hasBtn={hasBtn}
-              btnText={btnText}
-              btnUrl={btnUrl}
-            ></SwiperCard>
-          </SwiperSlide>
-        ))}
+        {SwiperCardDatas.map(
+          ({ imgUrl, text, hasBtn, btnText, btnUrl }, index) => (
+            <SwiperSlide key={index}>
+              <SwiperCard
+                imgUrl={imgUrl}
+                text={text}
+                hasBtn={hasBtn}
+                btnText={btnText}
+                btnUrl={btnUrl}
+              ></SwiperCard>
+            </SwiperSlide>
+          ),
+        )}
       </SwiperContainer>
     </>
   );

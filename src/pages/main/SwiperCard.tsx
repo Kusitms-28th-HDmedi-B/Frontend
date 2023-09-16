@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { SwiperCardProps } from './bannerData';
 import { useNavigate } from 'react-router-dom';
 
-const Container = styled.div<{ imgUrl: string }>`
+const Container = styled.div<{ $imgUrl: string }>`
   width: 100vw;
   height: 100vh;
-  background: url(${(props) => props.imgUrl}) no-repeat;
+  background: url(${(props) => props.$imgUrl}) no-repeat;
   background-size: cover;
 
   display: flex;
@@ -40,7 +40,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <Container imgUrl={imgUrl}>
+    <Container $imgUrl={imgUrl}>
       <Text>{text}</Text>
       {hasBtn === true ? (
         <Btn onClick={() => navigate(btnUrl as string)}>{btnText}</Btn>

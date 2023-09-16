@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import Banner from './Banner';
 import NewsContainer from './NewsContainer';
+import { persuitDatas } from './bannerData';
+import PersuitCard from './PersuitCard';
 
 const Container = styled.div`
   width: 100vw;
@@ -32,11 +34,16 @@ const SecondGif = styled.div`
 `;
 const ThirdContainer = styled.div`
   width: 70%;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const ThirdTitle = styled.div`
+  width: 70%;
+  margin: 200px auto;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 45px;
   white-space: break-spaces;
 `;
 const FourthContainer = styled.div`
@@ -62,10 +69,13 @@ const Main = () => {
         </SecondText>
         <SecondGif>s</SecondGif>
       </SecondContainer>
+      <ThirdTitle>
+        {"에이치디메디는\n'지속가능한 사회'를 추구합니다."}
+      </ThirdTitle>
       <ThirdContainer>
-        <ThirdTitle>
-          {"에이치디메디는\n'지속가능한 사회'를 추구합니다."}
-        </ThirdTitle>
+        {persuitDatas.map((data, index) => (
+          <PersuitCard {...data} key={index}></PersuitCard>
+        ))}
       </ThirdContainer>
       <FourthContainer>복약지도4만건건건</FourthContainer>
       <NewsContainer></NewsContainer>

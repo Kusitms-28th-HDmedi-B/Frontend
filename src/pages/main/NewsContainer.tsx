@@ -22,11 +22,11 @@ const NewsCard = styled.div`
   margin: 10px;
   border-radius: 1px solid red;
 `;
-const NewsCardImg = styled.span<{ imgUrl: string }>`
+const NewsCardImg = styled.span<{ $imgUrl: string }>`
   width: 400px;
   height: 260px;
   border-radius: 20px;
-  background: url(${(props) => props.imgUrl}) no-repeat;
+  background: url(${(props) => props.$imgUrl}) no-repeat;
   background-size: cover;
   background-color: red;
   display: inline-block;
@@ -71,10 +71,10 @@ const NewsContainer = () => {
     <>
       <NewsTitle>NEWS</NewsTitle>
       <FlexContainer>
-        {newsData?.data.slice(0, 3).map((data) => (
-          <Link to={'/naver.com'}>
+        {newsData?.data.slice(0, 3).map((data, index) => (
+          <Link to={'/naver.com'} key={index}>
             <NewsCard>
-              <NewsCardImg imgUrl={data.link}></NewsCardImg>
+              <NewsCardImg $imgUrl={data.link}></NewsCardImg>
               <NewsCardDate>{data.publishedAt}</NewsCardDate>
               <NewsCardTitle>
                 {data.title.length > 30
