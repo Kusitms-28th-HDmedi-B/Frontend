@@ -12,29 +12,30 @@ const Container = styled.div`
 `;
 const BannerNotebook = styled.div`
   position: absolute;
-  top: 15%;
-  left: 10%;
-  width: 800px;
+  top: 11%;
+  left: 0%;
+  width: 750px;
   height: 500px;
   background: url(${bannerNotebookImg});
-
-  border: 1px solid red;
+  background-size: cover;
 `;
 const BannerLogo = styled.div`
   position: absolute;
-  top: 20%;
-  left: 55%;
-  width: 500px;
-  height: 100px;
+  top: 30%;
+  left: 53%;
+  width: 400px;
+  height: 80px;
   background: url(${bannerTextImg});
-  border: 1px solid red;
+
+  background-size: cover;
 `;
 const BannerText = styled.div`
   position: absolute;
-  top: 35%;
-  left: 55%;
-  border: 1px solid red;
-  font-size: 50px;
+  top: 45%;
+  left: 53%;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 64px;
 `;
 const Banner = () => {
   return (
