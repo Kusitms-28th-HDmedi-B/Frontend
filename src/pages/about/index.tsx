@@ -25,6 +25,7 @@ const About = () => {
       { passive: true },
     );
     handleScroll(setFirstOpacity, setSecondOpacity)();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   useEffect(() => {
@@ -163,7 +164,7 @@ const SecondPageContainer = styled.div`
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-  background-color: #fff;
+  background: #eceef6;
 
   position: fixed;
   top: 0;
@@ -176,7 +177,7 @@ const ThirdPageContainer = styled.div`
   flex-direction: column;
 
   width: 100%;
-  padding: 100px 0;
+  padding: 100px 0 350px;
 `;
 
 const MissionContainer = styled.div`
@@ -202,9 +203,9 @@ const FourthPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: #f4fafe;
 
-  padding: 50px 0;
+  padding-bottom: 50px;
+  background: #d8dfec;
 `;
 
 const FifthPageContainer = styled.div`
@@ -212,7 +213,7 @@ const FifthPageContainer = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 100px 0;
-  background: #1a1f27;
+  background: #d8dfec;
 
   @media screen and (max-width: 500px) {
     padding: 50px 0;
