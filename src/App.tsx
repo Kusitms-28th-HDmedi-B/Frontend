@@ -97,7 +97,7 @@ const route = createBrowserRouter([
     ],
   },
 ]);
-
+        
 const queryClient = new QueryClient();
 
 const App = () => (
