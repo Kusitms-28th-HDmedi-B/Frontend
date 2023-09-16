@@ -4,6 +4,7 @@ interface curtureCardProps {
   text: string;
   imgUrl: string;
   color: string;
+  delay: number;
 }
 const Container = styled.div<{ $imgUrl: string }>`
   width: 20vw;
@@ -22,9 +23,21 @@ const Text = styled.div<{ color: string }>`
   text-align: center;
   color: ${(props) => props.color};
 `;
-const CurtureCard: React.FC<curtureCardProps> = ({ text, imgUrl, color }) => {
+const CurtureCard: React.FC<curtureCardProps> = ({
+  text,
+  imgUrl,
+  color,
+  delay,
+}) => {
   return (
-    <Container $imgUrl={imgUrl}>
+    <Container
+      $imgUrl={imgUrl}
+      data-aos="fade-up"
+      data-aos-offset="100"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1500"
+      data-aos-delay={delay}
+    >
       <Text color={color}>{text}</Text>
     </Container>
   );
