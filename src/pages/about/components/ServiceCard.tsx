@@ -86,6 +86,7 @@ const AppCard = styled.div<AppCardType>`
 const TextContainer = styled.div`
   display: flex;
   padding: 20px;
+
   color: #1f64d1;
 
   img {

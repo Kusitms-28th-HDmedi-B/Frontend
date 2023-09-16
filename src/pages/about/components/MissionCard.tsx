@@ -77,7 +77,7 @@ export default MissionCard;
 const Container = styled.div`
   width: 100%;
   padding: 114px 0;
-
+ 
   @media screen and (max-width: 500px) {
     padding: 50px 0;
   }
@@ -156,6 +156,7 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
   display: flex;
   align-items: center;
   justify-content: ${({ reverse }) => (reverse ? 'flex-start' : 'flex-end')};
+
 
   width: 549px;
   height: 339px;
