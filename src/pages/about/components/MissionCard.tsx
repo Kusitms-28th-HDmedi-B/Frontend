@@ -26,7 +26,7 @@ const MissionCard: React.FC<Props> = ({
         {reverse ? (
           <>
             <Desktop>
-              <ImageWrapper>
+              <ImageWrapper reverse={reverse}>
                 <img src={imgSrc} alt="image" />
               </ImageWrapper>
               <TextContainer>
@@ -39,7 +39,7 @@ const MissionCard: React.FC<Props> = ({
                 <pre className="Title">{title}</pre>
                 <pre className="Content">{content}</pre>
               </TextContainer>
-              <ImageWrapper>
+              <ImageWrapper reverse={reverse}>
                 <img src={imgSrc} alt="image" />
               </ImageWrapper>
             </Mobile>
@@ -51,7 +51,7 @@ const MissionCard: React.FC<Props> = ({
                 <pre className="Title">{title}</pre>
                 <pre className="Content">{content}</pre>
               </TextContainer>
-              <ImageWrapper>
+              <ImageWrapper reverse={reverse}>
                 <img src={imgSrc} alt="image" />
               </ImageWrapper>
             </Desktop>
@@ -61,7 +61,7 @@ const MissionCard: React.FC<Props> = ({
                 <pre className="Title">{title}</pre>
                 <pre className="Content">{content}</pre>
               </TextContainer>
-              <ImageWrapper>
+              <ImageWrapper reverse={reverse}>
                 <img src={imgSrc} alt="image" />
               </ImageWrapper>
             </Mobile>
@@ -87,6 +87,8 @@ const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
+  width: 100%;
+
   @media screen and (max-width: 500px) {
     flex-direction: column;
     gap: 30px;
@@ -94,6 +96,10 @@ const InnerContainer = styled.div`
 `;
 
 const Desktop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
   @media screen and (max-width: 500px) {
     display: none;
   }
@@ -142,10 +148,14 @@ const TextContainer = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+interface ImageWrapperProps {
+  reverse: boolean;
+}
+
+const ImageWrapper = styled.div<ImageWrapperProps>`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ reverse }) => (reverse ? 'flex-start' : 'flex-end')};
 
   width: 549px;
   height: 339px;
@@ -154,6 +164,7 @@ const ImageWrapper = styled.div`
   @media screen and (max-width: 500px) {
     width: 100%;
     height: 100%;
+    justify-content: center;
 
     padding: 0 10px;
   }
