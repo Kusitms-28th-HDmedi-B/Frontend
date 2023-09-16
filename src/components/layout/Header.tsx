@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import logo from '../../../public/assets/logo/header-logo.svg';
+import logo from '/assets/logo/header-logo.svg';
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

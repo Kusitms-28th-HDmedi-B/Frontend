@@ -5,9 +5,9 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import banner from '../../../public/assets/image/ValueBanner.png';
-import lee from '../../../public/assets/image/ValueLee.png';
-import lastBanner from '../../../public/assets/image/ValueLastBanner.png';
+import banner from '/assets/image/ValueBanner.png';
+import lee from '/assets/image/ValueLee.png';
+import lastBanner from '/assets/image/ValueLastBanner.png';
 import { CardText, curtureCardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
@@ -165,7 +165,7 @@ const Value = () => {
         <GridContainer>
           {CardText.map((textData, index) => (
             <Card
-              url={`../../../public/assets/image/ValueCard${index}.png`}
+              url={`/assets/image/ValueCard${index}.png`}
               textData={textData}
               key={index}
             ></Card>
@@ -191,7 +191,7 @@ const Value = () => {
           {curtureCardText.map((text, index) => (
             <CurtureCard
               text={text}
-              imgUrl={`../../../public/assets/image/ValueCurtureCard${index}.png`}
+              imgUrl={`/assets/image/ValueCurtureCard${index}.png`}
               color={index === 1 ? '#019F96' : '#1C35B4'}
               key={index}
             ></CurtureCard>

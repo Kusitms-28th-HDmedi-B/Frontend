@@ -13,8 +13,8 @@ import styled from 'styled-components';
 import SwiperCard from './SwiperCard';
 import { SwiperCardDatas } from './bannerData';
 
-import arrowLeft from '../../../public/assets/icon/arrow-left.svg';
-import arrowRight from '../../../public/assets/icon/arrow-right.svg';
+import arrowLeft from '/assets/icon/arrow-left.svg';
+import arrowRight from '/assets/icon/arrow-right.svg';
 
 const SwiperContainer = styled(Swiper)`
   /* background-color: red; */
