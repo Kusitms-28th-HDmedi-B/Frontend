@@ -5,6 +5,7 @@ import TextBox from './TextBox';
 const Container = styled.div`
   background-color: white;
   width: 70%;
+  height: 100%;
   margin: auto;
   padding: 106px 0 161px; //추가
   margin-bottom: 100px;

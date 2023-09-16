@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import News from './pages/news';
@@ -15,6 +15,7 @@ import Detail from './pages/notice/Detail';
 import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
 import Technology from './pages/technology';
+import Upp from './pages/service/upp';
 
 const route = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const route = createBrowserRouter([
     element: <Layout />, // 헤더 및 푸터
     children: [
       {
+        index: true,
         element: <Main />, // 홈페이지
       },
       {
@@ -59,11 +61,21 @@ const route = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <About />,
+        element: <About />, // 기업 소개 페이지
       },
       {
         path: 'technology',
-        element: <Technology />,
+        element: <Technology />, // 기술 페이지
+      },
+      {
+        path: 'service',
+        element: <Outlet />,
+        children: [
+          {
+            path: 'upp',
+            element: <Upp />,
+          },
+        ],
       },
     ],
   },
