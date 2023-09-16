@@ -58,8 +58,6 @@ const Ask = () => {
   const [inputFile, setInputFile] = useState<File>(); // 파일 입력을 따로 저장하기 위한 state
   const [isAgree, setIsAgree] = useState<boolean>(false); // 개인정보 동의 여부를 체크하는 state
 
-  console.log(inputData);
-
   const isOkToSubmit = useCallback((): boolean => {
     // 필수 입력 정보가 모두 입력되었는지 확인
     if (

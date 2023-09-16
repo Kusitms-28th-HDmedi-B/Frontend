@@ -7,6 +7,7 @@ interface Props {
   reverse: boolean;
   animation: string;
   backgroundUrl?: string | undefined;
+  backgroundColor?: string;
 }
 
 const WorthCard: React.FC<Props> = ({
@@ -15,15 +16,14 @@ const WorthCard: React.FC<Props> = ({
   reverse,
   animation,
   backgroundUrl,
+  backgroundColor,
 }) => {
   return (
-    <Container reverse={reverse}>
-      <img
-        className="background"
-        src={backgroundUrl}
-        alt="back"
-        style={{ opacity: '0.6' }}
-      />
+    <Container
+      reverse={reverse}
+      backgroundImage={backgroundUrl}
+      backgroundColor={backgroundColor}
+    >
       <InnerContainer data-aos={animation}>
         {reverse ? (
           <>
@@ -53,14 +53,21 @@ export default WorthCard;
 
 interface ContainerType {
   reverse: boolean;
+  backgroundImage: string | undefined;
+  backgroundColor: string | undefined;
 }
+
 const Container = styled.div<ContainerType>`
   width: 100%;
   position: relative;
-  height: 598px;
+  /* height: 598px; */
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-image: url(${({ backgroundImage }) => backgroundImage});
+  @media screen and (max-width: 500px) {
+    height: auto;
+  }
   .background {
     width: 100%;
-    /* height: 598px; */
 
     z-index: 2;
 
@@ -87,9 +94,13 @@ const Title = styled.div`
   pre {
     color: #4a81e5;
     text-align: center;
-    font-size: 38px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 86px; /* 156.364% */
+
+    @media screen and (max-width: 500px) {
+      font-size: 30px;
+    }
   }
 `;
 
@@ -101,6 +112,10 @@ const ImageWrapper = styled.div`
   width: 516px;
   height: 370px;
   flex-shrink: 0;
+
+  @media screen and (max-width: 500px) {
+    width: 70%;
+  }
 
   border-radius: 20px;
 

@@ -31,28 +31,33 @@ interface CardData {
   reverse: boolean;
   animation: string;
   backgroundUrl?: string | undefined;
+  backgroundColor?: string;
 }
 
 export const WorthCardData: CardData[] = [
   {
     title: '건강',
-    imgSrc: '/assets/image/about/about-image7.svg',
-    reverse: false,
+    imgSrc: '/assets/image/about/about-image8.svg',
+    reverse: true,
     animation: 'fade-right',
     backgroundUrl: '/assets/image/about/about-image5.svg',
+    backgroundColor: '#ECEEF6',
   },
   {
     title: '기술',
-    imgSrc: '',
-    reverse: true,
+    imgSrc: '/assets/image/about/about-image8.svg',
+    reverse: false,
     animation: 'fade-left',
     backgroundUrl: '/assets/image/about/about-image6.svg',
+    backgroundColor: '#10D192',
   },
   {
     title: '연결',
-    imgSrc: '',
-    reverse: false,
+    imgSrc: '/assets/image/about/about-image10.svg',
+    reverse: true,
     animation: 'fade-right',
+    backgroundUrl: '/assets/image/about/about-image7.svg',
+    backgroundColor: '#C7E2FF',
   },
 ];
 
@@ -69,12 +74,12 @@ export const StatisticData: CardData[] = [
     reverse: false,
     animation: 'fade-up',
   },
-  {
-    title: '약국 이용자 수\n의료진 수',
-    imgSrc: '',
-    reverse: false,
-    animation: 'fade-up',
-  },
+  // {
+  //   title: '약국 이용자 수\n의료진 수',
+  //   imgSrc: '',
+  //   reverse: false,
+  //   animation: 'fade-up',
+  // },
 ];
 
 interface AppDataType {
@@ -83,6 +88,7 @@ interface AppDataType {
   imgSrc: string;
   logo?: string;
   link: string;
+  backgroundUrl: string;
 }
 
 export const AppData: AppDataType[] = [
@@ -92,6 +98,7 @@ export const AppData: AppDataType[] = [
     imgSrc: '',
     logo: '/assets/logo/upp-logo.svg',
     link: '/service/upp',
+    backgroundUrl: '/assets/image/about/about-image11.svg',
   },
   {
     title: '비대면 통합\nCMS LMS',
@@ -99,5 +106,6 @@ export const AppData: AppDataType[] = [
     imgSrc: '',
     logo: '/assets/logo/lms-logo.png',
     link: '/service/lms',
+    backgroundUrl: '/assets/image/about/about-image11.svg',
   },
 ];
