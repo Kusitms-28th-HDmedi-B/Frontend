@@ -50,7 +50,7 @@ const DateSpan = styled.span`
 const fetchNotice = () => Axios.get('/api/announcement');
 
 const Announcement = () => {
-  const { data, isLoading } = useQuery(['api', 'notice'], fetchNotice, {
+  const { data } = useQuery(['api', 'notice'], fetchNotice, {
     staleTime: 10 * 5000,
     cacheTime: 10 * 5000 + 50,
   });

@@ -3,7 +3,6 @@ import { Title } from '../info';
 import { useState } from 'react';
 import toggleup from './toggleUp.svg';
 import toggleDown from './toggleDown.svg';
-import { useEffect } from 'react';
 import Axios from '../../apis';
 import { useQuery } from 'react-query';
 const QuetionUl = styled.ul``;
