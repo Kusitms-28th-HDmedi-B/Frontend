@@ -7,13 +7,13 @@ import Axios from '../../apis';
 import { useQuery } from 'react-query';
 const AnnouneUl = styled.ul`
   width: 100%;
-  height: 250px;
+  /* height: 250px; */
 `;
 const AnnouneLi = styled.li`
   border-radius: 10px;
-  padding: 10px 30px 10px 50px;
+  padding: 15px 30px 15px 20px;
   margin: 10px 0;
-
+  font-size: 20px;
   &:hover {
     background-color: #f4f4f4;
   }
@@ -54,7 +54,6 @@ const Announcement = () => {
     staleTime: 10 * 5000,
     cacheTime: 10 * 5000 + 50,
   });
-  console.log(data, isLoading);
   const [page, setPage] = useState(0);
   const [nowPages, setNowPages] = useState<number[]>([0, 1, 2]);
   const [maxPage, setMaxPage] = useState(0);
