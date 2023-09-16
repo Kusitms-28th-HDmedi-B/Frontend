@@ -65,10 +65,13 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
 
-  text-align: center;
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 86px; /* 172% */
+  pre {
+    color: #fff;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 86px; /* 172% */
+  }
 `;
 
 const ImageWrapper = styled.div`

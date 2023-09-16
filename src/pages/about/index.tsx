@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import AOS from 'aos';
@@ -10,35 +10,21 @@ import { MissionData, StatisticData, WorthCardData } from './data';
 import StatisticCard from './components/StatisticCard';
 import ServiceCard from './components/ServiceCard';
 import { currHeaderAtom } from '../../recoil/atom';
+import { handleScroll } from './functions';
 
 const About = () => {
   const [firstOpacity, setFirstOpacity] = useState<number>(1);
   const [secondOpacity, setSecondOpacity] = useState<number>(0);
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
 
-  const handleScroll = useCallback(() => {
-    const currentScrollY: number = window.scrollY;
-    const innerHeight = window.innerHeight;
-
-    if (currentScrollY <= innerHeight) {
-      setFirstOpacity(1 - (1 / innerHeight) * currentScrollY);
-      setSecondOpacity((1 / innerHeight) * currentScrollY);
-    } else if (
-      innerHeight <= currentScrollY &&
-      currentScrollY <= 2 * innerHeight
-    ) {
-      setFirstOpacity(0);
-      setSecondOpacity(2 - (1 / innerHeight) * currentScrollY);
-    } else {
-      setFirstOpacity(0);
-      setSecondOpacity(0);
-    }
-  }, [firstOpacity, secondOpacity]);
-
-  useEffect(() => setCurrHeader('transparent'), []);
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    setCurrHeader('transparent'), [];
+    window.addEventListener(
+      'scroll',
+      handleScroll(setFirstOpacity, setSecondOpacity),
+      { passive: true },
+    );
+    handleScroll(setFirstOpacity, setSecondOpacity)();
   }, []);
 
   useEffect(() => {
@@ -51,7 +37,7 @@ const About = () => {
     <Container>
       <FirstPageContainer style={{ opacity: `${firstOpacity}` }}>
         <MainTextContainer>
-          <pre>기업 소개 메인 문장</pre>
+          <pre>{'에이치디메디는\n연결을 통해 건강한 사회를 약속드립니다'}</pre>
         </MainTextContainer>
       </FirstPageContainer>
 
@@ -100,6 +86,8 @@ const Container = styled.div`
   justify-content: center;
 
   position: relative;
+
+  overflow-x: hidden;
 `;
 
 const FirstPageContainer = styled.div`
@@ -111,6 +99,18 @@ const FirstPageContainer = styled.div`
   height: 100vh;
   flex-shrink: 0;
   background-color: #d9d9d9;
+
+  &::before {
+    content: '';
+    background-image: url('/assets/image/about/about-image1.svg');
+    background-size: cover;
+    opacity: 0.7;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
 
   position: fixed;
   top: 0;
@@ -131,6 +131,7 @@ const MainTextContainer = styled.div`
   width: 70%;
   margin: auto;
 
+  z-index: 2;
   pre {
     text-align: center;
     font-size: 36px;
@@ -162,11 +163,18 @@ const ThirdPageContainer = styled.div`
   flex-direction: column;
 
   width: 100%;
+  padding: 100px 0;
 `;
 
 const MissionContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 70%;
+  margin: auto;
+
+  background-image: url('/assets/image/about/about-image2.svg');
+  background-size: cover;
 
   gap: 100px;
 `;
@@ -175,10 +183,15 @@ const FourthPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #f4fafe;
+
+  padding: 50px 0;
 `;
 
 const FifthPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 100px 0;
+  background: #1a1f27;
 `;
