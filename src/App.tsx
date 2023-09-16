@@ -16,6 +16,7 @@ import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
 import Technology from './pages/technology';
 import Upp from './pages/service/upp';
+import Login from './pages/admin/login';
 
 const route = createBrowserRouter([
   {
@@ -76,6 +77,16 @@ const route = createBrowserRouter([
             element: <Upp />,
           },
         ],
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    element: <Outlet />,
+    children: [
+      {
+        path: 'login',
+        element: <Login />,
       },
     ],
   },
