@@ -14,13 +14,15 @@ const ServiceCard = () => {
     <Container>
       <InnerContainer>
         {/* Todo: 누르면 서비스 소개 탭으로 이동하게 */}
-        {AppData.map(({ title, subtitle, logo, link }) => (
-          <AppCard onClick={() => handleClick(link)}>
+        {AppData.map(({ subtitle, logo, link, backgroundUrl }) => (
+          <AppCard backgroundUrl={backgroundUrl}>
             <TextContainer>
-              <Title>{title}</Title>
-              <SubTitle>{subtitle}</SubTitle>
               <img src={logo} alt="logo" />
+              <Title>{subtitle}</Title>
             </TextContainer>
+            <Button onClick={() => handleClick(link)}>
+              <pre>{'서비스 보기'}</pre>
+            </Button>
           </AppCard>
         ))}
       </InnerContainer>
@@ -47,15 +49,19 @@ const InnerContainer = styled.div`
   @media screen and (max-width: 500px) {
     flex-direction: column;
     padding: 40px 0;
-    gap: 30px;
+    gap: 60px;
   }
 `;
 
-const AppCard = styled.div`
+interface AppCardType {
+  backgroundUrl: string;
+}
+
+const AppCard = styled.div<AppCardType>`
   display: flex;
   flex-direction: column;
 
-  cursor: pointer;
+  position: relative;
 
   z-index: 3;
 
@@ -71,11 +77,15 @@ const AppCard = styled.div`
   border-radius: 20px;
   background: #fff;
 
+  background-image: url(${({ backgroundUrl }) => backgroundUrl});
+  background-size: cover;
+
   box-shadow: 2px 2px 4px 0 gray;
 `;
 
 const TextContainer = styled.div`
-  padding: 50px;
+  display: flex;
+  padding: 20px;
   color: #1f64d1;
 
   img {
@@ -90,23 +100,57 @@ const TextContainer = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 36px; /* 112.5% */
-  margin-bottom: 23px;
-
+  margin-top: 35px;
   @media screen and (max-width: 500px) {
-    font-size: 17.92px;
+    font-size: 14px;
     margin-bottom: 7px;
   }
 `;
 
-const SubTitle = styled.div`
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px; /* 150% */
+// const SubTitle = styled.div`
+//   font-size: 24px;
+//   font-weight: 700;
+//   line-height: 36px; /* 150% */
 
-  @media screen and (max-width: 500px) {
-    font-size: 13.44px;
+//   @media screen and (max-width: 500px) {
+//     font-size: 13.44px;
+//   }
+// `;
+
+const Button = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 216px;
+  height: 55px;
+  flex-shrink: 0;
+
+  border-radius: 31px;
+  border: 2px solid #0070ed;
+
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  pre {
+    text-align: center;
+    font-weight: 700;
+    line-height: 16px; /* 100% */
+  }
+
+  animation: float 3s ease-in-out infinite;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 `;
