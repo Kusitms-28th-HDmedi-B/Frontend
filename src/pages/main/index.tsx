@@ -33,9 +33,10 @@ const SecondGif = styled.div`
   background-color: red;
 `;
 const ThirdContainer = styled.div`
+  margin: auto;
   width: 70%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 const ThirdTitle = styled.div`

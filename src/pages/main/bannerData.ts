@@ -9,6 +9,7 @@ export interface persuitCardProps {
   title: string;
   content: string[];
   imgUrl: string;
+  titleColor: string;
 }
 
 export const SwiperCardDatas: SwiperCardProps[] = [
@@ -41,15 +42,17 @@ export const persuitDatas: persuitCardProps[] = [
       '실행 수단을 강화하고\n지속가능한 개발을 위한 글로벌 협력을 활성화합니다',
     ],
     imgUrl: '../../../public/assets/image/main/HomePersuit0.png',
+    titleColor: '#097DF5',
   },
   {
     title: '기술',
     content: [
-      '사회경제적 가치 창출 의약품 부작용 문제 해력을 통한 연 5300억원 절감',
-      '건강한 지역사회 형성 지역 주민을 연결한 건강관리로 건강한 사회 형성',
-      '지속가능한 경영 지속적으로 가치창출이 가능한 경영',
+      '빅데이터를 통한 16만 의약품 통합 정보,\n10만 의료기관 통합 정보 API 구축',
+      '인공지능을 통한 질병 예측 시스템 구축\n',
+      '전자 복약지도, LMS/CMS SaaS 제공 ',
     ],
     imgUrl: '../../../public/assets/image/main/HomePersuit1.png',
+    titleColor: '#000',
   },
   {
     title: '연결',
@@ -59,5 +62,6 @@ export const persuitDatas: persuitCardProps[] = [
       '실행 수단을 강화하고\n지속가능한 개발을 위한 글로벌 협력을 활성화합니다',
     ],
     imgUrl: '../../../public/assets/image/main/HomePersuit2.png',
+    titleColor: '#097DF5',
   },
 ];
