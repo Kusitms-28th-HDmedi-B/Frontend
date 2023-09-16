@@ -59,9 +59,6 @@ const Container = styled.div`
 const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
-  width: 70%;
-  margin: auto;
 `;
 
 const TextContainer = styled.div`
@@ -69,6 +66,8 @@ const TextContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+  gap: 20px;
 
   .Title {
     font-size: 26px;
@@ -85,10 +84,13 @@ const TextContainer = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 549px;
   height: 339px;
   flex-shrink: 0;
 
   border-radius: 20px;
-  background: #d9d9d9;
 `;
