@@ -16,7 +16,6 @@ const MissionCard: React.FC<Props> = ({
   reverse,
   animation,
 }) => {
-  console.log();
   return (
     <Container>
       <InnerContainer

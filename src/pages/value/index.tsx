@@ -6,8 +6,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import banner from '../../../public/assets/image/ValueBanner.png';
-import cardImgUrl from '../../../public/assets/image/ValueCard.png';
-import curtureCardImgUrl from '../../../public/assets/image/ValueCurtureCard.png';
+import lee from '../../../public/assets/image/ValueLee.png';
+import lastBanner from '../../../public/assets/image/ValueLastBanner.png';
 import { CardText, curtureCardText, secondContainerText } from './valueData';
 import Card from '../../components/common/Card';
 import { useNavigate } from 'react-router-dom';
@@ -23,13 +23,11 @@ const Banner = styled.div`
   background: url(${banner}) no-repeat;
   background-size: cover;
 
-
   text-align: center;
   line-height: 700px;
   font-size: 50px;
   font-weight: 700;
   color: #eef7ff;
-
 `;
 const FirstContainer = styled.div`
   width: 70%;
@@ -44,13 +42,14 @@ const SubTitle = styled.div`
   margin: 50px 0;
 `;
 const GridContainer = styled.div`
+  /* margin: auto; */
   width: 850px;
   height: 850px;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
   grid-template-rows: repeat(2, 1fr); /* 2개의 행 */
-  /* justify-items: center; */ //왼쪽을 맞추자
-  gap: 50px; //어렵다 이거..
+  /* justify-items: center; //왼쪽을 맞추자 */
+  gap: 100px; //어렵다 이거..
 `;
 const SecondContainer = styled.div`
   width: 100%;
@@ -62,29 +61,46 @@ const SecondContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #d9d9d9;
+  background-color: #f4fafe;
   span {
     width: 160px;
     height: 160px;
     border-radius: 80px;
-    background: url(${cardImgUrl}) no-repeat;
+    background: url(${lee}) no-repeat;
     background-size: cover;
     display: inline-block;
   }
 `;
 const TextContainer = styled.div`
+  position: relative;
+
   display: inline-block;
   margin-left: 100px;
   div {
     white-space: break-spaces;
   }
   div:nth-of-type(1) {
+    position: relative;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 40px;
+    color: #003fa3;
+    z-index: 20;
   }
   div:nth-of-type(2) {
     line-height: 20px;
+    font-weight: 600;
+  }
+
+  div:nth-of-type(3) {
+    position: absolute;
+    top: 10%;
+    left: -10px;
+    background-color: rgba(179, 218, 255, 1);
+    width: 430px;
+    height: 16px;
+    border-radius: 8px;
+    z-index: 10;
   }
 `;
 const ThirdContainer = styled.div`
@@ -100,7 +116,7 @@ const CurtureCardContainer = styled.div`
 `;
 const FourthContainer = styled.div`
   width: 100%;
-  height: 600px;
+  height: 100vh;
   padding: 200px 0;
   margin: auto;
   background-color: #d9d9d9;
@@ -110,20 +126,25 @@ const FourthContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  background: url(${lastBanner}) no-repeat;
+  background-size: cover;
+
   div:nth-of-type(1) {
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 80px;
+    color: white;
   }
   div:nth-of-type(2) {
     width: 250px;
     height: 60px;
     border-radius: 30px;
-    background-color: #6a6a6a;
+    background-color: white;
 
+    font-weight: 600;
     text-align: center;
     line-height: 60px;
-    color: white;
+    color: #000;
     cursor: pointer;
   }
 `;
@@ -143,7 +164,11 @@ const Value = () => {
         <SubTitle>함께 성장할 인재를 찾습니다.</SubTitle>
         <GridContainer>
           {CardText.map((textData, index) => (
-            <Card url={cardImgUrl} textData={textData} key={index}></Card>
+            <Card
+              url={`../../../public/assets/image/ValueCard${index}.png`}
+              textData={textData}
+              key={index}
+            ></Card>
           ))}
         </GridContainer>
       </FirstContainer>
@@ -152,6 +177,7 @@ const Value = () => {
         <TextContainer>
           <div>{secondContainerText[0]}</div>
           <div>{secondContainerText[1]}</div>
+          <div></div>
         </TextContainer>
       </SecondContainer>
       <ThirdContainer
@@ -165,7 +191,8 @@ const Value = () => {
           {curtureCardText.map((text, index) => (
             <CurtureCard
               text={text}
-              imgUrl={curtureCardImgUrl}
+              imgUrl={`../../../public/assets/image/ValueCurtureCard${index}.png`}
+              color={index === 1 ? '#019F96' : '#1C35B4'}
               key={index}
             ></CurtureCard>
           ))}
@@ -175,7 +202,6 @@ const Value = () => {
         <div>우리와 함께 더 좋은 세상을 만들어요</div>
         <div onClick={() => navigate('../recruit')}>채용 공고 바로가기</div>
       </FourthContainer>
-
     </Container>
   );
 };
