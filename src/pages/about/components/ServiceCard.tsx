@@ -110,15 +110,15 @@ const Title = styled.div`
   }
 `;
 
-const SubTitle = styled.div`
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px; /* 150% */
+// const SubTitle = styled.div`
+//   font-size: 24px;
+//   font-weight: 700;
+//   line-height: 36px; /* 150% */
 
-  @media screen and (max-width: 500px) {
-    font-size: 13.44px;
-  }
-`;
+//   @media screen and (max-width: 500px) {
+//     font-size: 13.44px;
+//   }
+// `;
 
 const Button = styled.div`
   display: flex;
