@@ -1,35 +1,96 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-function App() {
-  const [count, setCount] = useState(0)
+import News from './pages/news';
+import Main from './pages/main';
+import Layout from './components/layout/Layout';
+import Recruit from './pages/recruit';
+import Notice from './pages/notice';
+import Info from './pages/info';
+import Ask from './pages/ask';
+import GlobalStyle from './styles/GlobalStyles';
+import GlobalFont from './styles/GlobalFont';
+import About from './pages/about';
+import Detail from './pages/notice/Detail';
+import Value from './pages/value';
+import { RecoilRoot } from 'recoil';
+import Technology from './pages/technology';
+import Upp from './pages/service/upp';
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const route = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />, // 헤더 및 푸터
+    children: [
+      {
+        index: true,
+        element: <Main />, // 홈페이지
+      },
+      {
+        path: 'recruit',
+        element: <Recruit />, //채용공고 페이지
+      },
+      {
+        path: 'notice',
+        children: [
+          {
+            index: true,
+            element: <Notice />, //공지사항 페이지
+          },
+          {
+            path: ':id',
+            element: <Detail />, //세부 공지사항
+          },
+        ],
+      },
+      {
+        path: 'news',
+        element: <News />, //뉴스 페이지
+      },
+      {
+        path: 'info',
+        element: <Info />, //기업 정보 페이지
+      },
+      {
+        path: 'ask',
+        element: <Ask />, //문의하기 페이지
+      },
+      {
+        path: 'value',
+        element: <Value />, // 인재상 페이지
+      },
+      {
+        path: 'about',
+        element: <About />, // 기업 소개 페이지
+      },
+      {
+        path: 'technology',
+        element: <Technology />, // 기술 페이지
+      },
+      {
+        path: 'service',
+        element: <Outlet />,
+        children: [
+          {
+            path: 'upp',
+            element: <Upp />,
+          },
+        ],
+      },
+    ],
+  },
+]);
 
-export default App
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <RecoilRoot>
+      <GlobalFont />
+      <GlobalStyle />
+      <RouterProvider router={route} />
+    </RecoilRoot>
+  </QueryClientProvider>
+);
+
+export default App;
