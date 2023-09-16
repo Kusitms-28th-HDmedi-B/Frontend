@@ -12,7 +12,7 @@ const CardContainer = styled.div`
     transition: 0.5s;
   }
   &:hover > span {
-    filter: blur(5px);
+    filter: blur(8px);
   }
   // Title 컴포넌트에 적용
   /* &:hover > div:nth-of-type(1) {
@@ -25,7 +25,7 @@ const CardContainer = styled.div`
     line-height: 30px;
   } */
   &:hover > ul {
-    top: 70%;
+    top: 65%;
     height: 200px;
   }
 `;
@@ -62,6 +62,7 @@ const CardUl = styled.ul`
   position: absolute; //부모인 CardContainer에 겹치게 하기 위한 설정
   width: 450px;
   height: 300px;
+  /* margin : 10px 0; */
   top: 100%;
   left: 0%;
   font-size: 14px;
@@ -73,7 +74,9 @@ const CardUl = styled.ul`
   background-color: rgba(255, 255, 255, 0.8);
   /* background-color: #ffffffa3; */
   li {
+    line-height: 20px;
     margin: 20px 50px;
+    white-space: break-spaces;
   }
 `;
 interface CardProps {

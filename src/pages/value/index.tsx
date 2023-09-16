@@ -39,17 +39,30 @@ const FirstContainer = styled.div`
 const SubTitle = styled.div`
   font-size: 36px;
   font-weight: 700;
-  margin: 50px 0;
+  margin: 100px 0;
 `;
+// const GridContainer = styled.div`
+//   /* margin: auto; */
+//   width: 850px;
+//   height: 850px;
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
+//   grid-template-rows: repeat(2, 1fr); /* 2개의 행 */
+//   /* justify-items: center; //왼쪽을 맞추자 */
+//   gap: 100px; //어렵다 이거..
+// `;
+
 const GridContainer = styled.div`
-  /* margin: auto; */
-  width: 850px;
-  height: 850px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
-  grid-template-rows: repeat(2, 1fr); /* 2개의 행 */
-  /* justify-items: center; //왼쪽을 맞추자 */
-  gap: 100px; //어렵다 이거..
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: auto;
+  gap: 50px;
+  z-index: 2;
 `;
 const SecondContainer = styled.div`
   width: 100%;
@@ -81,14 +94,14 @@ const TextContainer = styled.div`
   }
   div:nth-of-type(1) {
     position: relative;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     margin-bottom: 40px;
     color: #003fa3;
     z-index: 20;
   }
   div:nth-of-type(2) {
-    line-height: 20px;
+    line-height: 22px;
     font-weight: 600;
   }
 
@@ -97,7 +110,7 @@ const TextContainer = styled.div`
     top: 10%;
     left: -10px;
     background-color: rgba(179, 218, 255, 1);
-    width: 430px;
+    width: 460px;
     height: 16px;
     border-radius: 8px;
     z-index: 10;
@@ -113,10 +126,11 @@ const CurtureCardContainer = styled.div`
 
   justify-content: space-between;
   align-items: center;
+  margin-top: 80px;
 `;
 const FourthContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   padding: 200px 0;
   margin: auto;
   background-color: #d9d9d9;
@@ -135,6 +149,7 @@ const FourthContainer = styled.div`
     margin-bottom: 80px;
     color: white;
   }
+  //채용공고 바로가기 버튼
   div:nth-of-type(2) {
     width: 250px;
     height: 60px;
@@ -146,6 +161,18 @@ const FourthContainer = styled.div`
     line-height: 60px;
     color: #000;
     cursor: pointer;
+
+    /* 둥둥 떠있게 하기 */
+    animation: float 3s ease-in-out infinite;
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
   }
 `;
 const Value = () => {
@@ -180,12 +207,7 @@ const Value = () => {
           <div></div>
         </TextContainer>
       </SecondContainer>
-      <ThirdContainer
-        data-aos="fade-up"
-        data-aos-offset="100"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="1500"
-      >
+      <ThirdContainer>
         <Title>HD메디의 문화</Title>
         <CurtureCardContainer>
           {curtureCardText.map((text, index) => (
@@ -193,6 +215,7 @@ const Value = () => {
               text={text}
               imgUrl={`/assets/image/ValueCurtureCard${index}.png`}
               color={index === 1 ? '#019F96' : '#1C35B4'}
+              delay={index * 300}
               key={index}
             ></CurtureCard>
           ))}
