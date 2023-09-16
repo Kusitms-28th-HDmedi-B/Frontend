@@ -69,12 +69,12 @@ export const StatisticData: CardData[] = [
     reverse: false,
     animation: 'fade-up',
   },
-  {
-    title: '약국 이용자 수\n의료진 수',
-    imgSrc: '',
-    reverse: false,
-    animation: 'fade-up',
-  },
+  // {
+  //   title: '약국 이용자 수\n의료진 수',
+  //   imgSrc: '',
+  //   reverse: false,
+  //   animation: 'fade-up',
+  // },
 ];
 
 interface AppDataType {

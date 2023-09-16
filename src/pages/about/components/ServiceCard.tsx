@@ -15,7 +15,7 @@ const ServiceCard = () => {
       <InnerContainer>
         {/* Todo: 누르면 서비스 소개 탭으로 이동하게 */}
         {AppData.map(({ title, subtitle, logo, link }) => (
-          <AppCard onClick={() => handleClick(link)} data-aos="zoom-in">
+          <AppCard onClick={() => handleClick(link)}>
             <TextContainer>
               <Title>{title}</Title>
               <SubTitle>{subtitle}</SubTitle>
@@ -43,6 +43,12 @@ const InnerContainer = styled.div`
   width: 70%;
   margin: auto;
   padding: 77px 0;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 30px;
+  }
 `;
 
 const AppCard = styled.div`
@@ -56,6 +62,11 @@ const AppCard = styled.div`
   width: 462px;
   height: 300px;
   flex-shrink: 0;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 227.92px;
+  }
 
   border-radius: 20px;
   background: #fff;
@@ -72,6 +83,10 @@ const TextContainer = styled.div`
     height: 90px;
     flex-shrink: 0;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+  }
 `;
 
 const Title = styled.div`
@@ -79,10 +94,19 @@ const Title = styled.div`
   font-weight: 700;
   line-height: 36px; /* 112.5% */
   margin-bottom: 23px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 17.92px;
+    margin-bottom: 7px;
+  }
 `;
 
 const SubTitle = styled.div`
   font-size: 24px;
   font-weight: 700;
   line-height: 36px; /* 150% */
+
+  @media screen and (max-width: 500px) {
+    font-size: 13.44px;
+  }
 `;

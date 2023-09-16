@@ -18,6 +18,8 @@ import Technology from './pages/technology';
 import Upp from './pages/service/upp';
 import Lms from './pages/service/lms';
 
+import Login from './pages/admin/login';
+
 const route = createBrowserRouter([
   {
     path: '/',
@@ -81,6 +83,16 @@ const route = createBrowserRouter([
             element: <Lms />,
           },
         ],
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    element: <Outlet />,
+    children: [
+      {
+        path: 'login',
+        element: <Login />,
       },
     ],
   },

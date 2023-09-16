@@ -36,13 +36,13 @@ const About = () => {
   return (
     <Container>
       <FirstPageContainer style={{ opacity: `${firstOpacity}` }}>
-        <MainTextContainer>
-          <pre>{'에이치디메디는\n연결을 통해 건강한 사회를 약속드립니다'}</pre>
+        <MainTextContainer page={0}>
+          <pre>{'에이치디메디는\n연결을 통해 건강한 사회를\n약속드립니다'}</pre>
         </MainTextContainer>
       </FirstPageContainer>
 
       <SecondPageContainer style={{ opacity: `${secondOpacity}` }}>
-        <MainTextContainer>
+        <MainTextContainer page={1}>
           <pre>{`HDmedi는 의약품 부작용을 경험한 대표 ‘이정의’의 실제 사례를 바탕으로\n사용자 맞춤형 의료 정보를 제공하기 위해 탄생했습니다.`}</pre>
         </MainTextContainer>
       </SecondPageContainer>
@@ -123,7 +123,11 @@ const PaddingContainer = styled.div`
   height: 300vh;
 `;
 
-const MainTextContainer = styled.div`
+interface MainContainer {
+  page: number;
+}
+
+const MainTextContainer = styled.div<MainContainer>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,12 +137,21 @@ const MainTextContainer = styled.div`
 
   z-index: 2;
   pre {
+    color: #191919;
     text-align: center;
     font-size: 36px;
     font-weight: 700;
     line-height: 86px; /* 172% */
 
     white-space: pre-wrap;
+
+    @media screen and (max-width: 500px) {
+      text-align: center;
+      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
+      font-style: normal;
+      font-weight: 700;
+      line-height: 34px; /* 141.667% */
+    }
   }
 `;
 
@@ -173,10 +186,16 @@ const MissionContainer = styled.div`
   width: 70%;
   margin: auto;
 
-  background-image: url('/assets/image/about/about-image2.svg');
-  background-size: cover;
+  @media screen and (min-width: 500px) {
+    background-image: url('/assets/image/about/about-image2.svg');
+    background-size: cover;
+  }
 
   gap: 100px;
+
+  @media screen and (max-width: 500px) {
+    gap: 60px;
+  }
 `;
 
 const FourthPageContainer = styled.div`
@@ -194,4 +213,8 @@ const FifthPageContainer = styled.div`
   width: 100%;
   padding: 100px 0;
   background: #1a1f27;
+
+  @media screen and (max-width: 500px) {
+    padding: 50px 0;
+  }
 `;
