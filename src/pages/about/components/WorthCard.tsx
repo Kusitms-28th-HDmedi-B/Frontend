@@ -58,9 +58,12 @@ const Container = styled.div<ContainerType>`
   width: 100%;
   position: relative;
   height: 598px;
+
+  @media screen and (max-width: 500px) {
+    height: auto;
+  }
   .background {
     width: 100%;
-    /* height: 598px; */
 
     z-index: 2;
 
@@ -90,6 +93,10 @@ const Title = styled.div`
     font-size: 38px;
     font-weight: 700;
     line-height: 86px; /* 156.364% */
+
+    @media screen and (max-width: 500px) {
+      font-size: 30px;
+    }
   }
 `;
 
@@ -101,6 +108,10 @@ const ImageWrapper = styled.div`
   width: 516px;
   height: 370px;
   flex-shrink: 0;
+
+  @media screen and (max-width: 500px) {
+    width: 70%;
+  }
 
   border-radius: 20px;
 

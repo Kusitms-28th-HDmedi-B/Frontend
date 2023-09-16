@@ -50,11 +50,19 @@ export default StatisticCard;
 const Container = styled.div`
   width: 100%;
   padding: 160px 0;
+
+  @media screen and (max-width: 500px) {
+    padding: 60px 0;
+  }
 `;
 
 const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 
   width: 70%;
   margin: auto;
@@ -71,6 +79,13 @@ const Title = styled.div`
     font-size: 38px;
     font-weight: 700;
     line-height: 86px; /* 172% */
+
+    @media screen and (max-width: 500px) {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 86px; /* 286.667% */
+    }
   }
 `;
 
@@ -78,6 +93,11 @@ const ImageWrapper = styled.div`
   width: 700px;
   height: 370px;
   flex-shrink: 0;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 162px;
+  }
 
   border-radius: 20px;
   background: #afafaf;
