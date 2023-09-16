@@ -16,6 +16,8 @@ import Value from './pages/value';
 import { RecoilRoot } from 'recoil';
 import Technology from './pages/technology';
 import Upp from './pages/service/upp';
+import Lms from './pages/service/lms';
+
 import Login from './pages/admin/login';
 
 const route = createBrowserRouter([
@@ -75,6 +77,10 @@ const route = createBrowserRouter([
           {
             path: 'upp',
             element: <Upp />,
+          },
+          {
+            path: 'lms',
+            element: <Lms />,
           },
         ],
       },
