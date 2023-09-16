@@ -22,11 +22,18 @@ const Logo = styled.span`
   background-size: cover;
   width: 167px;
   height: 28px;
+  @media screen and (max-width: 500px) {
+    width: 100px;
+    height: 28px;
+  }
 `;
 const Nav = styled.ul`
   margin-left: 100px;
   display: inline-block;
   position: absolute;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 const NavLi = styled.li<{ $countDepth: number }>`
   position: relative;
@@ -78,6 +85,18 @@ const NavDepth = styled.div`
 const LanguageContainer = styled.span`
   float: right;
   line-height: 28px; //이거다
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
+const Hamberger = styled.div`
+  width: 0px;
+  transition: 0.5s ease-in-out;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+  }
 `;
 const Language = styled.span<{ $isSelected: boolean }>`
   cursor: pointer;
@@ -90,40 +109,43 @@ function Header() {
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
   const currHeader = useRecoilValue(currHeaderAtom);
   return (
-    <Container $bgColor={currHeader}>
-      <Link to={'../'}>
-        <Logo></Logo>
-      </Link>
-      <Nav>
-        {categories.map((category, index) => (
-          <NavLi key={index} $countDepth={category.depth.length}>
-            {category.title}
-            <NavDepthContainer>
-              {category.depth.map((each, index) => (
-                <NavDepth key={index}>
-                  <Link to={each.url}>{each.name}</Link>
-                </NavDepth>
-              ))}
-            </NavDepthContainer>
-          </NavLi>
-        ))}
-      </Nav>
-      <LanguageContainer>
-        <Language
-          $isSelected={currLanguage === 'KR'}
-          onClick={() => setCurrLanguage('KR')}
-        >
-          KR
-        </Language>
-        |
-        <Language
-          $isSelected={currLanguage === 'EN'}
-          onClick={() => setCurrLanguage('EN')}
-        >
-          EN
-        </Language>
-      </LanguageContainer>
-    </Container>
+    <>
+      <Container $bgColor={currHeader}>
+        <Link to={'../'}>
+          <Logo></Logo>
+        </Link>
+        <Nav>
+          {categories.map((category, index) => (
+            <NavLi key={index} $countDepth={category.depth.length}>
+              {category.title}
+              <NavDepthContainer>
+                {category.depth.map((each, index) => (
+                  <NavDepth key={index}>
+                    <Link to={each.url}>{each.name}</Link>
+                  </NavDepth>
+                ))}
+              </NavDepthContainer>
+            </NavLi>
+          ))}
+        </Nav>
+        <LanguageContainer>
+          <Language
+            $isSelected={currLanguage === 'KR'}
+            onClick={() => setCurrLanguage('KR')}
+          >
+            KR
+          </Language>
+          |
+          <Language
+            $isSelected={currLanguage === 'EN'}
+            onClick={() => setCurrLanguage('EN')}
+          >
+            EN
+          </Language>
+        </LanguageContainer>
+      </Container>
+      <Hamberger></Hamberger>
+    </>
   );
 }
 

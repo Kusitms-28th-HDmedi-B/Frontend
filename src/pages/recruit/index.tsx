@@ -52,7 +52,7 @@ const Recruit = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get('https://hdmedi.site/api/career');
+        const response = await axios.get('https://back.hdmedi.site/api/career');
         setRecruitData(response.data);
         setMaxPage(Math.floor((response.data.length + 2) / 3));
         setNowPages(
