@@ -181,7 +181,7 @@ const InnerContainer = styled.div`
 
   pre {
     text-align: center;
-    font-family: Pretendard;
+    color: #0070ed;
     font-size: 24px;
     font-weight: 700;
     margin-left: 20%;
@@ -191,20 +191,6 @@ const InnerContainer = styled.div`
     width: 100%;
     height: 21.06%;
   } */
-`;
-
-const TechnologyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  width: 100%;
-  height: 100%;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 const BackgroundImage = styled.img`
