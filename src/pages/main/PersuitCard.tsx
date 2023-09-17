@@ -72,8 +72,8 @@ const StyledUl = styled.ul`
     white-space: break-spaces;
     margin: 15px 0;
     font-size: 13px;
-    font-weight: 600;
-    line-height: 26px;
+    font-weight: 500;
+    line-height: 22px;
     @media screen and (max-width: 500px) {
       font-size: 11px;
       line-height: 20px;
