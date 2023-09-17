@@ -39,7 +39,7 @@ const FirstContainer = styled.div`
 const SubTitle = styled.div`
   font-size: 36px;
   font-weight: 700;
-  margin: 100px 0;
+  margin: 100px 0 100px 50px;
 `;
 // const GridContainer = styled.div`
 //   /* margin: auto; */
@@ -102,7 +102,7 @@ const TextContainer = styled.div`
   }
   div:nth-of-type(2) {
     line-height: 22px;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   div:nth-of-type(3) {

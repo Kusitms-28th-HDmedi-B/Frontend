@@ -6,10 +6,10 @@ const NewsTitle = styled.div`
   font-size: 30px;
   font-weight: 600;
   text-align: center;
-  margin: 200px 0;
+  margin: 200px 0 80px 0;
   @media screen and (max-width: 500px) {
     font-size: 20px;
-    margin: 100px 0;
+    margin: 100px 0 50px 0;
   }
 `;
 const FlexContainer = styled.div`
@@ -19,11 +19,12 @@ const FlexContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  a {
+  a,
+  + a {
     text-decoration: none;
     color: inherit;
   }
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 `;
 const NewsCard = styled.div`
   width: 320px;
@@ -64,6 +65,27 @@ const NewsCardTitle = styled.div`
     line-height: 24px;
   }
 `;
+const NewsMore = styled.div`
+  width: 240px;
+  height: 60px;
+  border-radius: 30px;
+  border: 2px solid #64a1e4;
+  margin: auto;
+
+  font-weight: 700;
+  text-align: center;
+  line-height: 60px;
+  box-shadow: 2px 2px 4px rgba(71, 91, 221, 0.2); /* 그림자 스타일 지정 */
+
+  margin-bottom: 200px;
+
+  @media screen and (max-width: 500px) {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    line-height: 50px;
+  }
+`;
 interface NewsResponse {
   maxpage: number;
   data: [
@@ -100,14 +122,17 @@ const NewsContainer = () => {
               <NewsCardImg $imgUrl={data.image}></NewsCardImg>
               <NewsCardDate>{data.publishedAt}</NewsCardDate>
               <NewsCardTitle>
-                {data.title.length > 30
-                  ? data.title.slice(0, 25) + '..자세히보기'
+                {data.title.length > 40
+                  ? data.title.slice(0, 37) + '...'
                   : data.title}
               </NewsCardTitle>
             </NewsCard>
           </Link>
         ))}
       </FlexContainer>
+      <Link to={'/news'}>
+        <NewsMore>뉴스 더보기</NewsMore>
+      </Link>
     </>
   );
 };

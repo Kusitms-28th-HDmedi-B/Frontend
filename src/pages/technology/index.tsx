@@ -7,11 +7,8 @@ import 'aos/dist/aos.css';
 import { currHeaderAtom } from '../../recoil/atom';
 import AppCard from './components/AppCard';
 import Card from '../../components/common/Card';
-import { CardText } from './data';
-import cardImgUrl from '/assets/image/ValueCard1.png';
+import { AppCardData, CardText, TechnologyData } from './data';
 import ArrowImage from '/assets/image/ArrowImage.svg';
-import AIImage from '/assets/image/AIImage.svg';
-import CustomizedInformation from '/assets/image/CustomizedInformation.svg';
 import CloudService from '/assets/image/CloudService.svg';
 
 const Technology = () => {
@@ -37,10 +34,6 @@ const Technology = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  useEffect(() => {
     AOS.init({
       duration: 1200,
     });
@@ -50,7 +43,7 @@ const Technology = () => {
     <Container>
       <FirstPageContainer style={{ opacity: `${opacity}` }}>
         <MainTextContainer>
-          <pre>
+          <pre style={{ zIndex: 3 }}>
             {'에이치디메디만의 기술력으로\n고객 맞춤형 서비스를 제공합니다.'}
           </pre>
         </MainTextContainer>
@@ -63,21 +56,20 @@ const Technology = () => {
           alt="cloud"
           style={{ width: '30%', marginBottom: '100px' }}
           data-aos="fade-up"
+          id={'anchor'}
         />
         <SecondPageImageContainer>
           <BackgroundImage src={ArrowImage} alt="background" />
           <InnerContainer>
-            <pre data-aos="fade-up">
+            <pre data-aos="fade-up" data-aos-anchor="#anchor">
               {'클라우드 인프라를 통한\nMEGA DATA 관리'}
             </pre>
-            <img src={AIImage} alt="ai" data-aos="fade-right" />
-            <pre data-aos="fade-up">
-              {'클라우드 인프라를 통한\nMEGA DATA 관리'}
-            </pre>
-            <img src={CustomizedInformation} alt="ci" data-aos="fade-left" />
-            <pre data-aos="fade-up">
-              {'클라우드 인프라를 통한\nMEGA DATA 관리'}
-            </pre>
+            {TechnologyData.map(({ content, imgSrc, animation }) => (
+              <TechnologyContainer data-aos={animation}>
+                <img src={imgSrc} alt="image" />
+                <pre>{content}</pre>
+              </TechnologyContainer>
+            ))}
           </InnerContainer>
         </SecondPageImageContainer>
       </SecondPageContainer>
@@ -85,15 +77,16 @@ const Technology = () => {
       <ThirdPageContainer>
         <GridContainer>
           {CardText.map((data) => (
-            <Card url={cardImgUrl} textData={data} />
+            <Card {...data} />
           ))}
         </GridContainer>
       </ThirdPageContainer>
 
       <FourthPageContainer>
         <AppCardContainer>
-          <AppCard link="/service" imgSrc="" />
-          <AppCard link="/service" imgSrc="" />
+          {AppCardData.map((data) => (
+            <AppCard {...data} key={data.id} />
+          ))}
         </AppCardContainer>
       </FourthPageContainer>
     </Container>
@@ -124,6 +117,18 @@ const FirstPageContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
+
+  &::before {
+    content: '';
+    background-image: url('/assets/image/technology/tech-image7.svg');
+    background-size: cover;
+    opacity: 0.8;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
 `;
 
 const PaddingContainer = styled.div`
@@ -186,9 +191,23 @@ const InnerContainer = styled.div`
     font-weight: 700;
   }
 
-  img {
+  /* img {
     width: 100%;
     height: 21.06%;
+  } */
+`;
+
+const TechnologyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 

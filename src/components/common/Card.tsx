@@ -66,7 +66,7 @@ const CardUl = styled.ul`
   top: 100%;
   left: 0%;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   overflow: hidden; //안보이게 했다가 보이게
   height: 0;
   list-style-type: circle; //왜 적용 안되지?
