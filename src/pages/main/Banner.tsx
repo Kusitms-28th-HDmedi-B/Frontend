@@ -20,9 +20,6 @@ const SwiperContainer = styled(Swiper)`
   /* background-color: red; */
   width: 100vw;
   height: 100vh;
-  @media screen and (max-width: 500px) {
-    height: 100vw;
-  }
 
   .swiper-button-prev {
     top: calc(100% - 112px);
@@ -53,15 +50,11 @@ const SwiperContainer = styled(Swiper)`
   .swiper-button-prev::after {
     display: none;
   }
-
   //pagination bar에 적용하는 스타일 -활성화된 bullet
+
   .swiper-pagination {
     margin-bottom: calc(100px - 10px);
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
   }
-
   //pagination bar에 적용하는 스타일 - 전체 bullet
   .swiper-pagination-bullet {
     width: 20px;
