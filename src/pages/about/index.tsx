@@ -173,6 +173,45 @@ const MainTextContainer = styled.div<MainContainer>`
       line-height: 34px; /* 141.667% */
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
+
+    pre {
+      text-align: center;
+      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
+      font-style: normal;
+      font-weight: 700;
+      line-height: 34px; /* 141.667% */
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
+
+    pre {
+      text-align: center;
+      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
+      font-style: normal;
+      font-weight: 700;
+      line-height: 34px; /* 141.667% */
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
+
+    pre {
+      text-align: center;
+      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
+      font-style: normal;
+      font-weight: 700;
+      line-height: 34px; /* 141.667% */
+    }
+  }
 `;
 
 const SecondPageContainer = styled.div`
@@ -232,7 +271,6 @@ const FifthPageContainer = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 100px 0;
-
   @media screen and (max-width: 500px) {
     padding: 50px 0;
   }
