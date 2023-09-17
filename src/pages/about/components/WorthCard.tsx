@@ -105,6 +105,16 @@ const TitleContainer = styled.div`
   justify-content: center;
 
   gap: 20px;
+
+  img {
+    width: 55px;
+    height: 55px;
+
+    @media screen and (max-width: 500px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
 `;
 
 const Title = styled.div`
