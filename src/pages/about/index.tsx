@@ -137,6 +137,7 @@ const MainTextContainer = styled.div<MainContainer>`
   margin: auto;
 
   z-index: 2;
+
   pre {
     color: #191919;
     text-align: center;
@@ -147,6 +148,19 @@ const MainTextContainer = styled.div<MainContainer>`
     white-space: pre-wrap;
 
     @media screen and (max-width: 500px) {
+      text-align: center;
+      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
+      font-style: normal;
+      font-weight: 700;
+      line-height: 34px; /* 141.667% */
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
+
+    pre {
       text-align: center;
       font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
       font-style: normal;
@@ -195,6 +209,8 @@ const MissionContainer = styled.div`
   gap: 100px;
 
   @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
     gap: 60px;
   }
 `;
@@ -204,7 +220,7 @@ const FourthPageContainer = styled.div`
   flex-direction: column;
   width: 100%;
 
-  padding-bottom: 50px;
+  margin-bottom: 50px;
   background: #d8dfec;
 `;
 
@@ -213,8 +229,7 @@ const FifthPageContainer = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 100px 0;
-  background: #d8dfec;
-
+  
   @media screen and (max-width: 500px) {
     padding: 50px 0;
   }

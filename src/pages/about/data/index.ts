@@ -45,7 +45,7 @@ export const WorthCardData: CardData[] = [
   },
   {
     title: '기술',
-    imgSrc: '/assets/image/about/about-image8.svg',
+    imgSrc: '/assets/image/about/about-image9.svg',
     reverse: false,
     animation: 'fade-left',
     backgroundUrl: '/assets/image/about/about-image6.svg',

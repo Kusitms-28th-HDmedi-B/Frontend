@@ -66,6 +66,12 @@ const InnerContainer = styled.div`
 
   width: 70%;
   margin: auto;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 const Title = styled.div`
@@ -74,7 +80,7 @@ const Title = styled.div`
   align-items: center;
 
   pre {
-    color: #fff;
+    color: #000;
     text-align: center;
     font-size: 38px;
     font-weight: 700;

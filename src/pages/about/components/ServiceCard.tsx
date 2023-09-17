@@ -48,7 +48,8 @@ const InnerContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     flex-direction: column;
-    padding: 40px 0;
+    width: 100%;
+    padding: 40px 20px;
     gap: 60px;
   }
 `;

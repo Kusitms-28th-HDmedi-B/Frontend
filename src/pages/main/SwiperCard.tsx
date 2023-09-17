@@ -12,6 +12,14 @@ const Container = styled.div<{ $imgUrl: string }>`
   flex-direction: column;
   justify-content: start;
   align-items: center;
+
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 80vw;
+    background: url(${(props) => props.$imgUrl}) no-repeat center center;
+    background-size: cover;
+    font-size: 22px;
+  }
 `;
 const Text = styled.div`
   font-size: 46px;
@@ -20,6 +28,11 @@ const Text = styled.div`
   margin: 180px 0 90px 0;
   line-height: 60px;
   text-align: center;
+  @media screen and (max-width: 500px) {
+    font-size: 22px;
+    line-height: 35px;
+    margin: 30px 0 20px 0;
+  }
 `;
 const Btn = styled.div`
   width: 240px;
@@ -30,6 +43,14 @@ const Btn = styled.div`
   text-align: center;
   line-height: 60px;
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    width: 150px;
+    height: 44px;
+    border-radius: 22px;
+    font-size: 16px;
+    line-height: 44px;
+    margin: 30px;
+  }
 `;
 const SwiperCard: React.FC<SwiperCardProps> = ({
   imgUrl,

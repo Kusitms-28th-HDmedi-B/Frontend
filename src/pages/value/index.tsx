@@ -184,6 +184,10 @@ const Value = () => {
     AOS.init();
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <Container>
       <Banner>사회의 문제를 함게 고민할 수 있는 인재를 찾습니다!</Banner>
