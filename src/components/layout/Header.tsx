@@ -36,7 +36,7 @@ export const Logo = styled.span`
   }
 `;
 const Nav = styled.ul`
-  margin-left: 5%;
+  margin-left: 9%;
   display: inline-block;
   position: absolute;
 `;
