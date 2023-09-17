@@ -24,21 +24,27 @@ const Container = styled.div<{ $imgUrl: string }>`
   }
 `;
 const Text = styled.div<{ textPosition: SwiperCardProps['textPosition'] }>`
-  position: absolute;
-
   font-size: 46px;
   font-weight: 700;
   white-space: break-spaces;
   margin: 180px 0 90px 0;
   line-height: 60px;
 
-  text-align: ${(props) =>
-    props.textPosition?.textAlign ? props.textPosition?.textAlign : 'center'};
-  top: ${(props) => (props.textPosition?.top ? props.textPosition?.top : '0%')};
-  left: ${(props) =>
-    props.textPosition?.left ? props.textPosition?.left : '0%'};
+  //데스크탑
+  @media screen and (min-width: 500px) {
+    position: absolute;
+    text-align: ${(props) =>
+      props.textPosition?.textAlign ? props.textPosition?.textAlign : 'center'};
+    top: ${(props) =>
+      props.textPosition?.top ? props.textPosition?.top : '0%'};
+    left: ${(props) =>
+      props.textPosition?.left ? props.textPosition?.left : '0%'};
+  }
 
+  //모바일
   @media screen and (max-width: 500px) {
+    position: static;
+    text-align: center;
     font-size: 22px;
     line-height: 35px;
     margin: 30px 0 20px 0;
@@ -56,18 +62,25 @@ const Btn = styled.div<{ btnPosition: SwiperCardProps['btnPosition'] }>`
   line-height: 60px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 스타일 지정 */
 
-  top: ${(props) => (props.btnPosition?.top ? props.btnPosition?.top : '0%')};
-  left: ${(props) =>
-    props.btnPosition?.left ? props.btnPosition?.left : '0%'};
-
   cursor: pointer;
+  //데스크탑
+  @media screen and (min-width: 500px) {
+    position: absolute;
+    top: ${(props) => (props.btnPosition?.top ? props.btnPosition?.top : '0%')};
+    left: ${(props) =>
+      props.btnPosition?.left ? props.btnPosition?.left : '0%'};
+  }
+
+  //모바일
   @media screen and (max-width: 500px) {
-    width: 150px;
-    height: 44px;
-    border-radius: 22px;
-    font-size: 16px;
-    line-height: 44px;
-    margin: 30px;
+    position: static;
+    text-align: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 12px;
+    line-height: 40px;
+    margin: 20px;
   }
 `;
 const SwiperCard: React.FC<SwiperCardProps> = ({
