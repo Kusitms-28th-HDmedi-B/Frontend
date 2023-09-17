@@ -72,7 +72,7 @@ export const downloadData: Download[] = [
   },
   {
     text: '의료인용\n웹페이지',
-    link: '',
+    link: 'https://pharm.hdmedi.kr/',
   },
 ];
 
