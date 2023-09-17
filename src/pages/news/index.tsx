@@ -183,6 +183,11 @@ const ArticleTitle = styled.div`
     font-weight: 500;
     line-height: 16px; /* 80% */
     text-decoration: none;
+
+    &:hover,
+    &:active {
+      color: #3e97f0;
+    }
   }
 `;
 
