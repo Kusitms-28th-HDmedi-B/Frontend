@@ -7,10 +7,10 @@ import 'aos/dist/aos.css';
 import Youtube, { YouTubeProps } from 'react-youtube';
 
 import UppLogo from '/assets/logo/upp-logo.svg';
-import FunctionCard from './components/FunctionCard';
 import UIUX from '/assets/image/UIUXImage.svg';
+import FunctionImage from '/assets/image/upp/upp-image1.svg';
 
-import { downloadData, functionCardData, statisticData } from './data';
+import { downloadData, statisticData } from './data';
 import { handleScroll } from './functions';
 
 const Upp = () => {
@@ -124,7 +124,7 @@ const Upp = () => {
             {'‘어프’는 지역 약사와 환자를 연결해 건강한 지역사회를 만듭니다'}
           </pre>
           <img
-            src={'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif'}
+            src={'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/3.gif'}
             alt="medi"
           />
         </MediImageContainer>
@@ -137,10 +137,8 @@ const Upp = () => {
             <pre>{'는 어떤 서비스인가요?'}</pre>
           </UppTitle>
         </UppTitleContainer>
-        <ServiceContainer>
-          {functionCardData.map((data) => (
-            <FunctionCard {...data} key={data.customer} />
-          ))}
+        <ServiceContainer data-aos="zoom-in">
+          <img src={FunctionImage} alt="function" />
         </ServiceContainer>
       </FourthPageContainer>
 
@@ -407,13 +405,15 @@ const MediImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   width: 70%;
   margin: auto;
   gap: 100px;
 
   img {
-    width: 100%;
+    width: 748px;
+    height: 530px;
   }
 
   pre {
@@ -477,11 +477,15 @@ const FourthPageContainer = styled.div`
 
 const ServiceContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 
   width: 70%;
   margin: auto;
+
+  img {
+    width: 80%;
+  }
 `;
 
 const UIUXImage = styled.div`
@@ -501,6 +505,9 @@ const FifthPageContainer = styled.div`
   height: 100vh;
 
   background: #d9d9d9;
+
+  background-image: url('/assets/image/about/about-image11.svg');
+  background-size: cover;
 `;
 
 const AppDownloaderContainer = styled.div`
@@ -539,8 +546,9 @@ const DownloadButton = styled.div`
   height: 96px;
   flex-shrink: 0;
 
-  border-radius: 30px;
-  background: #6a6a6a;
+  border-radius: 31px;
+  border: 2px solid #64a1e4;
+  background: #fff;
 
   cursor: pointer;
   z-index: 2;
@@ -555,7 +563,7 @@ const DownloadButton = styled.div`
 
     text-decoration: none;
     pre {
-      color: #fff;
+      color: #00498f;
       text-align: center;
       font-size: 16px;
       font-weight: 600;
