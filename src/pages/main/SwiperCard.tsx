@@ -29,7 +29,7 @@ const Text = styled.div<{ textPosition: SwiperCardProps['textPosition'] }>`
   font-weight: 700;
   white-space: break-spaces;
   margin: 180px 0 90px 0;
-  line-height: 60px;
+  line-height:90px;
 
   //데스크탑
   @media screen and (min-width: 500px) {

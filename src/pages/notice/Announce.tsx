@@ -31,6 +31,7 @@ const StyledLink = styled(Link)`
 `;
 const DateSpan = styled.span`
   float: right;
+  font-size: 18px;
 `;
 // interface INotice {
 //   id: number;

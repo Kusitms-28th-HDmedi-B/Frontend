@@ -9,7 +9,6 @@ const Container = styled.div`
   padding: 30px;
   font-weight: 600;
   overflow: hidden;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 스타일 지정 */
   * {
     transition: 0.5s;
   }

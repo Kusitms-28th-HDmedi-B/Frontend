@@ -212,7 +212,7 @@ const Value = () => {
         </TextContainer>
       </SecondContainer>
       <ThirdContainer>
-        <Title>HD메디의 문화</Title>
+        <Title>HDmedi의 문화</Title>
         <CurtureCardContainer>
           {curtureCardText.map((text, index) => (
             <CurtureCard
