@@ -111,7 +111,7 @@ const LastBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d9d9d9;
+  background-color: #293f98;
   width: 100vw;
   height: 80vh;
   span {
@@ -130,6 +130,8 @@ const LastBanner = styled.div`
     flex-direction: column;
     position: relative;
     margin-right: 120px;
+    /* color: white; */
+
     a {
       text-decoration: none;
       color: inherit;
@@ -142,24 +144,34 @@ const LastText = styled.div`
   font-size: 48px;
   line-height: 70px;
   font-weight: 700;
+  color: white;
+  margin-bottom: 80px;
 
   text-align: center;
 
   display: inline-block;
 `;
-const FloatBtn = styled.div`
-  display: inline-block;
+
+const FloatBtn2 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 200px;
   height: 60px;
-  border-radius: 30px;
-  background-color: #6a6a6a;
-  color: white;
   text-align: center;
   line-height: 60px;
-  cursor: pointer;
-  margin-top: 50px;
+  flex-shrink: 0;
+  margin-top: 30px;
 
-  /* 둥둥 떠있게 하기 */
+  cursor: pointer;
+  z-index: 2;
+
+  border-radius: 31px;
+  border: 2px solid #0070ed;
+  background: #fff;
+  color: black;
+
   animation: float 3s ease-in-out infinite;
   @keyframes float {
     0%,
@@ -171,6 +183,7 @@ const FloatBtn = styled.div`
     }
   }
 `;
+
 const Lms = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
   useEffect(() => setCurrHeader('transparent'));
@@ -216,12 +229,8 @@ const Lms = () => {
         <span></span>
         <div>
           <LastText>{'교육과 관리를 한 번에,\nUPP와 함께 하세요!'}</LastText>
-          <Link
-            to={
-              'https://upp.notion.site/UPP-LMS-CMS-5cdf38ccd5164fb2b085cf70295d8b4b'
-            }
-          >
-            <FloatBtn>서비스 바로가기</FloatBtn>
+          <Link to={'https://pharm.hdmedi.kr//'}>
+            <FloatBtn2>서비스 보기</FloatBtn2>
           </Link>
         </div>
       </LastBanner>

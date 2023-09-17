@@ -433,6 +433,8 @@ const UppTitleContainer = styled.div`
   height: 180px;
   flex-shrink: 0;
 
+  margin-bottom: 100px;
+
   background: #e9f1ff;
 `;
 
@@ -447,14 +449,14 @@ const UppTitle = styled.div`
   gap: 10px;
 
   img {
-    width: 274px;
-    height: 176.842px;
+    width: 218px;
+    height: 140px;
     flex-shrink: 0;
   }
 
   pre {
     color: #00498f;
-    font-size: 50px;
+    font-size: 38px;
     font-weight: 700;
     line-height: 73.471px; /* 146.941% */
 

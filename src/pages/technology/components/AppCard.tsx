@@ -11,6 +11,7 @@ const AppCard: React.FC<AppCardType> = ({
   logo,
   backgroundColor,
   backgroundUrl,
+  marginTop,
 }) => {
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ const AppCard: React.FC<AppCardType> = ({
           </Title>
         )}
         {subtitle && (
-          <SubTitle>
+          <SubTitle style={{ color: `${fontColor}` }} marginTop={marginTop}>
             <pre>{subtitle}</pre>
           </SubTitle>
         )}
@@ -94,12 +95,16 @@ const Title = styled.div`
   }
 `;
 
-const SubTitle = styled.div`
+interface SubTitleProps {
+  marginTop: string;
+}
+
+const SubTitle = styled.div<SubTitleProps>`
   font-size: 24px;
   font-weight: 700;
   line-height: 36px; /* 150% */
 
-  margin-top: 35px;
+  margin-top: ${({ marginTop }) => marginTop};
 
   @media screen and (max-width: 500px) {
     font-size: 13.44px;
