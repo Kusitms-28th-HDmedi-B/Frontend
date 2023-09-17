@@ -7,7 +7,6 @@ import 'aos/dist/aos.css';
 import Youtube, { YouTubeProps } from 'react-youtube';
 
 import UppLogo from '/assets/logo/upp-logo.svg';
-import MedicationImage from '/assets/image/medication.svg';
 import FunctionCard from './components/FunctionCard';
 import UIUX from '/assets/image/UIUXImage.svg';
 
