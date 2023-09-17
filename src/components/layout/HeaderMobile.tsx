@@ -28,9 +28,9 @@ const HamburgerBar = styled.span`
   @media screen and (max-width: 500px) {
     display: inline-block;
 
-    width: 30px;
-    height: 23px;
-    margin: 15px 15px 25px 15px;
+    width: 22px;
+    height: 18px;
+    margin: 18px;
 
     float: right;
 
@@ -53,12 +53,10 @@ const HamburgerUl = styled.ul`
     &.toggleOn {
       height: 100vh;
     }
-    > li {
-      &.clicked {
-        text-decoration: underline;
-      }
+    > :first-child {
+      margin-top: 20px;
     }
-    margin-top: 20px; //
+    /* padding-top: 20px; // */
   }
 `;
 const HamburgerDepthUl = styled.ul<{ $countDepth: number }>`

@@ -21,6 +21,10 @@ const SwiperContainer = styled(Swiper)`
   width: 100vw;
   height: 100vh;
 
+  @media screen and (max-width: 500px) {
+    height: 100vw;
+    }
+  /* 
   .swiper-button-prev {
     top: calc(100% - 112px);
     left: calc(50% - 270px);
@@ -49,7 +53,7 @@ const SwiperContainer = styled(Swiper)`
   .swiper-button-next::after,
   .swiper-button-prev::after {
     display: none;
-  }
+  } */
   //pagination bar에 적용하는 스타일 -활성화된 bullet
 
   .swiper-pagination {
@@ -58,6 +62,7 @@ const SwiperContainer = styled(Swiper)`
     //모바일
     @media screen and (max-width: 500px) {
       position: absolute;
+      /* transform: translateY(270px); */
       top: 270px;
     }
   }
