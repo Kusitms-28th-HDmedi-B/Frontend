@@ -25,7 +25,7 @@ const TextContainer = styled.div`
 const TextTitle = styled.div`
   font-size: 35px;
   font-weight: 400;
-  margin: 30px 0;
+  margin: 30px 0 20px 0;
   @media screen and (max-width: 500px) {
     font-size: 20px;
     font-weight: 400;
@@ -33,7 +33,7 @@ const TextTitle = styled.div`
   }
 `;
 const TextContent = styled.div`
-  font-size: 85px;
+  font-size: 80px;
   font-weight: 700;
   margin-bottom: 50px;
   @media screen and (max-width: 500px) {
