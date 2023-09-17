@@ -36,6 +36,8 @@ export const SwiperCardDatas: SwiperCardProps[] = [
     hasBtn: true,
     btnText: '자세히 보기',
     btnUrl: 'info',
+    textPosition: { left: '0', top: '0', textAlign: 'center' },
+    btnPosition: { left: 'calc(50%-120px)', top: '400px' },
   },
 ];
 export const persuitDatas: persuitCardProps[] = [

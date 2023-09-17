@@ -48,14 +48,14 @@ const NavLi = styled.li<{ $countDepth: number }>`
   padding-bottom: 15px; //호버시 마우스를 내려올 수 있게 하기 위한 영역 */
   text-align: center;
   line-height: 28px; //이거다
-  color: #8b8b8b;
+  color: #171929;
   &:hover {
     font-weight: 700;
     color: #31313e;
   }
   &:hover > div {
     height: ${(props) => props.$countDepth * 34 + 3}px;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #d7e5ef;
   }
 `;
 const NavDepthContainer = styled.div`
@@ -78,7 +78,8 @@ const NavDepthContainer = styled.div`
 `;
 const NavDepth = styled.div`
   padding: 3px 10px;
-  color: #b4b4b4;
+  font-weight: 600;
+  color: #95a3b2;
   &:hover {
     color: #31313e;
   }
@@ -98,7 +99,7 @@ const LanguageContainer = styled.span`
 const Language = styled.span<{ $isSelected: boolean }>`
   cursor: pointer;
   padding: 0 10px;
-  color: ${(props) => (props.$isSelected ? 'inherit' : '#b4b4b4')};
+  color: ${(props) => (props.$isSelected ? 'inherit' : '##0e2549;')};
 `;
 type LanguageType = 'KR' | 'EN';
 function Header() {

@@ -1,6 +1,5 @@
 import bannerImg from '/assets/image/lms/lms-banner.png';
 import bannerNotebookImg from '/assets/image/lms/lms-banner-notebook.png';
-import bannerTextImg from '/assets/image/lms/lms-banner-text.png';
 import styled from 'styled-components';
 
 const Container = styled.div`

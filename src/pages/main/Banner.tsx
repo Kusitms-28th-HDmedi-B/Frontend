@@ -23,7 +23,7 @@ const SwiperContainer = styled(Swiper)`
 
   @media screen and (max-width: 500px) {
     height: 100vw;
-    }
+  }
   /* 
   .swiper-button-prev {
     top: calc(100% - 112px);
@@ -105,7 +105,7 @@ const Banner = () => {
         spaceBetween={0}
         // centeredSlides={true}
         autoplay={{
-          delay: 3000,
+          delay: 300000,
           disableOnInteraction: false,
         }}
         pagination={{

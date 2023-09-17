@@ -24,6 +24,7 @@ const Container = styled.div<{ $imgUrl: string }>`
   }
 `;
 const Text = styled.div<{ textPosition: SwiperCardProps['textPosition'] }>`
+  width: 100%;
   font-size: 46px;
   font-weight: 700;
   white-space: break-spaces;
@@ -52,7 +53,7 @@ const Text = styled.div<{ textPosition: SwiperCardProps['textPosition'] }>`
 `;
 const Btn = styled.div<{ btnPosition: SwiperCardProps['btnPosition'] }>`
   position: absolute;
-
+  
   width: 240px;
   height: 60px;
   border-radius: 30px;
@@ -60,7 +61,8 @@ const Btn = styled.div<{ btnPosition: SwiperCardProps['btnPosition'] }>`
   font-weight: 700;
   text-align: center;
   line-height: 60px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 스타일 지정 */
+  border: 2px solid black;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 그림자 스타일 지정 */
 
   cursor: pointer;
   //데스크탑
