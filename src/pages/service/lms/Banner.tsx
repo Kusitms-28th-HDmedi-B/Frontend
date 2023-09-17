@@ -1,5 +1,4 @@
 import bannerImg from '/assets/image/lms/lms-banner.png';
-import bannerNotebookImg from '/assets/image/lms/lms-banner-notebook.png';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -14,15 +13,7 @@ const Container = styled.div`
   font-weight: 700;
   line-height: 64px;
 `;
-const BannerNotebook = styled.div`
-  position: absolute;
-  top: 11%;
-  left: 0%;
-  width: 750px;
-  height: 500px;
-  background: url(${bannerNotebookImg});
-  background-size: cover;
-`;
+
 const BannerLms = styled.div`
   position: absolute;
   top: 37%;
