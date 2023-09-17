@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 import logo from '/assets/logo/header-logo.svg';
+import hamburgerBar from '/assets/image/header/hamburger.svg';
+
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -14,6 +16,10 @@ const Container = styled.div<{ $bgColor: HeaderColorType }>`
   background-color: ${(props) => props.$bgColor};
   position: fixed;
   z-index: 3;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const Logo = styled.span`
@@ -21,19 +27,18 @@ const Logo = styled.span`
   background-image: url(${logo});
   background-size: cover;
   width: 167px;
-  height: 28px;
+  height: 29px;
   @media screen and (max-width: 500px) {
-    width: 100px;
-    height: 28px;
+    width: 134px;
+    height: 23px;
+    padding: 0;
+    margin: 15px;
   }
 `;
 const Nav = styled.ul`
-  margin-left: 100px;
+  margin-left: 10px;
   display: inline-block;
   position: absolute;
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
 `;
 const NavLi = styled.li<{ $countDepth: number }>`
   position: relative;
@@ -89,13 +94,71 @@ const LanguageContainer = styled.span`
     display: none;
   }
 `;
-const Hamberger = styled.div`
-  width: 0px;
-  transition: 0.5s ease-in-out;
+
+// 모바일
+const MobileContainer = styled.div`
+  display: none;
+
   @media screen and (max-width: 500px) {
+    display: inline;
     width: 100vw;
-    height: 100vh;
-    background-color: red;
+    height: auto;
+    /* background-color: red; */
+  }
+  ul {
+    /* width: 0px; */
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+
+    font-size: 18px;
+    font-weight: 600;
+    li {
+      margin: 15px;
+      padding: 5px 0;
+    }
+  }
+  ul.toggleOn {
+    height: 500px;
+  }
+`;
+const MobileHeader = styled.div`
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    /* height: 50px; */
+    margin: 0;
+    padding: 0;
+  }
+`;
+const HamburgerBar = styled.span`
+  @media screen and (max-width: 500px) {
+    display: inline-block;
+
+    width: 30px;
+    height: 23px;
+    margin: 15px 15px 25px 15px;
+
+    float: right;
+
+    background: url(${hamburgerBar}) no-repeat;
+    background-size: cover;
+
+    cursor: pointer;
+  }
+`;
+const HamburgerDepthContainer = styled.ul`
+  @media screen and (max-width: 500px) {
+    display: inline-block;
+
+    width: 30px;
+    height: 23px;
+
+    cursor: pointer;
+    li {
+      background-color: red;
+      width: 30px;
+      height: 23px;
+    }
   }
 `;
 const Language = styled.span<{ $isSelected: boolean }>`
@@ -108,6 +171,8 @@ function Header() {
   const categories = CategoryData;
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
   const currHeader = useRecoilValue(currHeaderAtom);
+
+  const [toggle, setToggle] = useState(false);
   return (
     <>
       <Container $bgColor={currHeader}>
@@ -144,7 +209,33 @@ function Header() {
           </Language>
         </LanguageContainer>
       </Container>
-      <Hamberger></Hamberger>
+      <MobileContainer>
+        <MobileHeader>
+          <Link to={'../'}>
+            <Logo></Logo>
+          </Link>
+          <HamburgerBar
+            onClick={() => setToggle((curr) => !curr)}
+          ></HamburgerBar>
+          <ul className={toggle ? 'toggleOn' : 'toggleOff'}>
+            {CategoryData.map((category) => {
+              return (
+                <>
+                  <li>{category.title}</li>
+
+                  <HamburgerDepthContainer>
+                    {category.depth.map((each, index) => (
+                      <li key={index}>
+                        <Link to={each.url}>{each.name}</Link>
+                      </li>
+                    ))}
+                  </HamburgerDepthContainer>
+                </>
+              );
+            })}
+          </ul>
+        </MobileHeader>
+      </MobileContainer>
     </>
   );
 }
