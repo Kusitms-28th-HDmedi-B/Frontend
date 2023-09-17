@@ -7,17 +7,28 @@ import NewsContainer from './NewsContainer';
 import { persuitDatas } from './bannerData';
 import PersuitCard from './PersuitCard';
 
+import circle from '/assets/image/main/home-circle.svg';
+import Graph from './Graph';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Container = styled.div`
   width: 100vw;
 `;
 const SecondContainer = styled.div`
   width: 70%;
   margin: auto;
-  height: 100vw; //없애?
+  white-space: break-spaces;
+  @media screen and (max-width: 500px) {
+    width: 70%;
+    margin: 0 30px;
+    margin: auto;
+  }
 `;
+
 const SecondText = styled.div`
   margin: 150px 0;
-  white-space: break-spaces;
   font-size: 30px;
   font-weight: 600;
   line-height: 40px;
@@ -25,36 +36,68 @@ const SecondText = styled.div`
   :nth-child(2) {
     color: #7aa4e8;
   }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
+const SecondTextMobile = styled.div`
+  display: none;
+  @media screen and (max-width: 500px) {
+    display: inline;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    margin: 150px 0;
+    :nth-child(2) {
+      color: #7aa4e8;
+    }
+  }
 `;
 const SecondGif = styled.div`
+  background: url(${circle}) no-repeat;
+  background-size: cover;
   margin: auto;
-  width: 600px;
+  width: 748px;
   height: 600px;
-  background-color: red;
-`;
-const ThirdContainer = styled.div`
-  margin: auto;
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @media screen and (max-width: 500px) {
+    margin: 50px auto;
+    width: 250px;
+    height: 200px;
+  }
 `;
 const ThirdTitle = styled.div`
   width: 70%;
-  margin: 200px auto;
+  margin: 100px auto;
   font-size: 30px;
   font-weight: 700;
   line-height: 45px;
   white-space: break-spaces;
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
 `;
-const FourthContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: #1a1f27;
+
+const ThirdContainer = styled.div`
+  margin: auto;
+  margin-bottom: 200px;
+  width: 70%;
+  flex-wrap: wrap;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
+
 const Main = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
   useEffect(() => setCurrHeader('transparent'));
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Container>
       <Banner></Banner>
@@ -68,7 +111,15 @@ const Main = () => {
             }
           </span>
         </SecondText>
-        <SecondGif>s</SecondGif>
+        <SecondTextMobile>
+          <span>{'에이치디메디는\n'}</span>
+          <span>{'지역 약사와 지역 환자를 연결'}</span>
+          <span>{'하는\n'}</span>
+          <span>{'복약지도를 제공해\n'}</span>
+          <span>{'의약품의 부작용을 줄이고,\n'}</span>
+          <span>{'더 건강한 사회를 약속드립니다.'}</span>
+        </SecondTextMobile>
+        <SecondGif></SecondGif>
       </SecondContainer>
       <ThirdTitle>
         {"에이치디메디는\n'지속가능한 사회'를 추구합니다."}
@@ -78,7 +129,7 @@ const Main = () => {
           <PersuitCard {...data} key={index}></PersuitCard>
         ))}
       </ThirdContainer>
-      <FourthContainer>복약지도4만건건건</FourthContainer>
+      <Graph></Graph>
       <NewsContainer></NewsContainer>
     </Container>
   );

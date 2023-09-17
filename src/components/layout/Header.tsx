@@ -29,7 +29,7 @@ export const Logo = styled.span`
   width: 169px;
   height: 29px;
   @media screen and (max-width: 500px) {
-    width: 134px;
+    width: 135px;
     height: 23px;
     padding: 0;
     margin: 15px;
