@@ -26,7 +26,7 @@ export const Logo = styled.span`
   display: inline-block;
   background-image: url(${logo});
   background-size: cover;
-  width: 167px;
+  width: 169px;
   height: 29px;
   @media screen and (max-width: 500px) {
     width: 134px;
