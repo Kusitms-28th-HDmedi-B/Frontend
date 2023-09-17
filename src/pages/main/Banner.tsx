@@ -105,7 +105,7 @@ const Banner = () => {
         spaceBetween={0}
         // centeredSlides={true}
         autoplay={{
-          delay: 300000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{

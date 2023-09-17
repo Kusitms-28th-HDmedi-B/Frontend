@@ -18,12 +18,14 @@ export interface persuitCardProps {
 export const SwiperCardDatas: SwiperCardProps[] = [
   {
     imgUrl: '/assets/image/main/HomeBanner1.png',
-    text: '에이치디메디는\n의약품 부작용을 줄이는\n올바른 복용 습관을 책임집니다.',
+    text: '지역 약사와 환자를 이어\n건강한 지역 사회를 약속합니다.',
     hasBtn: false,
+    textPosition: { left: '300px', top: '20px', textAlign: 'left' },
+    btnPosition: { left: '300px', top: '400px' },
   },
   {
     imgUrl: '/assets/image/main/HomeBanner2.png',
-    text: '지역 약사와 환자를 이어\n건강한 지역 사회를 약속합니다.',
+    text: '에이치디메디는\n의약품 부작용을 줄이는\n올바른 복용 습관을 책임집니다.',
     hasBtn: true,
     btnText: '서비스 보러가기',
     btnUrl: 'recruit',
