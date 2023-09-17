@@ -3,9 +3,11 @@ import { SwiperCardProps } from './bannerData';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div<{ $imgUrl: string }>`
+  position: relative;
+
   width: 100vw;
   height: 100vh;
-  background: url(${(props) => props.$imgUrl}) no-repeat;
+  background: url(${(props) => props.$imgUrl}) no-repeat center center;
   background-size: cover;
 
   display: flex;
@@ -21,20 +23,37 @@ const Container = styled.div<{ $imgUrl: string }>`
     font-size: 22px;
   }
 `;
-const Text = styled.div`
+const Text = styled.div<{ textPosition: SwiperCardProps['textPosition'] }>`
+  width: 100%;
   font-size: 46px;
   font-weight: 700;
   white-space: break-spaces;
   margin: 180px 0 90px 0;
   line-height: 60px;
-  text-align: center;
+
+  //데스크탑
+  @media screen and (min-width: 500px) {
+    position: absolute;
+    text-align: ${(props) =>
+      props.textPosition?.textAlign ? props.textPosition?.textAlign : 'center'};
+    top: ${(props) =>
+      props.textPosition?.top ? props.textPosition?.top : '0%'};
+    left: ${(props) =>
+      props.textPosition?.left ? props.textPosition?.left : '0%'};
+  }
+
+  //모바일
   @media screen and (max-width: 500px) {
-    font-size: 22px;
+    position: static;
+    text-align: center;
+    font-size: 20px;
     line-height: 35px;
     margin: 30px 0 20px 0;
   }
 `;
-const Btn = styled.div`
+const Btn = styled.div<{ btnPosition: SwiperCardProps['btnPosition'] }>`
+  position: absolute;
+  
   width: 240px;
   height: 60px;
   border-radius: 30px;
@@ -42,14 +61,28 @@ const Btn = styled.div`
   font-weight: 700;
   text-align: center;
   line-height: 60px;
+  border: 2px solid black;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 그림자 스타일 지정 */
+
   cursor: pointer;
+  //데스크탑
+  @media screen and (min-width: 500px) {
+    position: absolute;
+    top: ${(props) => (props.btnPosition?.top ? props.btnPosition?.top : '0%')};
+    left: ${(props) =>
+      props.btnPosition?.left ? props.btnPosition?.left : '0%'};
+  }
+
+  //모바일
   @media screen and (max-width: 500px) {
-    width: 150px;
-    height: 44px;
-    border-radius: 22px;
-    font-size: 16px;
-    line-height: 44px;
-    margin: 30px;
+    position: static;
+    text-align: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 12px;
+    line-height: 40px;
+    margin: 20px;
   }
 `;
 const SwiperCard: React.FC<SwiperCardProps> = ({
@@ -58,13 +91,20 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
   hasBtn,
   btnText,
   btnUrl,
+  textPosition,
+  btnPosition,
 }) => {
   const navigate = useNavigate();
   return (
     <Container $imgUrl={imgUrl}>
-      <Text>{text}</Text>
+      <Text textPosition={textPosition}>{text}</Text>
       {hasBtn === true ? (
-        <Btn onClick={() => navigate(btnUrl as string)}>{btnText}</Btn>
+        <Btn
+          btnPosition={btnPosition}
+          onClick={() => navigate(btnUrl as string)}
+        >
+          {btnText}
+        </Btn>
       ) : null}
     </Container>
   );

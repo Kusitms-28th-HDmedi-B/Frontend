@@ -27,10 +27,10 @@ const SecondContainer = styled.div`
 `;
 
 const SecondText = styled.div`
-  margin: 150px 0;
-  font-size: 30px;
+  margin-top: 150px;
+  font-size: 27px;
   font-weight: 600;
-  line-height: 40px;
+  line-height: 38px;
   text-align: center;
   :nth-child(2) {
     color: #7aa4e8;
@@ -55,12 +55,12 @@ const SecondTextMobile = styled.div`
   }
 `;
 const SecondGif = styled.div`
-  background: url('https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif')
+  background: url('https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/3.gif')
     no-repeat;
   background-size: cover;
   margin: auto;
   width: 748px;
-  height: 600px;
+  height: 530px;
   @media screen and (max-width: 500px) {
     margin: 50px auto;
     width: 250px;
