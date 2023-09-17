@@ -82,6 +82,11 @@ const InnerContainer = styled.div`
 
   width: 70%;
   margin: auto;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 const Title = styled.div`
