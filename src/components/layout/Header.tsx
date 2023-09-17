@@ -36,7 +36,7 @@ export const Logo = styled.span`
   }
 `;
 const Nav = styled.ul`
-  margin-left: 10px;
+  margin-left: 5%;
   display: inline-block;
   position: absolute;
 `;
@@ -99,7 +99,7 @@ const LanguageContainer = styled.span`
 const Language = styled.span<{ $isSelected: boolean }>`
   cursor: pointer;
   padding: 0 10px;
-  color: ${(props) => (props.$isSelected ? 'inherit' : '##0e2549;')};
+  color: ${(props) => (props.$isSelected ? '#0e2549' : '#95a3b2')};
 `;
 type LanguageType = 'KR' | 'EN';
 function Header() {
