@@ -7,13 +7,15 @@ import NewsContainer from './NewsContainer';
 import { persuitDatas } from './bannerData';
 import PersuitCard from './PersuitCard';
 
+import circle from '/assets/image/main/home-circle.svg';
+
 const Container = styled.div`
   width: 100vw;
 `;
 const SecondContainer = styled.div`
   width: 70%;
   margin: auto;
-  height: 100vw; //없애?
+  /* height: 100vw; //없애? */
 `;
 const SecondText = styled.div`
   margin: 150px 0;
@@ -27,21 +29,25 @@ const SecondText = styled.div`
   }
 `;
 const SecondGif = styled.div`
+  background: url(${circle}) no-repeat;
+  background-size: cover;
   margin: auto;
-  width: 600px;
+  width: 748px;
   height: 600px;
-  background-color: red;
 `;
 const ThirdContainer = styled.div`
   margin: auto;
+  margin-bottom: 200px;
   width: 70%;
+  flex-wrap: wrap;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 const ThirdTitle = styled.div`
   width: 70%;
-  margin: 200px auto;
+  margin: 100px auto;
   font-size: 30px;
   font-weight: 700;
   line-height: 45px;
@@ -49,7 +55,7 @@ const ThirdTitle = styled.div`
 `;
 const FourthContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   background-color: #1a1f27;
 `;
 const Main = () => {
@@ -68,7 +74,7 @@ const Main = () => {
             }
           </span>
         </SecondText>
-        <SecondGif>s</SecondGif>
+        <SecondGif></SecondGif>
       </SecondContainer>
       <ThirdTitle>
         {"에이치디메디는\n'지속가능한 사회'를 추구합니다."}
