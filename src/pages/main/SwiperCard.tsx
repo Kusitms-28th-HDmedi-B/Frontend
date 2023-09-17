@@ -45,7 +45,7 @@ const Text = styled.div<{ textPosition: SwiperCardProps['textPosition'] }>`
   @media screen and (max-width: 500px) {
     position: static;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 35px;
     margin: 30px 0 20px 0;
   }

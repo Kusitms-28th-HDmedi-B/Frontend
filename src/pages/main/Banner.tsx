@@ -54,6 +54,12 @@ const SwiperContainer = styled(Swiper)`
 
   .swiper-pagination {
     margin-bottom: calc(100px - 10px);
+
+    //모바일
+    @media screen and (max-width: 500px) {
+      position: absolute;
+      top: 270px;
+    }
   }
   //pagination bar에 적용하는 스타일 - 전체 bullet
   .swiper-pagination-bullet {
@@ -71,6 +77,12 @@ const SwiperContainer = styled(Swiper)`
 
     &:hover {
       color: #000;
+    }
+    //모바일
+    @media screen and (max-width: 500px) {
+      width: 10px;
+      height: 10px;
+      margin: 0 10px !important;
     }
   }
   .swiper-pagination-bullet-active {
