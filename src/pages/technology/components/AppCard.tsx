@@ -1,13 +1,17 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { AppCardType } from '../data';
 
-interface Props {
-  link: string;
-  imgSrc: string;
-}
-
-const AppCard: React.FC<Props> = ({ link, imgSrc }) => {
+const AppCard: React.FC<AppCardType> = ({
+  title,
+  subtitle,
+  link,
+  fontColor,
+  logo,
+  backgroundColor,
+  backgroundUrl,
+}) => {
   const navigate = useNavigate();
 
   const onClick = useCallback(() => {
@@ -15,36 +19,101 @@ const AppCard: React.FC<Props> = ({ link, imgSrc }) => {
   }, []);
 
   return (
-    <Container>
-      <img src={imgSrc} alt="image" />
-      <Button onClick={onClick}>
-        <pre>서비스 보기</pre>
-      </Button>
+    <Container backgroundColor={backgroundColor}>
+      <TextContainer>
+        {logo && <img src={logo} alt="logo" />}
+        {title && (
+          <Title>
+            <pre style={{ color: `${fontColor}` }}>{title}</pre>
+          </Title>
+        )}
+        {subtitle && (
+          <SubTitle>
+            <pre>{subtitle}</pre>
+          </SubTitle>
+        )}
+      </TextContainer>
+      <img src={backgroundUrl} style={{ width: '50%' }} />
+      <ButtonWrapper>
+        <Button onClick={onClick}>
+          <pre>서비스 보기</pre>
+        </Button>
+      </ButtonWrapper>
     </Container>
   );
 };
 
 export default AppCard;
 
-const Container = styled.div`
+interface ContainerProps {
+  backgroundColor: string;
+}
+
+const Container = styled.div<ContainerProps>`
+  display: flex;
+
+  position: relative;
+
   width: 70%;
   height: 346px;
   margin: auto;
   flex-shrink: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-
   border-radius: 20px;
-  background: #d9d9d9;
+  background: ${({ backgroundColor }) => backgroundColor};
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  padding: 20px;
+
+  color: #1f64d1;
+  width: 100%;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 142.2px;
+    height: 90px;
+    flex-shrink: 0;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+  }
+`;
+
+const Title = styled.div`
+  padding: 20px 10px;
+  pre {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px; /* 112.5% */
+    @media screen and (max-width: 500px) {
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+  }
+`;
+
+const SubTitle = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
+
+  margin-top: 35px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 13.44px;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  bottom: 50px;
 `;
 
 const Button = styled.div`
@@ -56,14 +125,12 @@ const Button = styled.div`
   height: 62px;
   flex-shrink: 0;
 
-  position: absolute;
-  bottom: 80px;
-
   cursor: pointer;
   z-index: 2;
 
   border-radius: 31px;
-  background: rgba(100, 100, 100, 0.4);
+  border: 2px solid #0070ed;
+  background: #fff;
 
   pre {
     font-weight: 700;

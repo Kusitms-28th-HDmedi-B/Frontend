@@ -116,9 +116,9 @@ export const AppData: AppDataType[] = [
     fontColor: '#1f64d1',
   },
   {
-    title: '비대면 통합\nCMS LMS\nSaas',
-    subtitle: '',
-    logo: '',
+    title: '',
+    subtitle: '비대면 통합 CMS LMS\nSaas',
+    logo: '/assets/logo/lms-logo.png',
     link: '/service/lms',
     backgroundUrl: '/assets/image/about/about-image15.svg',
     fontColor: '#fff',

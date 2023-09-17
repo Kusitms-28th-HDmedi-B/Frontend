@@ -1,44 +1,103 @@
+interface Technology {
+  content: string;
+  imgSrc: string;
+  animation: string;
+}
+
+export const TechnologyData: Technology[] = [
+  {
+    content: 'MEGA DATA 기반\nAI 기술 도입',
+    imgSrc: '/assets/image/AIImage.svg',
+    animation: 'fade-right',
+  },
+  {
+    content: 'AI 기술을 통한\n맞춤형 정보 제공',
+    imgSrc: '/assets/image/CustomizedInformation.svg',
+    animation: 'fade-left',
+  },
+];
+
 export interface ICardText {
-  title: string;
-  subTitle: string;
-  detail: string[];
+  textData: {
+    title: string;
+    subTitle: string;
+    detail: string[];
+  };
+  url: string;
 }
 
 export const CardText: ICardText[] = [
   {
-    title: '빅 데이터 시스템',
-    subTitle: '협업자들을 이해하며\n목적 달성을 위해 함께 성장하는 인재',
-    detail: [
-      '회사의 목적을 달성하기 위해 공동의 업무를 진행할 수 있는 사람',
-      '나의 업무뿐만 아니라 타인의 업무를 도울 수 있는 범위 내에서 도울 수 있는 사람',
-      '상대방 입장을 이해하 는 배려심 있는 사람',
-    ],
+    textData: {
+      title: '빅 데이터 시스템',
+      subTitle: '',
+      detail: ['6가지의 연계 수집 방법을 통한 신뢰성 있는 데이터 구축'],
+    },
+    url: '/assets/image/technology/tech-image3.svg',
   },
   {
-    title: '협업',
-    subTitle: '협업자들을 이해하며\n목적 달성을 위해 함께 성장하는 인재',
-    detail: [
-      '나와는 반대되는 의견과 다른 의견에 대해 편안하게 얘기할 수 있는 사람',
-      '더 나은 의견을 존중하는 사람',
-      '팀 목표 달성을 위해 솔직한 의견을 발언할 수 있는 사람',
-    ],
+    textData: {
+      title: '클라우드 인프라',
+      subTitle: '',
+      detail: ['통합 DB 운영 관리', '시스템 운영 관리', '보안 취약점 관리'],
+    },
+    url: '/assets/image/technology/tech-image4.svg',
   },
   {
-    title: '성장',
-    subTitle: '팀과 함께 성장을 고민할 수 있는 인재',
-    detail: [
-      '나와는 반대되는 의견과 다른 의견에 대해 편안하게 얘기할 수 있는 사람',
-      '더 나은 의견을 존중하는 사람',
-      '팀 목표 달성을 위해 솔직한 의견을 발언할 수 있는 사람',
-    ],
+    textData: {
+      title: '지능형 서비스',
+      subTitle: '',
+      detail: [
+        '데이터 저장 분석 플랫폼',
+        '지능형 분석 서비스 제공',
+        '사용자 맞춤형 정보 제공',
+      ],
+    },
+    url: '/assets/image/technology/tech-image5.svg',
   },
   {
-    title: '태도',
-    subTitle: '솔직하게 말할 수 있는 인재',
-    detail: [
-      '나와는 반대되는 의견과 다른 의견에 대해 편안하게 얘기할 수 있는 사람',
-      '더 나은 의견을 존중하는 사람',
-      '팀 목표 달성을 위해 솔직한 의견을 발언할 수 있는 사람',
-    ],
+    textData: {
+      title: 'AI 솔루션',
+      subTitle: '',
+      detail: [
+        '메가 데이터를 활용한 AI 솔루션',
+        'AI 솔루션을 통한 사용자 맞춤형 정보 제공',
+      ],
+    },
+    url: '/assets/image/technology/tech-image6.svg',
+  },
+];
+
+export interface AppCardType {
+  id: number;
+  title: string;
+  subtitle: string;
+  link: string;
+  fontColor: string;
+  logo: string;
+  backgroundColor: string;
+  backgroundUrl: string;
+}
+
+export const AppCardData: AppCardType[] = [
+  {
+    id: 1,
+    title: '',
+    subtitle: '어디가 아프세요, 어프',
+    link: '/service/upp',
+    fontColor: '#1F64D1',
+    logo: '/assets/logo/upp-logo.svg',
+    backgroundColor: '#CBE5FF',
+    backgroundUrl: '/assets/image/technology/tech-image1.svg',
+  },
+  {
+    id: 2,
+    title: '비대면 통합\nCMS LMS\nSaaS',
+    subtitle: '',
+    link: '/service/lms',
+    fontColor: '#fff',
+    logo: '',
+    backgroundColor: '#293F98',
+    backgroundUrl: '/assets/image/technology/tech-image2.svg',
   },
 ];
