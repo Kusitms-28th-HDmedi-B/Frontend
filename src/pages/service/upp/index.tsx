@@ -188,6 +188,22 @@ const FirstPageContainer = styled.div`
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
+
+  position: relative;
+
+  background: #cbe5ff;
+
+  &::before {
+    content: '';
+    background-image: url('/assets/image/about/about-image11.svg');
+    background-size: cover;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -203,6 +219,7 @@ const LogoVideoContainer = styled.div`
 
 const Video = styled.div`
   flex-shrink: 0;
+  z-index: 2;
 
   iframe {
     border-radius: 50px;
@@ -320,7 +337,7 @@ const Statistic = styled.div`
   padding: 45px 0 50px;
 
   border-radius: 20px;
-  background: #cde6ff;
+  border: 2px solid #cfcfcf;
 
   .title {
     color: #002177;
