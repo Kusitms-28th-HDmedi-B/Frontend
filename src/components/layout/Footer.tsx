@@ -134,7 +134,7 @@ const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin-top: 110px;
+  margin-top: 70px;
   /* gap: 75px; */
 
   @media screen and (max-width: 500px) {

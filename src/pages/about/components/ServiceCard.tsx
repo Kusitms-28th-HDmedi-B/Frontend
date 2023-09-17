@@ -26,7 +26,7 @@ const ServiceCard = () => {
                 )}
                 {subtitle && (
                   <SubTitle>
-                    <pre>{subtitle}</pre>
+                    <pre style={{ color: `${fontColor}` }}>{subtitle}</pre>
                   </SubTitle>
                 )}
               </TextContainer>

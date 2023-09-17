@@ -83,6 +83,10 @@ const Ask = () => {
   const handleSubmit = () => {
     if (isOkToSubmit()) {
       // 서버에 전송
+      // API 연결이 안 되어 있어서 일단 입력 데이터 삭제하는 걸로
+      setInputData(undefined);
+      setInputFile(undefined);
+      setIsAgree(false);
     } else {
       if (!isAgree) {
         window.alert('개인정보 수집에 동의해 주세요.');

@@ -32,11 +32,16 @@ const Question = styled.div`
 `;
 const Answer = styled.div<{ isClicked: boolean }>`
   width: 80%; //버튼과 안겹치게 왼쪽으로 80프로만
-  /* background-color: #9f9f9f; */
+  white-space: break-spaces;
+  line-height: 30px;
   display: block;
   margin: ${(props) => (props.isClicked ? '20px 0' : '0')};
   max-height: ${(props) => (props.isClicked ? '300px' : '0')};
   overflow: hidden;
+
+  ul {
+    list-style-type: '-A';
+  }
   transition:
     margin 0.3s ease-in-out,
     max-height 0.3s ease-in-out;
@@ -70,14 +75,18 @@ const Faq = () => {
     <>
       <Title>자주하는 질문</Title>
       <QuetionUl>
-        {data?.data.data.map((each: any, index: number) => (
+        {data?.data.map((each: any, index: number) => (
           <Quetionli key={index}>
-            <Question>{each.question}</Question>
+            <Question>Q. {each.question}</Question>
             <img
               src={isClicked[index] === true ? toggleup : toggleDown}
               onClick={() => toggleClick(index)}
             ></img>
-            <Answer isClicked={isClicked[index]}>{each.answer}</Answer>
+            <Answer isClicked={isClicked[index]}>
+              <ul>
+                <li>{each.answer}</li>
+              </ul>
+            </Answer>
           </Quetionli>
         ))}
       </QuetionUl>

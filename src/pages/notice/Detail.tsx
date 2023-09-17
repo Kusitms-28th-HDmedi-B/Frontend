@@ -23,6 +23,8 @@ const NoticeDate = styled.div`
 const NoticeContent = styled.div`
   //pre로 변경
   margin: 30px 0;
+  white-space: break-spaces;
+  line-height: 24px;
 `;
 const BackBtn = styled.div`
   width: 200px;
@@ -31,6 +33,7 @@ const BackBtn = styled.div`
   border-radius: 10px;
   text-align: center;
   line-height: 50px;
+  cursor: pointer;
 `;
 interface detailResponse {
   id: number;
@@ -48,7 +51,7 @@ const Detail = () => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          `https://hdmedi.site/api/announcement/${id}`,
+          `https://back.hdmedi.site/api/announcement/${id}`,
         );
         setDetailData(response.data);
       } catch (error) {
