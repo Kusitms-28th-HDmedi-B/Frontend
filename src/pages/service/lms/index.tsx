@@ -33,21 +33,21 @@ const Text1 = styled.div`
   div:nth-of-type(2) {
     position: absolute;
     top: 34%;
-    left: -10px;
+    left: -5px;
     background-color: #b6cfff;
-    width: 720px;
+    width: 710px;
     height: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     z-index: 10;
   }
   div:nth-of-type(3) {
     position: absolute;
     top: 85%;
-    left: -10px;
+    left: -5px;
     background-color: #b6cfff;
-    width: 630px;
+    width: 620px;
     height: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     z-index: 10;
   }
 `;
@@ -73,7 +73,7 @@ const Text2 = styled.div`
     background-color: #ffc38a;
     width: 635px;
     height: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     z-index: 1;
 
     justify-items: right;
@@ -85,15 +85,15 @@ const Text2 = styled.div`
     background-color: #ffc38a;
     width: 840px;
     height: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     z-index: 1;
   }
 `;
 const UppBelt = styled.div`
   width: 100vw;
   height: 200px;
-  background-color: #ffd2a8;
-  color: #e85300;
+  background-color: #1a7cff;
+  color: white;
 
   font-size: 50px;
   font-weight: 700;
