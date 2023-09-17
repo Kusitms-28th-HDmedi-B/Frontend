@@ -57,15 +57,16 @@ const SwiperContainer = styled(Swiper)`
   }
   //pagination bar에 적용하는 스타일 - 전체 bullet
   .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    margin: 0 50px !important;
+    width: 16px;
+    height: 16px;
+    margin: 0 30px !important;
     text-align: center;
     line-height: 20px;
     font-size: 18px;
-    color: #a5a5a5;
+
+    background: #a5a5a5;
     opacity: 1;
-    background: transparent;
+    /* background: transparent; */
     transition: background 0.3s ease;
 
     &:hover {
@@ -74,6 +75,8 @@ const SwiperContainer = styled(Swiper)`
   }
   .swiper-pagination-bullet-active {
     color: #000;
+
+    background: #007aff;
   }
 `;
 
@@ -91,10 +94,10 @@ const Banner = () => {
         pagination={{
           clickable: true,
           renderBullet: (index, className) => {
-            return `<span class="${className}">${index + 1}</span>`;
+            return `<span class="${className}"></span>`;
           },
         }}
-        navigation={true}
+        // navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
