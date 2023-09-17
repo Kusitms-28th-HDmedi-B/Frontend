@@ -8,6 +8,10 @@ import { persuitDatas } from './bannerData';
 import PersuitCard from './PersuitCard';
 
 import circle from '/assets/image/main/home-circle.svg';
+import Graph from './Graph';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Container = styled.div`
   width: 100vw;
@@ -53,14 +57,14 @@ const ThirdTitle = styled.div`
   line-height: 45px;
   white-space: break-spaces;
 `;
-const FourthContainer = styled.div`
-  width: 100vw;
-  height: 120vh;
-  background-color: #1a1f27;
-`;
+
 const Main = () => {
   const setCurrHeader = useSetRecoilState(currHeaderAtom);
   useEffect(() => setCurrHeader('transparent'));
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <Container>
       <Banner></Banner>
@@ -84,7 +88,7 @@ const Main = () => {
           <PersuitCard {...data} key={index}></PersuitCard>
         ))}
       </ThirdContainer>
-      <FourthContainer>복약지도4만건건건</FourthContainer>
+      <Graph></Graph>
       <NewsContainer></NewsContainer>
     </Container>
   );
