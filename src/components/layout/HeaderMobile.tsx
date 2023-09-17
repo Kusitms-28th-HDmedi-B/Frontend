@@ -22,7 +22,7 @@ const MobileContainer = styled.div<MobileContainerProps>`
       $fixed
         ? css`
             position: fixed;
-            z-index: 3;
+            z-index: 5;
           `
         : null}
   }
