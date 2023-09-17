@@ -20,17 +20,17 @@ export const SwiperCardDatas: SwiperCardProps[] = [
     imgUrl: '/assets/image/main/HomeBanner1.png',
     text: '지역 약사와 환자를 이어\n건강한 지역 사회를 약속합니다.',
     hasBtn: false,
-    textPosition: { left: '220px', top: '0px', textAlign: 'left' },
-    btnPosition: { left: '300px', top: '400px' },
+    textPosition: { left: '180px', top: '100px', textAlign: 'left' },
+    btnPosition: { left: '180px', top: '400px' },
   },
   {
     imgUrl: '/assets/image/main/HomeBanner2.png',
-    text: '에이치디메디는\n의약품 부작용을 줄이는\n올바른 복용 습관을 책임집니다.',
+    text: '의약품 부작용을 줄이는\n올바른 복용 습관을 책임집니다.',
     hasBtn: true,
-    btnText: '서비스 보러가기',
+    btnText: '자세히 보기',
     btnUrl: 'service/upp',
-    textPosition: { left: '300px', top: '20px', textAlign: 'left' },
-    btnPosition: { left: '300px', top: '400px' },
+    textPosition: { left: '180px', top: '60px', textAlign: 'left' },
+    btnPosition: { left: '180px', top: '400px' },
   },
   {
     imgUrl: '/assets/image/main/HomeBanner3.png',
@@ -38,8 +38,9 @@ export const SwiperCardDatas: SwiperCardProps[] = [
     hasBtn: true,
     btnText: '자세히 보기',
     btnUrl: 'technology',
-    textPosition: { left: '0', top: '0', textAlign: 'center' },
-    btnPosition: { left: 'calc(50%-120px)', top: '400px' }, //버튼 중앙정렬
+    textPosition: { left: '180px', top: '60px', textAlign: 'left' },
+    btnPosition: { left: '180px', top: '400px' }, //버튼 중앙정렬
+    // btnPosition: { left: 'calc(50%-120px)', top: '400px' }, //버튼 중앙정렬
   },
 ];
 export const persuitDatas: persuitCardProps[] = [

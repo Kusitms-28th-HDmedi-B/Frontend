@@ -28,7 +28,7 @@ const Container = styled.div`
     }
   }
   > div:nth-of-type(odd) {
-    background-color: rgba(201, 201, 201, 0.8);
+    background-color: white;
     div {
       text-align: right;
     }
@@ -49,7 +49,7 @@ const Container = styled.div`
     ul {
       margin-left: 20px;
       list-style: '- ';
-      color: #898989;
+      color: black;
     }
   }
 `;

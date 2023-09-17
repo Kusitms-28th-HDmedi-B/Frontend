@@ -184,6 +184,10 @@ const ThirdPageContainer = styled.div`
 
   width: 100%;
   padding: 100px 0 350px;
+
+  @media screen and (max-width: 500px) {
+    padding: 100px 0 100px;
+  }
 `;
 
 const MissionContainer = styled.div`

@@ -75,7 +75,7 @@ const SwiperContainer = styled(Swiper)`
     line-height: 20px;
     font-size: 18px;
 
-    background: #a5a5a5;
+    background: #9cb9ca; //선택안된거
     opacity: 1;
     /* background: transparent; */
     transition: background 0.3s ease;
@@ -105,7 +105,7 @@ const Banner = () => {
         spaceBetween={0}
         // centeredSlides={true}
         autoplay={{
-          delay: 30000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
