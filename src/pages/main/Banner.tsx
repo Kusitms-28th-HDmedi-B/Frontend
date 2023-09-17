@@ -94,6 +94,7 @@ const Banner = () => {
         pagination={{
           clickable: true,
           renderBullet: (index, className) => {
+            index;
             return `<span class="${className}"></span>`;
           },
         }}
@@ -101,19 +102,11 @@ const Banner = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        {SwiperCardDatas.map(
-          ({ imgUrl, text, hasBtn, btnText, btnUrl }, index) => (
-            <SwiperSlide key={index}>
-              <SwiperCard
-                imgUrl={imgUrl}
-                text={text}
-                hasBtn={hasBtn}
-                btnText={btnText}
-                btnUrl={btnUrl}
-              ></SwiperCard>
-            </SwiperSlide>
-          ),
-        )}
+        {SwiperCardDatas.map((swiperCardProps, index) => (
+          <SwiperSlide key={index}>
+            <SwiperCard {...swiperCardProps}></SwiperCard>
+          </SwiperSlide>
+        ))}
       </SwiperContainer>
     </>
   );

@@ -4,6 +4,10 @@ export interface SwiperCardProps {
   hasBtn: boolean;
   btnText?: string;
   btnUrl?: string;
+
+  /**absolute 설정 후 좌표 커스텀 */
+  textPosition?: { left?: string; top?: string; textAlign?: string };
+  btnPosition?: { left?: string; top?: string };
 }
 export interface persuitCardProps {
   title: string;
@@ -24,6 +28,8 @@ export const SwiperCardDatas: SwiperCardProps[] = [
     hasBtn: true,
     btnText: '서비스 보러가기',
     btnUrl: 'recruit',
+    textPosition: { left: '300px', top: '20px', textAlign: 'left' },
+    btnPosition: { left: '300px', top: '400px' },
   },
   {
     imgUrl: '/assets/image/main/HomeBanner3.png',
