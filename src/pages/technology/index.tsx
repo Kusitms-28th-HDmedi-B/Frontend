@@ -9,7 +9,6 @@ import AppCard from './components/AppCard';
 import Card from '../../components/common/Card';
 import { AppCardData, CardText, TechnologyData } from './data';
 import ArrowImage from '/assets/image/ArrowImage.svg';
-import CloudService from '/assets/image/CloudService.svg';
 
 const Technology = () => {
   const [opacity, setOpacity] = useState<number>(1);
@@ -52,23 +51,17 @@ const Technology = () => {
       <PaddingContainer />
       <SecondPageContainer>
         <img
-          src={CloudService}
+          src={'/assets/image/technology/tech-image8.svg'}
           alt="cloud"
-          style={{ width: '30%', marginBottom: '100px' }}
+          style={{ width: '50%', marginBottom: '30px' }}
           data-aos="fade-up"
           id={'anchor'}
         />
         <SecondPageImageContainer>
           <BackgroundImage src={ArrowImage} alt="background" />
           <InnerContainer>
-            <pre data-aos="fade-up" data-aos-anchor="#anchor">
-              {'클라우드 인프라를 통한\nMEGA DATA 관리'}
-            </pre>
-            {TechnologyData.map(({ content, imgSrc, animation }) => (
-              <TechnologyContainer data-aos={animation}>
-                <img src={imgSrc} alt="image" />
-                <pre>{content}</pre>
-              </TechnologyContainer>
+            {TechnologyData.map(({ content, animation }) => (
+              <pre data-aos={animation}>{content}</pre>
             ))}
           </InnerContainer>
         </SecondPageImageContainer>
@@ -171,6 +164,7 @@ const SecondPageImageContainer = styled.div`
 
   width: 70%;
   margin: auto;
+  margin-bottom: 200px;
 `;
 
 const InnerContainer = styled.div`
@@ -180,35 +174,23 @@ const InnerContainer = styled.div`
   justify-content: space-between;
 
   position: absolute;
+  margin-top: 50%;
   width: 30%;
-  height: 94.3%;
+  height: 50%;
   padding: 10px 0;
 
   pre {
     text-align: center;
-    font-family: Pretendard;
-    font-size: 20px;
+    color: #0070ed;
+    font-size: 24px;
     font-weight: 700;
+    margin-left: 20%;
   }
 
   /* img {
     width: 100%;
     height: 21.06%;
   } */
-`;
-
-const TechnologyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  width: 100%;
-  height: 100%;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 const BackgroundImage = styled.img`
@@ -233,7 +215,7 @@ const GridContainer = styled.div`
 
   width: 70%;
   margin: auto;
-  gap: 30px;
+  gap: 50px;
   z-index: 2;
 `;
 

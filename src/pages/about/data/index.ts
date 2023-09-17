@@ -104,6 +104,7 @@ interface AppDataType {
   link: string;
   backgroundUrl: string;
   fontColor: string;
+  marginTop: string;
 }
 
 export const AppData: AppDataType[] = [
@@ -114,6 +115,7 @@ export const AppData: AppDataType[] = [
     link: '/service/upp',
     backgroundUrl: '/assets/image/about/about-image11.svg',
     fontColor: '#1f64d1',
+    marginTop: '35px',
   },
   {
     title: '',
@@ -122,5 +124,6 @@ export const AppData: AppDataType[] = [
     link: '/service/lms',
     backgroundUrl: '/assets/image/about/about-image15.svg',
     fontColor: '#fff',
+    marginTop: '10px',
   },
 ];

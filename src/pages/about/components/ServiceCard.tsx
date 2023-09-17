@@ -15,7 +15,15 @@ const ServiceCard = () => {
       <InnerContainer>
         {/* Todo: 누르면 서비스 소개 탭으로 이동하게 */}
         {AppData.map(
-          ({ title, subtitle, logo, link, backgroundUrl, fontColor }) => (
+          ({
+            title,
+            subtitle,
+            logo,
+            link,
+            backgroundUrl,
+            fontColor,
+            marginTop,
+          }) => (
             <AppCard backgroundUrl={backgroundUrl}>
               <TextContainer>
                 {logo && <img src={logo} alt="logo" />}
@@ -25,7 +33,7 @@ const ServiceCard = () => {
                   </Title>
                 )}
                 {subtitle && (
-                  <SubTitle>
+                  <SubTitle marginTop={marginTop}>
                     <pre style={{ color: `${fontColor}` }}>{subtitle}</pre>
                   </SubTitle>
                 )}
@@ -125,12 +133,16 @@ const Title = styled.div`
   }
 `;
 
-const SubTitle = styled.div`
+interface SubTitleProps {
+  marginTop: string;
+}
+
+const SubTitle = styled.div<SubTitleProps>`
   font-size: 24px;
   font-weight: 700;
   line-height: 36px; /* 150% */
 
-  margin-top: 35px;
+  margin-top: ${({ marginTop }) => marginTop};
 
   @media screen and (max-width: 500px) {
     font-size: 13.44px;

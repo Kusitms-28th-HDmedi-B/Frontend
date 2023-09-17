@@ -7,12 +7,12 @@ interface Technology {
 export const TechnologyData: Technology[] = [
   {
     content: 'MEGA DATA 기반\nAI 기술 도입',
-    imgSrc: '/assets/image/AIImage.svg',
+    imgSrc: '/assets/image/technology/tech-image9.svg',
     animation: 'fade-right',
   },
   {
     content: 'AI 기술을 통한\n맞춤형 정보 제공',
-    imgSrc: '/assets/image/CustomizedInformation.svg',
+    imgSrc: '/assets/image/technology/tech-image10.svg',
     animation: 'fade-left',
   },
 ];
@@ -77,6 +77,7 @@ export interface AppCardType {
   logo: string;
   backgroundColor: string;
   backgroundUrl: string;
+  marginTop: string;
 }
 
 export const AppCardData: AppCardType[] = [
@@ -89,15 +90,17 @@ export const AppCardData: AppCardType[] = [
     logo: '/assets/logo/upp-logo.svg',
     backgroundColor: '#CBE5FF',
     backgroundUrl: '/assets/image/technology/tech-image1.svg',
+    marginTop: '35px',
   },
   {
     id: 2,
-    title: '비대면 통합\nCMS LMS\nSaaS',
-    subtitle: '',
+    title: '',
+    subtitle: '비대면 통합 CMS LMS\nSaaS',
     link: '/service/lms',
     fontColor: '#fff',
-    logo: '',
+    logo: '/assets/logo/lms-logo.png',
     backgroundColor: '#293F98',
     backgroundUrl: '/assets/image/technology/tech-image2.svg',
+    marginTop: '10px',
   },
 ];
