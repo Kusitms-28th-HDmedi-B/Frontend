@@ -57,6 +57,7 @@ const HamburgerUl = styled.ul`
       &.clicked {
         text-decoration: underline;
       }
+      margin-top: 20px;
     }
   }
 `;
