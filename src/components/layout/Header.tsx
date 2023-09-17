@@ -1,10 +1,12 @@
 import { styled } from 'styled-components';
 import logo from '/assets/logo/header-logo.svg';
+
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { HeaderColorType, currHeaderAtom } from '../../recoil/atom';
+import HeaderMobile from './HeaderMobile';
 const Container = styled.div<{ $bgColor: HeaderColorType }>`
   /* border: 1px solid black; */
   width: 70%;
@@ -14,17 +16,27 @@ const Container = styled.div<{ $bgColor: HeaderColorType }>`
   background-color: ${(props) => props.$bgColor};
   position: fixed;
   z-index: 3;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
-const Logo = styled.span`
+export const Logo = styled.span`
   display: inline-block;
   background-image: url(${logo});
   background-size: cover;
-  width: 167px;
-  height: 28px;
+  width: 169px;
+  height: 29px;
+  @media screen and (max-width: 500px) {
+    width: 135px;
+    height: 23px;
+    padding: 0;
+    margin: 15px;
+  }
 `;
 const Nav = styled.ul`
-  margin-left: 100px;
+  margin-left: 10px;
   display: inline-block;
   position: absolute;
 `;
@@ -78,7 +90,11 @@ const NavDepth = styled.div`
 const LanguageContainer = styled.span`
   float: right;
   line-height: 28px; //이거다
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
+
 const Language = styled.span<{ $isSelected: boolean }>`
   cursor: pointer;
   padding: 0 10px;
@@ -89,41 +105,45 @@ function Header() {
   const categories = CategoryData;
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
   const currHeader = useRecoilValue(currHeaderAtom);
+
   return (
-    <Container $bgColor={currHeader}>
-      <Link to={'../'}>
-        <Logo></Logo>
-      </Link>
-      <Nav>
-        {categories.map((category, index) => (
-          <NavLi key={index} $countDepth={category.depth.length}>
-            {category.title}
-            <NavDepthContainer>
-              {category.depth.map((each, index) => (
-                <NavDepth key={index}>
-                  <Link to={each.url}>{each.name}</Link>
-                </NavDepth>
-              ))}
-            </NavDepthContainer>
-          </NavLi>
-        ))}
-      </Nav>
-      <LanguageContainer>
-        <Language
-          $isSelected={currLanguage === 'KR'}
-          onClick={() => setCurrLanguage('KR')}
-        >
-          KR
-        </Language>
-        |
-        <Language
-          $isSelected={currLanguage === 'EN'}
-          onClick={() => setCurrLanguage('EN')}
-        >
-          EN
-        </Language>
-      </LanguageContainer>
-    </Container>
+    <>
+      <Container $bgColor={currHeader}>
+        <Link to={'../'}>
+          <Logo></Logo>
+        </Link>
+        <Nav>
+          {categories.map((category, index) => (
+            <NavLi key={index} $countDepth={category.depth.length}>
+              {category.title}
+              <NavDepthContainer>
+                {category.depth.map((each, index) => (
+                  <NavDepth key={index}>
+                    <Link to={each.url}>{each.name}</Link>
+                  </NavDepth>
+                ))}
+              </NavDepthContainer>
+            </NavLi>
+          ))}
+        </Nav>
+        <LanguageContainer>
+          <Language
+            $isSelected={currLanguage === 'KR'}
+            onClick={() => setCurrLanguage('KR')}
+          >
+            KR
+          </Language>
+          |
+          <Language
+            $isSelected={currLanguage === 'EN'}
+            onClick={() => setCurrLanguage('EN')}
+          >
+            EN
+          </Language>
+        </LanguageContainer>
+      </Container>
+      <HeaderMobile />
+    </>
   );
 }
 

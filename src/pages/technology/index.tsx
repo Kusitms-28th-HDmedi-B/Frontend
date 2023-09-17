@@ -29,10 +29,15 @@ const Technology = () => {
     }
   }, [opacity]);
 
-  useEffect(() => setCurrHeader('transparent'), []);
   useEffect(() => {
+    setCurrHeader('transparent');
     window.addEventListener('scroll', handleScroll);
     handleScroll();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   useEffect(() => {
@@ -80,9 +85,7 @@ const Technology = () => {
       <ThirdPageContainer>
         <GridContainer>
           {CardText.map((data) => (
-            <div data-aos="fade-up" data-aos-easing="Ease out Back">
-              <Card url={cardImgUrl} textData={data} />
-            </div>
+            <Card url={cardImgUrl} textData={data} />
           ))}
         </GridContainer>
       </ThirdPageContainer>

@@ -177,6 +177,9 @@ const Lms = () => {
   useEffect(() => {
     AOS.init();
   });
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <Container>
       <Banner />

@@ -7,7 +7,6 @@ import 'aos/dist/aos.css';
 import Youtube, { YouTubeProps } from 'react-youtube';
 
 import UppLogo from '/assets/logo/upp-logo.svg';
-import MedicationImage from '/assets/image/medication.svg';
 import FunctionCard from './components/FunctionCard';
 import UIUX from '/assets/image/UIUXImage.svg';
 
@@ -124,7 +123,10 @@ const Upp = () => {
           <pre>
             {'‘어프’는 지역 약사와 환자를 연결해 건강한 지역사회를 만듭니다'}
           </pre>
-          <img src={MedicationImage} alt="medi" />
+          <img
+            src={'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif'}
+            alt="medi"
+          />
         </MediImageContainer>
       </ThirdPageContainer>
 
@@ -188,6 +190,22 @@ const FirstPageContainer = styled.div`
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
+
+  position: relative;
+
+  background: #cbe5ff;
+
+  &::before {
+    content: '';
+    background-image: url('/assets/image/about/about-image11.svg');
+    background-size: cover;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -203,6 +221,7 @@ const LogoVideoContainer = styled.div`
 
 const Video = styled.div`
   flex-shrink: 0;
+  z-index: 2;
 
   iframe {
     border-radius: 50px;
@@ -308,6 +327,7 @@ const StatisticBox = styled.div`
   justify-content: space-between;
 
   width: 100%;
+  gap: 30px;
 `;
 
 const Statistic = styled.div`
@@ -316,11 +336,11 @@ const Statistic = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 240px;
+  width: 100%;
   padding: 45px 0 50px;
 
   border-radius: 20px;
-  background: #cde6ff;
+  border: 2px solid #cfcfcf;
 
   .title {
     color: #002177;
