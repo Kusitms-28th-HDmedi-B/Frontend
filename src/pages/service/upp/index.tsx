@@ -10,7 +10,7 @@ import UppLogo from '/assets/logo/upp-logo.svg';
 import UIUX from '/assets/image/UIUXImage.svg';
 import FunctionImage from '/assets/image/upp/upp-image1.svg';
 
-import { downloadData, functionCardData, statisticData } from './data';
+import { downloadData, statisticData } from './data';
 import { handleScroll } from './functions';
 
 const Upp = () => {
