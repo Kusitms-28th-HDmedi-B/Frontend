@@ -18,6 +18,7 @@ const Container = styled.div<{ $imgUrl: string }>`
 const Text = styled.div<{ color: string }>`
   font-size: 26px;
   font-weight: 700;
+  line-height: 35px;
   white-space: break-spaces;
   margin-top: 70px;
   text-align: center;

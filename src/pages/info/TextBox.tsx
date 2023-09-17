@@ -51,8 +51,8 @@ const TextBox = () => {
         <li>본사 : 서울시 종로구 종로 6, 6층</li>
         <li>연구소 : 서울시 동대문구 회기로 85, 카이스트 7호관 7416호</li>
         <li>근무지 : 서울시 마포구 마포대로 122, 프론트원 6층</li>
-        <li>02-6080-2216</li>
-        <li>hdmedi@hdmedi.co.kr</li>
+        <li>Tel : 02-6080-2216</li>
+        <li>E-mail : hdmedi@hdmedi.co.kr</li>
       </TextList>
       <IconContainer>
         <IconWrapper

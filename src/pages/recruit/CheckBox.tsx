@@ -18,6 +18,7 @@ const CheckBoxDiv = styled.div`
   margin-right: 20px;
   :first-child {
     font-weight: 600;
+    line-height: 24px;
   }
   div {
     margin: 15px 20px;
