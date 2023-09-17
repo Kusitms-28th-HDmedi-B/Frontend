@@ -7,7 +7,6 @@ import NewsContainer from './NewsContainer';
 import { persuitDatas } from './bannerData';
 import PersuitCard from './PersuitCard';
 
-import circle from '/assets/image/main/home-circle.svg';
 import Graph from './Graph';
 
 import AOS from 'aos';
@@ -56,7 +55,8 @@ const SecondTextMobile = styled.div`
   }
 `;
 const SecondGif = styled.div`
-  background: url(${circle}) no-repeat;
+  background: url('https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif')
+    no-repeat;
   background-size: cover;
   margin: auto;
   width: 748px;

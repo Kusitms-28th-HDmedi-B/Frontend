@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import InputText from '../../components/input/InputText';
 import InputLongText from '../../components/input/InputLongText';
 import styled from 'styled-components';
@@ -92,6 +92,10 @@ const Ask = () => {
       }
     }
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <Container>
