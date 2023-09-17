@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import Map from './Map';
 import TextBox from './TextBox';
+import { useEffect } from 'react';
 
 const Container = styled.div`
   background-color: white;
@@ -26,6 +27,10 @@ const ContentsContainer = styled.div`
 `;
 
 const Info = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <Container>
       <Title>위치</Title>

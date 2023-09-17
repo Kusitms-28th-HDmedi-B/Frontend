@@ -71,6 +71,10 @@ const Recruit = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const filteredData: RecruitResponse[] = [];
   recruitData.forEach((val) => {
     // const LOGIC = [
@@ -90,7 +94,7 @@ const Recruit = () => {
       filteredData.push(val);
     }
   });
-  console.log('걸러진결과 : ', filteredData.length);
+
   // setMaxPage(Math.floor((filteredData.length + 2) / 3));
 
   return (

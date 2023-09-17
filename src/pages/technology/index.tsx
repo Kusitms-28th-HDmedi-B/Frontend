@@ -36,6 +36,10 @@ const Technology = () => {
   }, []);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     AOS.init({
       duration: 1200,
     });

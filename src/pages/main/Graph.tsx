@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import gif from '/assets/image/main/graph.gif';
+import gif from 'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif';
 const Container = styled.div`
   position: relative;
   width: 100vw;
@@ -47,7 +47,8 @@ const Gif = styled.div`
   top: 200px;
   left: 15%;
   position: absolute;
-  background: url(${gif}) no-repeat;
+  background: url('https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/2.gif')
+    no-repeat;
   background-size: cover;
   width: 70%;
   height: 500px;
@@ -90,7 +91,7 @@ const Graph = () => {
         data-aos-offset="100"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="1500"
-        data-aos-delay="1000"
+        data-aos-delay="1500"
       ></Gif>
     </Container>
   );
