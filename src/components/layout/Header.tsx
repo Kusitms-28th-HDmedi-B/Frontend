@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 import logo from '/assets/logo/header-logo.svg';
-import hamburgerBar from '/assets/image/header/hamburger.svg';
 
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { HeaderColorType, currHeaderAtom } from '../../recoil/atom';
+import HeaderMobile from './HeaderMobile';
 const Container = styled.div<{ $bgColor: HeaderColorType }>`
   /* border: 1px solid black; */
   width: 70%;
@@ -22,7 +22,7 @@ const Container = styled.div<{ $bgColor: HeaderColorType }>`
   }
 `;
 
-const Logo = styled.span`
+export const Logo = styled.span`
   display: inline-block;
   background-image: url(${logo});
   background-size: cover;
@@ -95,72 +95,6 @@ const LanguageContainer = styled.span`
   }
 `;
 
-// 모바일
-const MobileContainer = styled.div`
-  display: none;
-
-  @media screen and (max-width: 500px) {
-    display: inline;
-    width: 100vw;
-    height: auto;
-    /* background-color: red; */
-  }
-  ul {
-    /* width: 0px; */
-    height: 0px;
-    overflow: hidden;
-    transition: height 0.5s ease-in-out;
-
-    font-size: 18px;
-    font-weight: 600;
-    li {
-      margin: 15px;
-      padding: 5px 0;
-    }
-  }
-  ul.toggleOn {
-    height: 500px;
-  }
-`;
-const MobileHeader = styled.div`
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    /* height: 50px; */
-    margin: 0;
-    padding: 0;
-  }
-`;
-const HamburgerBar = styled.span`
-  @media screen and (max-width: 500px) {
-    display: inline-block;
-
-    width: 30px;
-    height: 23px;
-    margin: 15px 15px 25px 15px;
-
-    float: right;
-
-    background: url(${hamburgerBar}) no-repeat;
-    background-size: cover;
-
-    cursor: pointer;
-  }
-`;
-const HamburgerDepthContainer = styled.ul`
-  @media screen and (max-width: 500px) {
-    display: inline-block;
-
-    width: 30px;
-    height: 23px;
-
-    cursor: pointer;
-    li {
-      background-color: red;
-      width: 30px;
-      height: 23px;
-    }
-  }
-`;
 const Language = styled.span<{ $isSelected: boolean }>`
   cursor: pointer;
   padding: 0 10px;
@@ -172,7 +106,6 @@ function Header() {
   const [currLanguage, setCurrLanguage] = useState<LanguageType>('KR');
   const currHeader = useRecoilValue(currHeaderAtom);
 
-  const [toggle, setToggle] = useState(false);
   return (
     <>
       <Container $bgColor={currHeader}>
@@ -209,33 +142,7 @@ function Header() {
           </Language>
         </LanguageContainer>
       </Container>
-      <MobileContainer>
-        <MobileHeader>
-          <Link to={'../'}>
-            <Logo></Logo>
-          </Link>
-          <HamburgerBar
-            onClick={() => setToggle((curr) => !curr)}
-          ></HamburgerBar>
-          <ul className={toggle ? 'toggleOn' : 'toggleOff'}>
-            {CategoryData.map((category) => {
-              return (
-                <>
-                  <li>{category.title}</li>
-
-                  <HamburgerDepthContainer>
-                    {category.depth.map((each, index) => (
-                      <li key={index}>
-                        <Link to={each.url}>{each.name}</Link>
-                      </li>
-                    ))}
-                  </HamburgerDepthContainer>
-                </>
-              );
-            })}
-          </ul>
-        </MobileHeader>
-      </MobileContainer>
+      <HeaderMobile />
     </>
   );
 }
