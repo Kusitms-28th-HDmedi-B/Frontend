@@ -49,7 +49,7 @@ export default StatisticCard;
 
 const Container = styled.div`
   width: 100%;
-  padding: 160px 0;
+  padding: 100px 0;
 
   @media screen and (max-width: 500px) {
     padding: 60px 0;
@@ -78,7 +78,7 @@ const Title = styled.div`
   pre {
     color: #000;
     text-align: center;
-    font-size: 50px;
+    font-size: 38px;
     font-weight: 700;
     line-height: 86px; /* 172% */
 

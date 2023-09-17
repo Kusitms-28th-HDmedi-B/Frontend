@@ -15,7 +15,7 @@ const Container = styled.div<{ $bgColor: HeaderColorType }>`
   padding: 15px 0;
   background-color: ${(props) => props.$bgColor};
   position: fixed;
-  z-index: 3;
+  z-index: 4;
 
   @media screen and (max-width: 500px) {
     display: none;
