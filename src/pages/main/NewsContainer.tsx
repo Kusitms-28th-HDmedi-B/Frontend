@@ -7,11 +7,16 @@ const NewsTitle = styled.div`
   font-weight: 600;
   text-align: center;
   margin: 200px 0;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+    margin: 100px 0;
+  }
 `;
 const FlexContainer = styled.div`
   width: 70%;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   a {
@@ -21,22 +26,32 @@ const FlexContainer = styled.div`
   margin-bottom: 200px;
 `;
 const NewsCard = styled.div`
-  width: 360px;
+  width: 320px;
   margin: 10px;
-  border-radius: 1px solid red;
+  @media screen and (max-width: 500px) {
+    width: 220px;
+  }
 `;
 const NewsCardImg = styled.span<{ $imgUrl: string }>`
-  width: 360px;
+  width: 100%;
   height: 230px;
   border-radius: 20px;
   background: url(${(props) => props.$imgUrl}) no-repeat;
   background-size: cover;
   background-color: red;
   display: inline-block;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 170px;
+  }
 `;
 const NewsCardDate = styled.div`
   color: #797979;
   line-height: 34px;
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+    line-height: 26px;
+  }
 `;
 const NewsCardTitle = styled.div`
   height: 70px;
@@ -44,6 +59,10 @@ const NewsCardTitle = styled.div`
   font-weight: 600;
   text-overflow: ellipsis;
   line-height: 30px;
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;
 interface NewsResponse {
   maxpage: number;

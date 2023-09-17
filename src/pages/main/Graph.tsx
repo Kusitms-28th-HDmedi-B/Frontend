@@ -5,6 +5,10 @@ const Container = styled.div`
   width: 100vw;
   height: 120vh;
   background-color: #1a1f27;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 100vw;
+  }
 `;
 const TextContainer = styled.div`
   top: 200px;
@@ -14,16 +18,30 @@ const TextContainer = styled.div`
   flex-direction: column;
   color: white;
   margin: auto;
+  @media screen and (max-width: 500px) {
+    top: 20px;
+    left: 50px;
+  }
 `;
 const TextTitle = styled.div`
   font-size: 35px;
   font-weight: 400;
   margin: 30px 0;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0;
+  }
 `;
 const TextContent = styled.div`
   font-size: 85px;
   font-weight: 700;
   margin-bottom: 50px;
+  @media screen and (max-width: 500px) {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
 `;
 const Gif = styled.div`
   top: 200px;
@@ -33,6 +51,15 @@ const Gif = styled.div`
   background-size: cover;
   width: 70%;
   height: 500px;
+  @media screen and (max-width: 500px) {
+    top: 150px;
+    left: 12%;
+
+    font-size: 30px;
+    font-weight: 700;
+    width: 70%;
+    height: 120px;
+  }
 `;
 const Graph = () => {
   return (

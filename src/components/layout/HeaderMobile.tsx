@@ -58,6 +58,7 @@ const HamburgerUl = styled.ul`
         text-decoration: underline;
       }
     }
+    margin-top: 20px; //
   }
 `;
 const HamburgerDepthUl = styled.ul<{ $countDepth: number }>`
@@ -95,7 +96,7 @@ const HamburgerDepthUl = styled.ul<{ $countDepth: number }>`
 const HeaderMobile = () => {
   const [toggle, setToggle] = useState(false);
   const [isClicked, setisClicked] = useState([
-    true,
+    false,
     false,
     false,
     false,
@@ -115,7 +116,7 @@ const HeaderMobile = () => {
       <HamburgerUl className={toggle ? 'toggleOn' : ''}>
         {CategoryData.map((category, index) => {
           return (
-            <>
+            <div key={index}>
               <li
                 className={isClicked[index] ? 'clicked' : ''}
                 onClick={() =>
@@ -140,7 +141,7 @@ const HeaderMobile = () => {
                   </li>
                 ))}
               </HamburgerDepthUl>
-            </>
+            </div>
           );
         })}
       </HamburgerUl>
