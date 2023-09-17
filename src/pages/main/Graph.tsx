@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import gif from 'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif';
 const Container = styled.div`
   position: relative;
   width: 100vw;
