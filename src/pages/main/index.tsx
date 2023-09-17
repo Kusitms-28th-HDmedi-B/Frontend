@@ -19,17 +19,40 @@ const Container = styled.div`
 const SecondContainer = styled.div`
   width: 70%;
   margin: auto;
-  /* height: 100vw; //없애? */
+  white-space: break-spaces;
+  @media screen and (max-width: 500px) {
+    width: 70%;
+    margin: 0 30px;
+    margin: auto;
+  }
 `;
+
 const SecondText = styled.div`
   margin: 150px 0;
-  white-space: break-spaces;
   font-size: 30px;
   font-weight: 600;
   line-height: 40px;
   text-align: center;
   :nth-child(2) {
     color: #7aa4e8;
+  }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
+const SecondTextMobile = styled.div`
+  display: none;
+  @media screen and (max-width: 500px) {
+    display: inline;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    margin: 150px 0;
+    :nth-child(2) {
+      color: #7aa4e8;
+    }
   }
 `;
 const SecondGif = styled.div`
@@ -38,7 +61,25 @@ const SecondGif = styled.div`
   margin: auto;
   width: 748px;
   height: 600px;
+  @media screen and (max-width: 500px) {
+    margin: 50px auto;
+    width: 250px;
+    height: 200px;
+  }
 `;
+const ThirdTitle = styled.div`
+  width: 70%;
+  margin: 100px auto;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  white-space: break-spaces;
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
+`;
+
 const ThirdContainer = styled.div`
   margin: auto;
   margin-bottom: 200px;
@@ -48,14 +89,6 @@ const ThirdContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-const ThirdTitle = styled.div`
-  width: 70%;
-  margin: 100px auto;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 45px;
-  white-space: break-spaces;
 `;
 
 const Main = () => {
@@ -78,6 +111,14 @@ const Main = () => {
             }
           </span>
         </SecondText>
+        <SecondTextMobile>
+          <span>{'에이치디메디는\n'}</span>
+          <span>{'지역 약사와 지역 환자를 연결'}</span>
+          <span>{'하는\n'}</span>
+          <span>{'복약지도를 제공해\n'}</span>
+          <span>{'의약품의 부작용을 줄이고,\n'}</span>
+          <span>{'더 건강한 사회를 약속드립니다.'}</span>
+        </SecondTextMobile>
         <SecondGif></SecondGif>
       </SecondContainer>
       <ThirdTitle>
