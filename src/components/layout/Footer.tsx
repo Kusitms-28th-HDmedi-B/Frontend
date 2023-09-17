@@ -6,18 +6,16 @@ import {
   CategoryData,
   CompanyInfoData,
   ContactInfoData,
+  IconData,
 } from './data/FooterData';
-import Instagram from '/assets/icon/icon-instagram.svg';
-import Naver from '/assets/icon/icon-naver.svg';
-import Youtube from '/assets/icon/icon-youtube.svg';
 
 function Footer() {
   //헤더에도 사옹될거고, 각각 <Link>도 연결해야하니까 객체형태로 state로 리팩터링 해야함
   return (
     <Body>
       <Container>
-        {/* 정보구조도도 */}
-        <CategoryConatiner>
+        {/* 정보구조도 */}
+        <CategoryContainer>
           {CategoryData.map(({ title, depth }, index) => (
             <Category key={index}>
               <CategoryTitle>{title}</CategoryTitle>
@@ -30,29 +28,33 @@ function Footer() {
               </CategoryLinkContainer>
             </Category>
           ))}
-        </CategoryConatiner>
+        </CategoryContainer>
 
         {/* 회사 위치 및 연락처 */}
         <InfoContainer>
-          <img src={FooterLogo} alt="logo" />
-          <InfoTextContainer>
-            <LocationInfo>
-              {CompanyInfoData.map(({ theme, content }, index) => (
-                <InfoText key={index}>
-                  <pre>{theme}</pre>
-                  <pre>{content}</pre>
-                </InfoText>
-              ))}
-            </LocationInfo>
-            <ContactInfo>
-              {ContactInfoData.map(({ theme, content }, index) => (
-                <InfoText key={index}>
-                  <pre>{theme}</pre>
-                  <pre>{content}</pre>
-                </InfoText>
-              ))}
-            </ContactInfo>
-          </InfoTextContainer>
+          <Desktop>
+            <LogoWrapper>
+              <img src={FooterLogo} alt="logo" />
+            </LogoWrapper>
+            <InfoTextContainer>
+              <LocationInfo>
+                {CompanyInfoData.map(({ theme, content }, index) => (
+                  <InfoText key={index}>
+                    <pre>{theme}</pre>
+                    <pre>{content}</pre>
+                  </InfoText>
+                ))}
+              </LocationInfo>
+              <ContactInfo>
+                {ContactInfoData.map(({ theme, content }, index) => (
+                  <InfoText key={index}>
+                    <pre>{theme}</pre>
+                    <pre>{content}</pre>
+                  </InfoText>
+                ))}
+              </ContactInfo>
+            </InfoTextContainer>
+          </Desktop>
 
           <RightBox>
             <TermsContainer>
@@ -62,22 +64,11 @@ function Footer() {
 
             {/* SNS 아이콘 */}
             <IconContainer>
-              <IconWrapper
-                href="https://www.instagram.com/upp_hdmedi/"
-                target="_blank"
-              >
-                <img src={Instagram} alt="insta" />
-              </IconWrapper>
-              {/* Todo: 네이버 링크 추가 */}
-              <IconWrapper>
-                <img src={Naver} alt="naver" />
-              </IconWrapper>
-              <IconWrapper
-                href="https://www.youtube.com/@user-yo8bf6in2k"
-                target="_blank"
-              >
-                <img src={Youtube} alt="youtube" />
-              </IconWrapper>
+              {IconData.map(({ href, imgSrc }) => (
+                <IconWrapper href={href} target="_blank" key={href}>
+                  <img src={imgSrc} alt="logo" />
+                </IconWrapper>
+              ))}
             </IconContainer>
           </RightBox>
         </InfoContainer>
@@ -95,13 +86,18 @@ const Body = styled.div`
 const Container = styled.div`
   width: 70%;
   margin: auto;
-  padding: 95px 0 70px;
+  padding: 60px 0 70px;
 `;
 
-const CategoryConatiner = styled.div`
+const CategoryContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    gap: 50px;
+  }
 `;
 
 const Category = styled.div`
@@ -113,6 +109,9 @@ const Category = styled.div`
 const CategoryTitle = styled.div`
   font-weight: 600;
   margin-bottom: 33px;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 15px;
+  }
 `;
 
 const CategoryLinkContainer = styled.div`
@@ -138,9 +137,25 @@ const InfoContainer = styled.div`
   margin-top: 110px;
   /* gap: 75px; */
 
+  @media screen and (max-width: 500px) {
+    margin-top: 50px;
+  }
+`;
+
+const Desktop = styled.div`
+  display: flex;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
   img {
-    width: 188px;
-    height: 195.457px;
+    width: 153.89px;
+    height: 160px;
     flex-shrink: 0;
   }
 `;
@@ -152,13 +167,18 @@ const InfoTextContainer = styled.div`
   pre {
     color: #575757;
   }
+
+  @media screen and (min-width: 500px) {
+    margin-left: 50px;
+  }
 `;
 
 const LocationInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 56px;
+  /* margin-bottom: 56px; */
+  margin-bottom: 22.71px;
 `;
 
 const ContactInfo = styled.div`
@@ -169,14 +189,19 @@ const ContactInfo = styled.div`
 
 const InfoText = styled.div`
   display: flex;
-  &:first-child {
-    width: 50px;
+  > pre {
+    &:first-child {
+      width: 50px;
+    }
   }
   gap: 34px;
 `;
 
 const RightBox = styled.div`
   display: flex;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const TermsContainer = styled.div`
@@ -185,6 +210,10 @@ const TermsContainer = styled.div`
   position: relative;
   left: -40px;
   gap: 20px;
+
+  @media screen and (max-width: 500px) {
+    left: 0;
+  }
 `;
 
 const Terms = styled.a`
@@ -200,6 +229,13 @@ const IconContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   gap: 16px;
+
+  z-index: 2;
+
+  @media screen and (max-width: 500px) {
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
 `;
 
 const IconWrapper = styled.a`
