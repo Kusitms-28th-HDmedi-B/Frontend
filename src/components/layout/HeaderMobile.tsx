@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
