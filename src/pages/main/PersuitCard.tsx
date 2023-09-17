@@ -9,7 +9,6 @@ const Container = styled.div`
   padding: 30px;
   font-weight: 600;
   overflow: hidden;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 스타일 지정 */
   * {
     transition: 0.5s;
   }
@@ -73,8 +72,8 @@ const StyledUl = styled.ul`
     white-space: break-spaces;
     margin: 15px 0;
     font-size: 13px;
-    font-weight: 600;
-    line-height: 26px;
+    font-weight: 500;
+    line-height: 22px;
     @media screen and (max-width: 500px) {
       font-size: 11px;
       line-height: 20px;
