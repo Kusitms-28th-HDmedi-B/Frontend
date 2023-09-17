@@ -160,58 +160,6 @@ const MainTextContainer = styled.div<MainContainer>`
       line-height: 34px; /* 141.667% */
     }
   }
-
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    padding: 0 20px;
-
-    pre {
-      text-align: center;
-      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
-      font-style: normal;
-      font-weight: 700;
-      line-height: 34px; /* 141.667% */
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    padding: 0 20px;
-
-    pre {
-      text-align: center;
-      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
-      font-style: normal;
-      font-weight: 700;
-      line-height: 34px; /* 141.667% */
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    padding: 0 20px;
-
-    pre {
-      text-align: center;
-      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
-      font-style: normal;
-      font-weight: 700;
-      line-height: 34px; /* 141.667% */
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    padding: 0 20px;
-
-    pre {
-      text-align: center;
-      font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
-      font-style: normal;
-      font-weight: 700;
-      line-height: 34px; /* 141.667% */
-    }
-  }
 `;
 
 const SecondPageContainer = styled.div`
@@ -246,7 +194,8 @@ const MissionContainer = styled.div`
   margin: auto;
 
   background-image: url('/assets/image/about/about-image2.svg');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   gap: 100px;
 
