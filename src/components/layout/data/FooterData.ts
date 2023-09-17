@@ -111,3 +111,23 @@ export const ContactInfoData: Info[] = [
     content: 'hdmedi@hdmedi.co.kr',
   },
 ];
+
+interface IconDataType {
+  href: string;
+  imgSrc: string;
+}
+
+export const IconData: IconDataType[] = [
+  {
+    href: 'https://www.instagram.com/upp_hdmedi/',
+    imgSrc: '/assets/icon/icon-instagram.svg',
+  },
+  {
+    href: 'https://m.blog.naver.com/iyac_ju?proxyReferer=',
+    imgSrc: '/assets/icon/icon-naver.svg',
+  },
+  {
+    href: 'https://www.youtube.com/@user-yo8bf6in2k',
+    imgSrc: '/assets/icon/icon-youtube.svg',
+  },
+];
