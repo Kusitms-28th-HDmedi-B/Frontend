@@ -11,7 +11,7 @@ export const MissionData: MissionDataType[] = [
     title: 'Mission',
     content:
       '자사는\n연 53만건의 의약품 부작용 문제를\n해결하는 미션을 가지고 있습니다',
-    imgSrc: '/assets/image/about/about-image3.svg',
+    imgSrc: 'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/6.gif',
     reverse: false,
     animation: 'fade-up',
   },
@@ -19,7 +19,7 @@ export const MissionData: MissionDataType[] = [
     title: 'Vision',
     content:
       '자사는\n복약지도를 통해\n연 4만건 의약품 부작용을 줄이며\n건강한 사회를 약속합니다.',
-    imgSrc: '/assets/image/about/about-image4.svg',
+    imgSrc: 'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/7.gif',
     reverse: true,
     animation: 'fade-up',
   },
@@ -32,6 +32,8 @@ interface CardData {
   animation: string;
   backgroundUrl?: string | undefined;
   backgroundColor?: string;
+  fontColor: string;
+  iconSrc: string;
 }
 
 export const WorthCardData: CardData[] = [
@@ -42,6 +44,8 @@ export const WorthCardData: CardData[] = [
     animation: 'fade-right',
     backgroundUrl: '/assets/image/about/about-image5.svg',
     backgroundColor: '#ECEEF6',
+    fontColor: '#000',
+    iconSrc: '/assets/image/about/about-image12.svg',
   },
   {
     title: '기술',
@@ -50,6 +54,8 @@ export const WorthCardData: CardData[] = [
     animation: 'fade-left',
     backgroundUrl: '/assets/image/about/about-image6.svg',
     backgroundColor: '#10D192',
+    fontColor: '#fff',
+    iconSrc: '/assets/image/about/about-image13.svg',
   },
   {
     title: '연결',
@@ -58,19 +64,28 @@ export const WorthCardData: CardData[] = [
     animation: 'fade-right',
     backgroundUrl: '/assets/image/about/about-image7.svg',
     backgroundColor: '#C7E2FF',
+    fontColor: '#000',
+    iconSrc: '/assets/image/about/about-image14.svg',
   },
 ];
 
-export const StatisticData: CardData[] = [
+interface Statistic {
+  title: string;
+  imgSrc: string;
+  reverse: boolean;
+  animation: string;
+}
+
+export const StatisticData: Statistic[] = [
   {
     title: '복약지도 생성 수',
-    imgSrc: '',
+    imgSrc: 'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/4.gif',
     reverse: false,
     animation: 'fade-up',
   },
   {
     title: '서비스 이용자 수',
-    imgSrc: '',
+    imgSrc: 'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/5.gif',
     reverse: false,
     animation: 'fade-up',
   },
@@ -85,27 +100,27 @@ export const StatisticData: CardData[] = [
 interface AppDataType {
   title: string;
   subtitle: string;
-  imgSrc: string;
   logo?: string;
   link: string;
   backgroundUrl: string;
+  fontColor: string;
 }
 
 export const AppData: AppDataType[] = [
   {
-    title: '어프',
+    title: '',
     subtitle: '어디가 아프세요, 어프',
-    imgSrc: '',
     logo: '/assets/logo/upp-logo.svg',
     link: '/service/upp',
     backgroundUrl: '/assets/image/about/about-image11.svg',
+    fontColor: '#1f64d1',
   },
   {
-    title: '비대면 통합\nCMS LMS',
-    subtitle: 'SaaS',
-    imgSrc: '',
-    logo: '/assets/logo/lms-logo.png',
+    title: '비대면 통합\nCMS LMS\nSaas',
+    subtitle: '',
+    logo: '',
     link: '/service/lms',
-    backgroundUrl: '/assets/image/about/about-image11.svg',
+    backgroundUrl: '/assets/image/about/about-image15.svg',
+    fontColor: '#fff',
   },
 ];

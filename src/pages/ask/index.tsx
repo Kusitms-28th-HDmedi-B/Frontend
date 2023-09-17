@@ -105,7 +105,7 @@ const Ask = () => {
         </Title>
         <DescriptionContainer>
           <Description>{`질문 사항에 관한 설명을 적어주세요\n자주하는 질문 작성 부분`}</Description>
-          <Button onClick={onClickFAQButton}>
+          <Button onClick={onClickFAQButton} style={{ marginRight: '60px' }}>
             <pre>FAQ 바로가기</pre>
           </Button>
         </DescriptionContainer>
@@ -152,7 +152,7 @@ const Ask = () => {
 
           <RadioContainer onClick={onClickAgree}>
             <RadioButton>{isAgree && <InnerCircle />}</RadioButton>
-            <pre>동의하십니까?</pre>
+            <pre>동의합니다</pre>
           </RadioContainer>
         </PrivacyContainer>
       </InputContainer>
@@ -220,8 +220,9 @@ const Button = styled.div`
   height: 60px;
   flex-shrink: 0;
 
-  border-radius: 30px;
-  background: rgba(88, 88, 88, 0.4);
+  border-radius: 31px;
+  border: 2px solid #64a1e4;
+  background: #fff;
 
   cursor: pointer;
 
@@ -316,10 +317,10 @@ const RadioButton = styled.div`
 `;
 
 const InnerCircle = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 
   border-radius: 50%;
-  background: #000;
+  background: #5487bf;
 `;

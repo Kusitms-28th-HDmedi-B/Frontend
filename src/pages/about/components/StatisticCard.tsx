@@ -78,7 +78,7 @@ const Title = styled.div`
   pre {
     color: #000;
     text-align: center;
-    font-size: 38px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 86px; /* 172% */
 
@@ -92,9 +92,12 @@ const Title = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  width: 700px;
-  height: 370px;
+  width: 490px;
+  height: 225.49px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 500px) {
     width: 100%;
@@ -102,5 +105,8 @@ const ImageWrapper = styled.div`
   }
 
   border-radius: 20px;
-  background: #afafaf;
+
+  img {
+    width: 100%;
+  }
 `;
