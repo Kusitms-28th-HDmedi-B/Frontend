@@ -18,7 +18,7 @@ const Container = styled.div<{ $imgUrl: string }>`
   @media screen and (max-width: 500px) {
     width: 100vw;
     height: 80vw;
-    background: url(${(props) => props.$imgUrl}) no-repeat center center;
+    background: url(${(props) => props.$imgUrl}) no-repeat right ;
     background-size: cover;
     font-size: 22px;
   }

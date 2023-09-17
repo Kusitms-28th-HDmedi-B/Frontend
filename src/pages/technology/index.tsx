@@ -53,7 +53,7 @@ const Technology = () => {
         <img
           src={'/assets/image/technology/tech-image8.svg'}
           alt="cloud"
-          style={{ width: '50%', marginBottom: '30px' }}
+          style={{ width: '50%', marginBottom: '-50px' }}
           data-aos="fade-up"
           id={'anchor'}
         />
@@ -139,9 +139,9 @@ const MainTextContainer = styled.div`
 
   pre {
     text-align: center;
-    font-size: 36px;
+    font-size: 44px;
     font-weight: 700;
-    line-height: 86px; /* 172% */
+    line-height: 64px; /* 172% */
 
     white-space: pre-wrap;
   }

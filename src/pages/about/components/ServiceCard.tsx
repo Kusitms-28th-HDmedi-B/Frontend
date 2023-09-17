@@ -100,7 +100,7 @@ const AppCard = styled.div<AppCardType>`
   background-image: url(${({ backgroundUrl }) => backgroundUrl});
   background-size: cover;
 
-  box-shadow: 2px 2px 4px 0 gray;
+  /* box-shadow: 2px 2px 4px 0 gray; */
 `;
 
 const TextContainer = styled.div`
