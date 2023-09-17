@@ -84,6 +84,14 @@ const route = createBrowserRouter([
           },
         ],
       },
+      // {
+      //   path: 'rule',
+      //   element: <Rule />, // 기술 페이지
+      // },
+      // {
+      //   path: 'privacy',
+      //   element: <TechnoPrivacylogy />, // 기술 페이지
+      // },
     ],
   },
   {
@@ -97,7 +105,7 @@ const route = createBrowserRouter([
     ],
   },
 ]);
-        
+
 const queryClient = new QueryClient();
 
 const App = () => (

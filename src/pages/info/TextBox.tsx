@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
-import Instagram from '/assets/icon/icon-instagram.svg';
-import Naver from '/assets/icon/icon-naver.svg';
-import Youtube from '/assets/icon/icon-youtube.svg';
+
 import { IconData } from '../../components/layout/data/FooterData';
 
 const Container = styled.span`

@@ -4,6 +4,8 @@ import info2 from '/assets/image/lms/lms-info2.png';
 import info3 from '/assets/image/lms/lms-info3.png';
 import info4 from '/assets/image/lms/lms-info4.png';
 import info5 from '/assets/image/lms/lms-info5.png';
+import infoBg1 from '/assets/image/lms/lms-info-bg-1.svg';
+import infoBg2 from '/assets/image/lms/lms-info-bg-2.svg';
 //이 페이지 코드 개쌉망했다 그냥
 const Container = styled.div`
   > div {
@@ -52,26 +54,46 @@ const Container = styled.div`
   }
 `;
 const Container1 = styled.div`
+  background: url(${infoBg1}) no-repeat center left;
+
+  background-size: cover;
+
   span {
     background: url(${info1}) no-repeat;
   }
 `;
 const Container2 = styled.div`
+  background: url(${infoBg2}) no-repeat center right;
+
+  background-size: cover;
+
   span {
     background: url(${info2}) no-repeat;
   }
 `;
 const Container3 = styled.div`
+  background: url(${infoBg1}) no-repeat center left;
+
+  background-size: cover;
+
   span {
     background: url(${info3}) no-repeat;
   }
 `;
 const Container4 = styled.div`
+  background: url(${infoBg2}) no-repeat center right;
+
+  background-size: cover;
+
   span {
     background: url(${info4}) no-repeat;
   }
 `;
 const Container5 = styled.div`
+  background: url(${infoBg1}) no-repeat center left;
+
+  background-size: cover;
+
   span {
     background: url(${info5}) no-repeat;
   }
