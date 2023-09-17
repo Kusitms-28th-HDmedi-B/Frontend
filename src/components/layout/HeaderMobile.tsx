@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CategoryData } from './data/FooterData';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -6,14 +6,25 @@ import { Link } from 'react-router-dom';
 import hamburgerBar from '/assets/image/header/hamburger.svg';
 import { Logo } from './Header';
 
+interface MobileContainerProps {
+  $fixed: boolean;
+}
 // 모바일
-const MobileContainer = styled.div`
+const MobileContainer = styled.div<MobileContainerProps>`
   display: none;
 
   @media screen and (max-width: 500px) {
     display: inline;
     width: 100vw;
     height: auto;
+
+    ${({ $fixed }) =>
+      $fixed
+        ? css`
+            position: fixed;
+            z-index: 3;
+          `
+        : null}
   }
 `;
 const MobileHeader = styled.div`
@@ -104,8 +115,11 @@ const HeaderMobile = () => {
     false,
   ]);
 
+  const currentPath = window.location.pathname;
+  const fixed = currentPath.includes('/about');
+
   return (
-    <MobileContainer>
+    <MobileContainer $fixed={fixed}>
       <MobileHeader>
         <Link to={'../'}>
           <Logo></Logo>

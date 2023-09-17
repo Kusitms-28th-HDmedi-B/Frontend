@@ -14,17 +14,28 @@ const ServiceCard = () => {
     <Container>
       <InnerContainer>
         {/* Todo: 누르면 서비스 소개 탭으로 이동하게 */}
-        {AppData.map(({ subtitle, logo, link, backgroundUrl }) => (
-          <AppCard backgroundUrl={backgroundUrl}>
-            <TextContainer>
-              <img src={logo} alt="logo" />
-              <Title>{subtitle}</Title>
-            </TextContainer>
-            <Button onClick={() => handleClick(link)}>
-              <pre>{'서비스 보기'}</pre>
-            </Button>
-          </AppCard>
-        ))}
+        {AppData.map(
+          ({ title, subtitle, logo, link, backgroundUrl, fontColor }) => (
+            <AppCard backgroundUrl={backgroundUrl}>
+              <TextContainer>
+                {logo && <img src={logo} alt="logo" />}
+                {title && (
+                  <Title>
+                    <pre style={{ color: `${fontColor}` }}>{title}</pre>
+                  </Title>
+                )}
+                {subtitle && (
+                  <SubTitle>
+                    <pre>{subtitle}</pre>
+                  </SubTitle>
+                )}
+              </TextContainer>
+              <Button onClick={() => handleClick(link)}>
+                <pre>{'서비스 보기'}</pre>
+              </Button>
+            </AppCard>
+          ),
+        )}
       </InnerContainer>
     </Container>
   );
@@ -102,25 +113,29 @@ const TextContainer = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 36px; /* 112.5% */
-  margin-top: 35px;
-  @media screen and (max-width: 500px) {
-    font-size: 14px;
-    margin-bottom: 7px;
+  padding: 20px 10px;
+  pre {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px; /* 112.5% */
+    @media screen and (max-width: 500px) {
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
   }
 `;
 
-// const SubTitle = styled.div`
-//   font-size: 24px;
-//   font-weight: 700;
-//   line-height: 36px; /* 150% */
+const SubTitle = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
 
-//   @media screen and (max-width: 500px) {
-//     font-size: 13.44px;
-//   }
-// `;
+  margin-top: 35px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 13.44px;
+  }
+`;
 
 const Button = styled.div`
   display: flex;
@@ -130,7 +145,13 @@ const Button = styled.div`
   height: 55px;
   flex-shrink: 0;
 
+  @media screen and (max-width: 500px) {
+    width: 176.7px;
+    height: 45px;
+  }
+
   border-radius: 31px;
+  background: #fff;
   border: 2px solid #0070ed;
 
   position: absolute;

@@ -146,8 +146,13 @@ const MainTextContainer = styled.div<MainContainer>`
     line-height: 86px; /* 172% */
 
     white-space: pre-wrap;
+  }
 
-    @media screen and (max-width: 500px) {
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 0 20px;
+
+    pre {
       text-align: center;
       font-size: ${({ page }) => (page === 0 ? '24px' : '16px')};
       font-style: normal;
@@ -201,10 +206,8 @@ const MissionContainer = styled.div`
   width: 70%;
   margin: auto;
 
-  @media screen and (min-width: 500px) {
-    background-image: url('/assets/image/about/about-image2.svg');
-    background-size: cover;
-  }
+  background-image: url('/assets/image/about/about-image2.svg');
+  background-size: cover;
 
   gap: 100px;
 
@@ -229,7 +232,7 @@ const FifthPageContainer = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 100px 0;
-  
+
   @media screen and (max-width: 500px) {
     padding: 50px 0;
   }

@@ -8,6 +8,8 @@ interface Props {
   animation: string;
   backgroundUrl?: string | undefined;
   backgroundColor?: string;
+  fontColor: string;
+  iconSrc: string;
 }
 
 const WorthCard: React.FC<Props> = ({
@@ -17,6 +19,8 @@ const WorthCard: React.FC<Props> = ({
   animation,
   backgroundUrl,
   backgroundColor,
+  fontColor,
+  iconSrc,
 }) => {
   return (
     <Container
@@ -27,9 +31,12 @@ const WorthCard: React.FC<Props> = ({
       <InnerContainer data-aos={animation}>
         {reverse ? (
           <>
-            <Title>
-              <pre>{title}</pre>
-            </Title>
+            <TitleContainer>
+              <Title>
+                <pre style={{ color: `${fontColor}` }}>{title}</pre>
+              </Title>
+              <img src={iconSrc} alt="icon" />
+            </TitleContainer>
             <ImageWrapper>
               <img src={imgSrc} alt="image" />
             </ImageWrapper>
@@ -39,9 +46,12 @@ const WorthCard: React.FC<Props> = ({
             <ImageWrapper>
               <img src={imgSrc} alt="image" />
             </ImageWrapper>
-            <Title>
-              <pre>{title}</pre>
-            </Title>
+            <TitleContainer>
+              <img src={iconSrc} alt="icon" />
+              <Title>
+                <pre style={{ color: `${fontColor}` }}>{title}</pre>
+              </Title>
+            </TitleContainer>
           </>
         )}
       </InnerContainer>
@@ -87,6 +97,14 @@ const InnerContainer = styled.div`
     width: 100%;
     padding: 0 20px;
   }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
 `;
 
 const Title = styled.div`
