@@ -124,7 +124,10 @@ const Upp = () => {
           <pre>
             {'‘어프’는 지역 약사와 환자를 연결해 건강한 지역사회를 만듭니다'}
           </pre>
-          <img src={MedicationImage} alt="medi" />
+          <img
+            src={'https://hdmedi-b.s3.ap-northeast-2.amazonaws.com/1.gif'}
+            alt="medi"
+          />
         </MediImageContainer>
       </ThirdPageContainer>
 
@@ -325,6 +328,7 @@ const StatisticBox = styled.div`
   justify-content: space-between;
 
   width: 100%;
+  gap: 30px;
 `;
 
 const Statistic = styled.div`
@@ -333,7 +337,7 @@ const Statistic = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 240px;
+  width: 100%;
   padding: 45px 0 50px;
 
   border-radius: 20px;
